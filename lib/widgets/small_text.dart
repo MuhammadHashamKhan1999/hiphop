@@ -9,13 +9,15 @@ class SmallText extends StatelessWidget{
   late TextOverflow overflow;
   var height;
 
+
   SmallText({
     Key? key,
     required this.text,
     this.color = const Color(0xFFccc7c5),
     this.size = 12,
     this.overflow = TextOverflow.visible,
-    this.height = 1.2
+    this.height = 1.2,
+
 
   }): super(key: key);
 
@@ -31,6 +33,7 @@ class SmallText extends StatelessWidget{
         color: color,
         height: height,
       ),
+      textAlign: TextAlign.center,
 
     );
   }
