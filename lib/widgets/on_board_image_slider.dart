@@ -16,8 +16,8 @@ class _ImageSliderState extends State<ImageSlider> {
 
   final sliderImages = [
     Image.asset("assets/images/slider.png"),
-    Image.asset("assets/images/slider_01.png"),
-    Image.asset("assets/images/slider_01.png")
+    Image.asset("assets/images/slider.png"),
+    Image.asset("assets/images/slider.png")
   ];
 
   int myCurrentIndex = 0;
