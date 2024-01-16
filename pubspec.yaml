@@ -33,6 +33,7 @@ dependencies:
   get:
   carousel_slider:
   smooth_page_indicator:
+  flutter_svg:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -63,6 +64,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/
     - assets/images/homepagebg.png
     - assets/images/slider.png
     - assets/images/slider_img_01.png
@@ -71,6 +73,8 @@ flutter:
     - assets/images/hiphop_logo.png
     - assets/images/back_button.png
     - assets/images/x_icon.png
+    - assets/images/banner.png
+    - assets/images/microphone.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

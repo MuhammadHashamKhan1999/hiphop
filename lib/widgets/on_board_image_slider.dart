@@ -13,7 +13,6 @@ class ImageSlider extends StatefulWidget {
 }
 
 class _ImageSliderState extends State<ImageSlider> {
-
   final sliderImages = [
     Image.asset("assets/images/slider.png"),
     Image.asset("assets/images/slider.png"),
@@ -25,7 +24,7 @@ class _ImageSliderState extends State<ImageSlider> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Dimension.height45*4,
+      height: Dimension.height45 * 4,
       width: Dimension.screenWidth,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -33,8 +32,8 @@ class _ImageSliderState extends State<ImageSlider> {
           Container(
             padding: EdgeInsets.all(10),
             child: CarouselSlider(
-                items: sliderImages,
-                options: CarouselOptions(
+              items: sliderImages,
+              options: CarouselOptions(
                   autoPlay: true,
                   autoPlayCurve: Curves.fastOutSlowIn,
                   autoPlayAnimationDuration: const Duration(milliseconds: 800),
@@ -42,25 +41,25 @@ class _ImageSliderState extends State<ImageSlider> {
                   viewportFraction: 1,
                   enlargeCenterPage: true,
                   aspectRatio: 1.0,
-                  onPageChanged: (index, reason){
+                  onPageChanged: (index, reason) {
                     setState(() {
                       myCurrentIndex = index;
                     });
-                  }
-                ),
+                  }),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           AnimatedSmoothIndicator(
-              activeIndex: myCurrentIndex,
-              count:sliderImages.length,
+            activeIndex: myCurrentIndex,
+            count: sliderImages.length,
             effect: WormEffect(
-              dotWidth: Dimension.width10,
-              dotHeight: Dimension.height10,
-              dotColor: AppColors.buttonBackgroundLightColor,
-              activeDotColor: AppColors.buttonBackgroundColor,
-              spacing: 20
-            ),
+                dotWidth: Dimension.width10,
+                dotHeight: Dimension.height10,
+                dotColor: AppColors.buttonBackgroundLightColor,
+                activeDotColor: AppColors.buttonBackgroundColor,
+                spacing: 20),
           )
         ],
       ),
