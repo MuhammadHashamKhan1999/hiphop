@@ -75,6 +75,8 @@ flutter:
     - assets/images/x_icon.png
     - assets/images/banner.png
     - assets/images/microphone.png
+    - assets/images/tab_one.png
+    - assets/images/homepage/tab_one.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

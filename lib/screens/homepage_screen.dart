@@ -6,25 +6,29 @@ import 'package:hiphop/utils/colors_constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/homepage_image_slider.dart';
+import 'package:hiphop/widgets/homepage_tabs.dart';
 import 'package:hiphop/widgets/on_board_image_slider.dart';
 
 
 
-class HomePageScreen extends StatelessWidget {
+class HomePageScreen extends StatelessWidget{
   const HomePageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: CustomScrollView(
+        // physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
+            backgroundColor: AppColors.mainBackgroundColor,
             leading:
             InkWell(
               onTap: (){},
               child: Image.asset(
                   "assets/images/menuIcon.png",
-                  height: Dimension.width20*5,
+                  height: Dimension.width20*8,
                   width: Dimension.height30*2.5
               ),
             ),
@@ -33,21 +37,21 @@ class HomePageScreen extends StatelessWidget {
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                child: SliderScreen()
+                child: const SliderScreen()
               ),
             ),
           ),
 
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(left: 20.0, right: 20),
               child: ClipRRect(
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 5),
+                  padding: const EdgeInsets.symmetric(vertical: 5),
                   height: Dimension.height30*2,
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color(0XFFA30000),
+                      color: const Color(0XFFA30000),
                       style: BorderStyle.solid,
                       strokeAlign: BorderSide.strokeAlignInside,
                       width: 1.5
@@ -60,34 +64,54 @@ class HomePageScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       SizedBox(
-                        width: 50,
+                        width: 25,
                         child: Icon(Icons.search,color: Colors.grey.shade500,size: 32,),
                       ),
                       Container(
                         width: Dimension.screenWidth/1.8,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.red
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: const TextField(
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              contentPadding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+                              hintText: "Search Favorite Music",
+                              hintStyle: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 16
+                              ),
+                            ),
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white70,
+                            ),
+
+
+                          ),
                         ),
+
                       ),
                       Container(
-                        width: Dimension.width25*2.5,
+                        width: Dimension.width25*2,
                         height: Dimension.height25*2,
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Color(0xFFA30000),
+                            color: const Color(0xFFA30000),
                           borderRadius: BorderRadius.circular(8.0),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Color(0xFFA30000),
-                              blurRadius: 3.0,
+                              blurRadius: 6.0,
                               offset:  Offset(2,1),
-                              spreadRadius: 1
+                              spreadRadius: 4
                             )
                           ]
                         ),
-                        child: Icon(Icons.mic_none_outlined,color: Colors.white,size: 30)
-
+                        child: const Icon(Icons.mic_none_outlined,color: Colors.white,size: 30)
                       )
                     ],
                   ),
@@ -96,18 +120,13 @@ class HomePageScreen extends StatelessWidget {
             ),
           ),
 
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20.0),
-                child: Container(
-                  height: 400,
-                  color: Colors.pink,
+          const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 20.0,right: 20.0),
+                  child: HomePageTab()
                 ),
-              ),
             ),
-          )
+
         ],
       ),
     );
