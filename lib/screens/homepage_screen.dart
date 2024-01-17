@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -25,7 +26,12 @@ class HomePageScreen extends StatelessWidget{
             backgroundColor: AppColors.mainBackgroundColor,
             leading:
             InkWell(
-              onTap: (){},
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignInPage()),
+                );
+              },
               child: Image.asset(
                   "assets/images/menuIcon.png",
                   height: Dimension.width20*10,
@@ -44,7 +50,6 @@ class HomePageScreen extends StatelessWidget{
 
           SliverToBoxAdapter(
             child: Padding(
-
               padding: const EdgeInsets.only(left: 20.0, right: 20,top: 0),
               child: ClipRRect(
                 child: Container(
