@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple,background: AppColors.mainBackgroundColor),
         useMaterial3: true,
       ),
-      home: const HomePageScreen(),
+      home: const  SignInPage(),
 
 
     );

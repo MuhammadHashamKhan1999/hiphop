@@ -36,8 +36,9 @@ class _SliderScreenState extends State<SliderScreen> {
                             children: [
                               Image.asset(
                                 item['image_path'],
-                                fit: BoxFit.fill,
+                                fit: BoxFit.cover,
                                 width: double.infinity,
+                                height: 400,
                               ),
                               Positioned.fill(
                                 child: Container(
@@ -81,8 +82,8 @@ class _SliderScreenState extends State<SliderScreen> {
                 options: CarouselOptions(
                   scrollPhysics: const BouncingScrollPhysics(),
                   autoPlay: true,
-                  aspectRatio: 2,
-                  viewportFraction: 1,
+                  aspectRatio: 1.5,
+                  viewportFraction: 1.5,
                   onPageChanged: (index, reason){
                     setState(() {
                       currentIndex = index;

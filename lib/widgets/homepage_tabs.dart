@@ -85,7 +85,7 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                 color: AppColors.mainBackgroundColor
               ),
               width: double.maxFinite,
-              height: 800,
+              height: Dimension.screenHeight*1.2,
               child: TabBarView(
                 controller: _tabController,
                 children: [
@@ -93,7 +93,7 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                   Tab(
                     child: Container(
                       alignment: Alignment.topLeft,
-                      padding: const EdgeInsets.only(top:20.0, bottom: 20),
+                      padding: const EdgeInsets.only(top:20.0,bottom: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -351,7 +351,7 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                                         ),
                                       ),
                                       Container(
-                                        height: 50,
+                                        height: Dimension.height30*2,
                                         padding: const EdgeInsets.only(top: 10 ),
                                         child: const Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -411,7 +411,7 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                                         ),
                                       ),
                                       Container(
-                                        height: 50,
+                                        height: Dimension.height30*2,
                                         padding: const EdgeInsets.only(top: 10 ),
                                         child: const Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -471,7 +471,7 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                                         ),
                                       ),
                                       Container(
-                                        height: 50,
+                                        height: Dimension.height30*2,
                                         padding: const EdgeInsets.only(top: 10 ),
                                         child: const Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -531,7 +531,7 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                                         ),
                                       ),
                                       Container(
-                                        height: 50,
+                                        height: Dimension.height30*2,
                                         padding: const EdgeInsets.only(top: 10 ),
                                         child: const Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -656,134 +656,247 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                               children: [
                                 SizedBox(
                                   width: 250,
-                                  height: 150,
-                                  child: Container(
-                                    padding: const EdgeInsets.all(2),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: const AssetImage('assets/images/tab_one.png'),
-                                        fit: BoxFit.cover,
-                                        alignment: Alignment.center,
-                                        colorFilter: ColorFilter.mode(
-                                            Colors.black.withOpacity(0.5),
-                                            BlendMode.darken
+                                  height: 220,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 150,
+                                        padding: const EdgeInsets.all(2),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                            image: const AssetImage('assets/images/tab_one.png'),
+                                            fit: BoxFit.cover,
+                                            alignment: Alignment.center,
+                                            colorFilter: ColorFilter.mode(
+                                                Colors.black.withOpacity(0.5),
+                                                BlendMode.darken
+                                            ),
+                                          ),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            "Chill Out",
+                                            style: TextStyle(
+                                                fontSize: 26,
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Chill Out",
-                                        style: TextStyle(
-                                            fontSize: 26,
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w500
+                                      Container(
+                                        height: Dimension.height30*2,
+                                        padding: const EdgeInsets.only(top: 10 ),
+                                        child: const Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("LOOV",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500
+                                              ),
+                                            ),
+                                            Text("Mat Bastard",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w300
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 const SizedBox(width: 10,),
                                 SizedBox(
                                   width: 250,
-                                  height: 150,
-                                  child: Container(
-                                    padding: const EdgeInsets.all(2),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: const AssetImage('assets/images/tab_one.png'),
-                                        fit: BoxFit.cover,
-                                        alignment: Alignment.center,
-                                        colorFilter: ColorFilter.mode(
-                                            Colors.black.withOpacity(0.5),
-                                            BlendMode.darken
+                                  height: 220,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 150,
+                                        padding: const EdgeInsets.all(2),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                            image: const AssetImage('assets/images/tab_one.png'),
+                                            fit: BoxFit.cover,
+                                            alignment: Alignment.center,
+                                            colorFilter: ColorFilter.mode(
+                                                Colors.black.withOpacity(0.5),
+                                                BlendMode.darken
+                                            ),
+                                          ),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            "Chill Out",
+                                            style: TextStyle(
+                                                fontSize: 26,
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Chill Out",
-                                        style: TextStyle(
-                                            fontSize: 26,
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w500
+                                      Container(
+                                        height: Dimension.height30*2,
+                                        padding: const EdgeInsets.only(top: 10 ),
+                                        child: const Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("LOOV",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500
+                                              ),
+                                            ),
+                                            Text("Mat Bastard",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w300
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 const SizedBox(width: 10,),
                                 SizedBox(
                                   width: 250,
-                                  height: 150,
-                                  child: Container(
-                                    padding: const EdgeInsets.all(2),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: const AssetImage('assets/images/tab_one.png'),
-                                        fit: BoxFit.cover,
-                                        alignment: Alignment.center,
-                                        colorFilter: ColorFilter.mode(
-                                            Colors.black.withOpacity(0.5),
-                                            BlendMode.darken
+                                  height: 220,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 150,
+                                        padding: const EdgeInsets.all(2),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                            image: const AssetImage('assets/images/tab_one.png'),
+                                            fit: BoxFit.cover,
+                                            alignment: Alignment.center,
+                                            colorFilter: ColorFilter.mode(
+                                                Colors.black.withOpacity(0.5),
+                                                BlendMode.darken
+                                            ),
+                                          ),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            "Chill Out",
+                                            style: TextStyle(
+                                                fontSize: 26,
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Chill Out",
-                                        style: TextStyle(
-                                            fontSize: 26,
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w500
+                                      Container(
+                                        height: Dimension.height30*2,
+                                        padding: const EdgeInsets.only(top: 10 ),
+                                        child: const Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("LOOV",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500
+                                              ),
+                                            ),
+                                            Text("Mat Bastard",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w300
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ),
+                                      )
+                                    ],
                                   ),
                                 ),
                                 const SizedBox(width: 10,),
                                 SizedBox(
                                   width: 250,
-                                  height: 150,
-                                  child: Container(
-                                    padding: const EdgeInsets.all(2),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: const AssetImage('assets/images/tab_one.png'),
-                                        fit: BoxFit.cover,
-                                        alignment: Alignment.center,
-                                        colorFilter: ColorFilter.mode(
-                                            Colors.black.withOpacity(0.5),
-                                            BlendMode.darken
+                                  height: 220,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 150,
+                                        padding: const EdgeInsets.all(2),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          image: DecorationImage(
+                                            image: const AssetImage('assets/images/tab_one.png'),
+                                            fit: BoxFit.cover,
+                                            alignment: Alignment.center,
+                                            colorFilter: ColorFilter.mode(
+                                                Colors.black.withOpacity(0.5),
+                                                BlendMode.darken
+                                            ),
+                                          ),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            "Chill Out",
+                                            style: TextStyle(
+                                                fontSize: 26,
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Chill Out",
-                                        style: TextStyle(
-                                            fontSize: 26,
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w500
+                                      Container(
+                                        height: Dimension.height30*2,
+                                        padding: const EdgeInsets.only(top: 10 ),
+                                        child: const Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("LOOV",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500
+                                              ),
+                                            ),
+                                            Text("Mat Bastard",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w300
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ),
+                                      )
+                                    ],
                                   ),
                                 ),
 
                               ],
                             ),
                           ),
-                          SizedBox(height: Dimension.height20,),
-
-
                         ],
                       ),
                     ),

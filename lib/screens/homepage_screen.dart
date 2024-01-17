@@ -28,11 +28,11 @@ class HomePageScreen extends StatelessWidget{
               onTap: (){},
               child: Image.asset(
                   "assets/images/menuIcon.png",
-                  height: Dimension.width20*8,
-                  width: Dimension.height30*2.5
+                  height: Dimension.width20*10,
+                  width: Dimension.height30*3
               ),
             ),
-            expandedHeight: Dimension.screenWidth/2,
+            expandedHeight: Dimension.screenWidth/1.5,
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
@@ -44,7 +44,8 @@ class HomePageScreen extends StatelessWidget{
 
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20),
+
+              padding: const EdgeInsets.only(left: 20.0, right: 20,top: 0),
               child: ClipRRect(
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 5),
