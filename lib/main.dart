@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/screens/categories/genre_screen.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/colors_constant.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple,background: AppColors.mainBackgroundColor),
         useMaterial3: true,
       ),
-      home: const  HomePageScreen(),
+      home: const SignInPage(),
 
 
     );

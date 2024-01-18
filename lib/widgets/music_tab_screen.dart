@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hiphop/screens/categories/genre_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/most_played_tracks.dart';
@@ -29,7 +30,12 @@ class MusicTabHomeScreen extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const GenreScreen()),
+                  );
+                },
                 child: Row(
                   children: [
                     Text(

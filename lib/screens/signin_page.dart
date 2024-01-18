@@ -1,9 +1,12 @@
+// ignore_for_file: prefer_const_constructors, file_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
+import 'package:hiphop/widgets/bottom_bar_navigation.dart';
 import 'package:hiphop/widgets/on_board_image_slider.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
@@ -218,7 +221,13 @@ class SignInPage extends StatelessWidget {
 
                             ),
                             onPressed: (){
-                              _navigateToNextScreen(context);
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        BottomBarNavigation()
+                                ),
+                              );
 
                             },
                             child: Text("Sign In", style: TextStyle(color: AppColors.textWhiteColor)),

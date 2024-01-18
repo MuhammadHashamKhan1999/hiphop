@@ -88,7 +88,7 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                 color: AppColors.mainBackgroundColor
               ),
               width: double.maxFinite,
-              height: Dimension.screenHeight*1.5,
+              height: Dimension.screenHeight*1.3,
               child: TabBarView(
                 controller: _tabController,
                 children: const [
