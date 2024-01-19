@@ -78,6 +78,7 @@ flutter:
     - assets/images/microphone.png
     - assets/images/tab_one.png
     - assets/images/genres.png
+    - assets/images/genre_details.png
     - assets/images/homepage/tab_one.png
   #   - images/a_dot_ham.jpeg
 

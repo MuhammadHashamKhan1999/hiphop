@@ -84,42 +84,47 @@ class GenreScreen extends StatelessWidget {
                   // physics: NeverScrollableScrollPhysics(),
                   itemCount: Genres.length,
                     itemBuilder: (_,index){
-                     return Container(
-                       width: double.maxFinite,
-                       height: 150,
-                       margin: EdgeInsets.only(bottom: 10),
-                       padding: EdgeInsets.symmetric(horizontal: 20),
-                       decoration: BoxDecoration(
-                         color: Colors.red,
-                         borderRadius: BorderRadius.circular(10),
-                         gradient: LinearGradient(
-                           colors: [
-                             Color(0xCCA30000),
-                             Colors.transparent
-                           ]
-                         ),
-                         image: DecorationImage(
-                           image: AssetImage(Genres[index].image),
-                           fit: BoxFit.cover
-                         ),
+                     return InkWell(
+                       onTap: (){
 
-                       ),
-                       child: Column(
-                         mainAxisAlignment: MainAxisAlignment.center,
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                         children: [
-                           Text(
-                             Genres[index].name,
-                             style: TextStyle(
-                               color: AppColors.textWhiteColor,
-                               fontFamily: 'Poppins',
-                               fontSize: 22,
-                               fontWeight: FontWeight.w400
-                             ),
+                       },
+                       child: Container(
+                         width: double.maxFinite,
+                         height: 150,
+                         margin: EdgeInsets.only(bottom: 10),
+                         padding: EdgeInsets.symmetric(horizontal: 20),
+                         decoration: BoxDecoration(
+                           color: Colors.red,
+                           borderRadius: BorderRadius.circular(10),
+                           gradient: LinearGradient(
+                             colors: [
+                               Color(0xCCA30000),
+                               Colors.transparent
+                             ]
                            ),
-                         ],
-                       ),
+                           image: DecorationImage(
+                             image: AssetImage(Genres[index].image),
+                             fit: BoxFit.cover
+                           ),
 
+                         ),
+                         child: Column(
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
+                             Text(
+                               Genres[index].name,
+                               style: TextStyle(
+                                 color: AppColors.textWhiteColor,
+                                 fontFamily: 'Poppins',
+                                 fontSize: 22,
+                                 fontWeight: FontWeight.w400
+                               ),
+                             ),
+                           ],
+                         ),
+
+                       ),
                      );
                     }),
               ),
