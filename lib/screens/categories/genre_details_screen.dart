@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hiphop/screens/albums/single_album_screen.dart';
 import 'package:hiphop/screens/categories/genre_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -44,6 +45,7 @@ class GenreDetailsPage extends StatelessWidget {
           style: TextStyle(
             color: AppColors.textWhiteColor,
             fontFamily: 'Poppins',
+            fontSize: 18,
             letterSpacing: 0.9,
             fontWeight: FontWeight.w400,
           ),
@@ -76,55 +78,64 @@ class GenreDetailsPage extends StatelessWidget {
               SizedBox(height: Dimension.height20,),
 
               Container(
-                height: Dimension.screenHeight/1.5,
+                height: Dimension.screenHeight/1.7,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                      children: List.generate(GenresDetail.length, (index){
-                       return Container(
-                         margin: const EdgeInsets.only(bottom: 5,left: 5),
-                         width: Dimension.screenWidth/2.3,
-                         height: 200,
-                         padding: EdgeInsets.only(left: 5,right: 5),
-                         decoration: BoxDecoration(
-                             borderRadius: BorderRadius.circular(10)
-                         ),
-                         child: Column(
-                           crossAxisAlignment: CrossAxisAlignment.start,
-                           children: [
-                             Container(
-                               width: Dimension.screenWidth/2.5,
-                               height: 150,
-                               decoration: BoxDecoration(
-                                   color: Colors.blue,
-                                   image: DecorationImage(
-                                       image: AssetImage(GenresDetail[index].image),
-                                       fit: BoxFit.cover
-                                   ),
-                                   borderRadius: BorderRadius.circular(10)
+                       return InkWell(
+                         onTap: (){
+                           Navigator.push(
+                             context,
+                             MaterialPageRoute(builder: (context) => const SingleAlbumScreen()),
+                           );
+
+                         },
+                         child: Container(
+                           margin: const EdgeInsets.only(bottom: 5,left: 5),
+                           width: Dimension.screenWidth/2.3,
+                           height: 200,
+                           padding: EdgeInsets.only(left: 5,right: 5),
+                           decoration: BoxDecoration(
+                               borderRadius: BorderRadius.circular(10)
+                           ),
+                           child: Column(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               Container(
+                                 width: Dimension.screenWidth/2.5,
+                                 height: 150,
+                                 decoration: BoxDecoration(
+                                     color: Colors.blue,
+                                     image: DecorationImage(
+                                         image: AssetImage(GenresDetail[index].image),
+                                         fit: BoxFit.cover
+                                     ),
+                                     borderRadius: BorderRadius.circular(10)
+                                 ),
                                ),
-                             ),
-                             SizedBox(height: 05,),
-                             Text(
-                               GenresDetail[index].name,
-                               style: TextStyle(
-                                 color: Colors.white,
-                                 fontSize: 14,
-                                 fontFamily: 'Poppins',
-                                 fontWeight: FontWeight.w500,
+                               SizedBox(height: 05,),
+                               Text(
+                                 GenresDetail[index].name,
+                                 style: TextStyle(
+                                   color: Colors.white,
+                                   fontSize: 14,
+                                   fontFamily: 'Poppins',
+                                   fontWeight: FontWeight.w500,
+                                 ),
                                ),
-                             ),
-                             Text(
-                               GenresDetail[index].desc,
-                               style: TextStyle(
-                                 color: Colors.white,
-                                 fontSize: 12,
-                                 fontFamily: 'Poppins',
-                                 fontWeight: FontWeight.w400 ,
+                               Text(
+                                 GenresDetail[index].desc,
+                                 style: TextStyle(
+                                   color: Colors.white,
+                                   fontSize: 12,
+                                   fontFamily: 'Poppins',
+                                   fontWeight: FontWeight.w400 ,
+                                 ),
                                ),
-                             ),
-                           ],
+                             ],
+                           ),
                          ),
                        );
                      })

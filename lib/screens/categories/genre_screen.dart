@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/screens/categories/genre_details_screen.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -86,6 +87,10 @@ class GenreScreen extends StatelessWidget {
                     itemBuilder: (_,index){
                      return InkWell(
                        onTap: (){
+                         Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => const GenreDetailsPage()),
+                         );
 
                        },
                        child: Container(
