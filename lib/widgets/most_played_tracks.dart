@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, sort_child_properties_last
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hiphop/utils/colors_constant.dart';
@@ -9,7 +11,7 @@ class MostPlayedTracks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical:10.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
         children: [
           Row(
@@ -22,13 +24,13 @@ class MostPlayedTracks extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                        color: Colors.red
-                    ),
+                    height: 40,
+                    width: 40,
+                    decoration: const BoxDecoration(color: Colors.red),
                   ),
-                  SizedBox(height: Dimension.height10,),
+                  SizedBox(
+                    height: Dimension.height10,
+                  ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -39,30 +41,31 @@ class MostPlayedTracks extends StatelessWidget {
                             CupertinoIcons.heart,
                             color: AppColors.buttonBackgroundColor,
                             size: 24,
-                          )
+                          )),
+                      const SizedBox(
+                        width: 05,
                       ),
-                      const SizedBox(width: 05,),
                       const Text(
                         '31',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500
-                        ),
-
+                            fontWeight: FontWeight.w500),
                       )
                     ],
                   ),
                 ],
               ),
-              SizedBox(width: Dimension.width10,),
+              SizedBox(
+                width: Dimension.width10,
+              ),
               Container(
                 width: 150,
-                child:  Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:  [
+                  children: [
                     const Text(
                       'Long Time',
                       style: TextStyle(
@@ -81,7 +84,9 @@ class MostPlayedTracks extends StatelessWidget {
                         fontSize: 14,
                       ),
                     ),
-                    const SizedBox(height: 20,),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -92,7 +97,9 @@ class MostPlayedTracks extends StatelessWidget {
                             color: AppColors.buttonBackgroundColor,
                           ),
                         ),
-                        SizedBox(width: Dimension.width10,),
+                        SizedBox(
+                          width: Dimension.width10,
+                        ),
                         const Padding(
                           padding: EdgeInsets.all(0),
                           child: Text(
@@ -108,7 +115,6 @@ class MostPlayedTracks extends StatelessWidget {
                   ],
                 ),
               ),
-
               Row(
                 children: [
                   const Icon(
@@ -119,28 +125,22 @@ class MostPlayedTracks extends StatelessWidget {
                       Shadow(
                         color: Colors.red,
                         blurRadius: 8,
-                        offset: Offset(0,5),
-
+                        offset: Offset(0, 5),
                       )
                     ],
                   ),
-                  SizedBox(width: Dimension.width10,),
+                  SizedBox(
+                    width: Dimension.width10,
+                  ),
                   ElevatedButton(
-
-                      onPressed: (){},
+                      onPressed: () {},
                       child: const Text(
                         'Play',
-                        style: TextStyle(
-                            color: Colors.white
-                        ),
+                        style: TextStyle(color: Colors.white),
                       ),
                       style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(Colors.red)
-                      )
-
-
-
-                  )
+                          backgroundColor:
+                              MaterialStatePropertyAll(Colors.red)))
                 ],
               )
             ],

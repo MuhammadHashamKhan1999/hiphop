@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import, unused_import, no_leading_underscores_for_local_identifiers, prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';

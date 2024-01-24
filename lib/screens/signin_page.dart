@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, file_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, file_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, unnecessary_import, unused_import, avoid_unnecessary_containers, unused_element
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';

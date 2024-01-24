@@ -1,14 +1,14 @@
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class SmallText extends StatelessWidget{
-
+class SmallText extends StatelessWidget {
   Color? color;
   late double size;
   late final String text;
   late TextOverflow overflow;
   var height;
-
 
   SmallText({
     Key? key,
@@ -17,13 +17,10 @@ class SmallText extends StatelessWidget{
     this.size = 12,
     this.overflow = TextOverflow.visible,
     this.height = 1.2,
-
-
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Text(
       text,
       style: TextStyle(
@@ -34,8 +31,6 @@ class SmallText extends StatelessWidget{
         height: height,
       ),
       textAlign: TextAlign.center,
-
     );
   }
-
 }

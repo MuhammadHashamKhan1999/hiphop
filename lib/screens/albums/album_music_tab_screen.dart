@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unnecessary_import, prefer_const_constructors, sized_box_for_whitespace, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hiphop/screens/categories/genre_screen.dart';
