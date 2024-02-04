@@ -7,6 +7,8 @@ import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/most_played_tracks.dart';
 import 'package:hiphop/widgets/music_tab_screen.dart';
+import 'package:hiphop/widgets/podcast_tab_screen.dart';
+import 'package:hiphop/widgets/streaming_tab_screen.dart';
 
 class HomePageTab extends StatefulWidget {
   const HomePageTab({super.key});
@@ -17,9 +19,7 @@ class HomePageTab extends StatefulWidget {
 
 class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin {
 
-  List images = [
-    'tab_one.png'
-  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -93,17 +93,17 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
               height: Dimension.screenHeight*1.5,
               child: TabBarView(
                 controller: _tabController,
-                children: const [
+                children: [
                   // Work in Music Tab
                   Tab(
                     child: MusicTabHomeScreen(),
                   ),
-
-
-
-
-                  Tab(text: "Cities",),
-                  Tab(text: "World",),
+                  Tab(
+                    child: PodcastTabHomeScreen(),
+                  ),
+                  Tab(
+                    child: StreamingTabHomeScreen(),
+                  ),
                 ],
               ),
             )

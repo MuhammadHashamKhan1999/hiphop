@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
+import 'package:hiphop/screens/search_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 
@@ -15,7 +16,7 @@ class BottomBarNavigation extends StatelessWidget {
     List<Widget> _buildScreens() {
       return [
         HomePageScreen(),
-        HomePageScreen(),
+        SearchScreen(),
         HomePageScreen(),
         HomePageScreen(),
       ];

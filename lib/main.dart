@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:hiphop/screens/categories/genre_details_screen.dart';
 import 'package:hiphop/screens/categories/genre_screen.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
+import 'package:hiphop/screens/sign_up_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/widgets/small_text.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple,background: AppColors.mainBackgroundColor),
         useMaterial3: true,
       ),
-      home: const SignInPage(),
+      home: const SignUpScreen(),
 
 
     );

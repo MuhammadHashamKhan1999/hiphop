@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
+import 'package:hiphop/screens/sign_up_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/bottom_bar_navigation.dart';
@@ -300,8 +301,27 @@ class SignInPage extends StatelessWidget {
                       ),
 
                       SizedBox(height: Dimension.height30),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SignUpScreen()
+                            ),
+                          );
 
-                      SmallText(text: "Don't Have an Account? Let's Sign Up"),
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SmallText(text: "Don\'t Have an Account?"),
+                            SmallText(text: "\t Let's Sign Up"),
+
+                          ],
+                        ),
+                      ),
+
 
 
 
@@ -319,7 +339,4 @@ class SignInPage extends StatelessWidget {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePageScreen()));
   }
 
-}
-
-mixin PageTransitionAnimation {
 }

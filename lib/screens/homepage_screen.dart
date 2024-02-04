@@ -210,7 +210,6 @@ class HomePageScreen extends StatelessWidget{
               },
             ),
             Divider(height: 2,color: AppColors.greyColor,),
-
             Container(
               alignment: Alignment.center,
               padding: EdgeInsets.only(top:10),
@@ -272,9 +271,6 @@ class HomePageScreen extends StatelessWidget{
 
               },
             ),
-
-
-
           ],
         ),
       ),
@@ -282,7 +278,6 @@ class HomePageScreen extends StatelessWidget{
       body: CustomScrollView(
         // physics: const BouncingScrollPhysics(),
         slivers: [
-
           SliverAppBar(
             backgroundColor: AppColors.mainBackgroundColor,
             leading: Container(
@@ -320,8 +315,6 @@ class HomePageScreen extends StatelessWidget{
               ),
             ),
           ),
-
-
           SliverToBoxAdapter(
             child: SearchBarWithIcon()
           ),
