@@ -22,25 +22,295 @@ class HomePageScreen extends StatelessWidget{
   Widget build(BuildContext context) {
 
     return Scaffold(
+      drawer: Drawer(
+        backgroundColor: AppColors.mainBackgroundColor,
+        child: ListView(
+          children: [
+            Container(
+              height: Dimension.height30*7,
+              child: DrawerHeader(
+
+                margin: EdgeInsets.all(0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/hiphop_logo.png')
+                            )
+                          ),
+                        ),
+                        Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: AppColors.buttonBackgroundColor
+                          ),
+                          child: Builder(
+
+                            builder: (context)=>InkWell(
+                              onTap: (){
+                                Scaffold.of(context).closeDrawer();
+                              },
+
+                              child: Container(
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: AppColors.textWhiteColor,
+                                ),
+                              ),
+
+                            ),
+
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 75,
+                          height: 75,
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/images/profile_picture.png'),
+                          ),
+                        ),
+                        SizedBox(width: Dimension.width10,),
+                        Text(
+                          'David Jones',
+                          style: TextStyle(
+                              color: AppColors.textWhiteColor,
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500
+                          ),
+                        ),
+                      ],
+                    ),
+
+                  ],
+                ),
+
+              ),
+            ),
+            ListTile(
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Icon(
+                      Icons.pie_chart
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                    'Main Dashboard',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400
+                    ),
+                  ),
+                ],
+              ),
+              selectedColor: AppColors.buttonBackgroundColor,
+              selected: true,
+              onTap: (){
+
+              },
+            ),
+            ListTile(
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Icon(
+                      Icons.payment
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                    'Payments',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400
+                    ),
+                  ),
+                ],
+              ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+              selectedTileColor: Colors.red,
+              onTap: (){
+
+              },
+            ),
+            ListTile(
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Icon(
+                      Icons.support_sharp
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                    'Support',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400
+                    ),
+                  ),
+                ],
+              ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+              selectedTileColor: Colors.red,
+              onTap: (){
+
+              },
+            ),
+            ListTile(
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Icon(
+                      Icons.settings_outlined
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                    'Settings',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400
+                    ),
+                  ),
+                ],
+              ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+              selectedTileColor: Colors.red,
+              onTap: (){
+
+              },
+            ),
+            Divider(height: 2,color: AppColors.greyColor,),
+
+            Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(top:10),
+              child: Stack(
+                children: [
+                  InkWell(
+                    onTap:(){
+
+                    },
+                    child: Container(
+
+                      width: Dimension.width20*14,
+                      height: Dimension.width20*11,
+                      child: Container(
+                        child: Image.asset(
+                          'assets/images/become_member.png',
+                          fit: BoxFit.cover,
+                          scale: 1.0,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            ListTile(
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Icon(
+                        Icons.logout_rounded
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                    'Logout',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400
+                    ),
+                  ),
+                ],
+              ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+              selectedTileColor: Colors.red,
+              onTap: (){
+                Navigator.of(context, rootNavigator: true)
+                    .pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const SignInPage();
+                    },
+                  ),
+                      (_) => false,
+                );
+
+              },
+            ),
+
+
+
+          ],
+        ),
+      ),
+
       body: CustomScrollView(
         // physics: const BouncingScrollPhysics(),
         slivers: [
+
           SliverAppBar(
             backgroundColor: AppColors.mainBackgroundColor,
-            leading:
-            InkWell(
-              onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignInPage()),
-                );
-              },
-              child: Image.asset(
-                  "assets/images/menuIcon.png",
-                  height: Dimension.width20*10,
-                  width: Dimension.height30*3
+            leading: Container(
+              child: Builder(
+
+                  builder: (context)=>InkWell(
+                  onTap: (){
+                    Scaffold.of(context).openDrawer();
+                  },
+
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/menuIcon.png"),
+                        fit: BoxFit.cover
+                      )
+
+                    ),
+                  ),
+
+              ),
+
               ),
             ),
+
+
+
+
             expandedHeight: Dimension.screenWidth/1.5,
             floating: false,
             pinned: true,
@@ -50,6 +320,7 @@ class HomePageScreen extends StatelessWidget{
               ),
             ),
           ),
+
 
           SliverToBoxAdapter(
             child: SearchBarWithIcon()
@@ -64,6 +335,7 @@ class HomePageScreen extends StatelessWidget{
 
         ],
       ),
+
     );
   }
 }
