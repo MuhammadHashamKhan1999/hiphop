@@ -7,10 +7,11 @@ import 'package:hiphop/screens/albums/single_album_screen.dart';
 import 'package:hiphop/screens/categories/genre_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
-import 'package:hiphop/Models/genre_details_screen_data.dart';
 
 class GenreDetailsPage extends StatelessWidget {
-  const GenreDetailsPage({super.key});
+  const GenreDetailsPage({super.key, required this.id});
+
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +96,7 @@ class GenreDetailsPage extends StatelessWidget {
 
                          },
                          child: Container(
+
                            margin: const EdgeInsets.only(bottom: 5,left: 5),
                            width: Dimension.screenWidth/2.3,
                            height: 200,
@@ -140,6 +142,7 @@ class GenreDetailsPage extends StatelessWidget {
                            ),
                          ),
                        );
+
                      })
                   ),
                 ),

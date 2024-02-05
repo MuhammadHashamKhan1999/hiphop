@@ -92,6 +92,7 @@ class GenreScreen extends StatelessWidget {
                            MaterialPageRoute(builder: (context) => const GenreDetailsPage()),
                          );
 
+
                        },
                        child: Container(
                          width: double.maxFinite,
