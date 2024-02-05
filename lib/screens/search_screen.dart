@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Models/genre_screen_data.dart';
 import '../utils/colors_constant.dart';
 import '../widgets/search_bar.dart';
-import 'categories/genre_details_screen.dart';
 import 'homepage_screen.dart';
 import 'package:hiphop/utils/dimensions.dart';
 
@@ -32,12 +30,12 @@ class _SearchScreenState extends State<SearchScreen> {
             );
           },
           child: Container(
-            margin: EdgeInsets.fromLTRB(20,15,10,15),
+            margin: const EdgeInsets.fromLTRB(20,15,10,15),
             decoration: BoxDecoration(
                 color: AppColors.buttonBackgroundColor,
                 borderRadius: BorderRadius.circular(10)
             ),
-            child: Center(
+            child: const Center(
               child: Icon(
                 Icons.arrow_back_outlined,
                 color: AppColors.textWhiteColor,
@@ -57,9 +55,9 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 15),
+            margin: const EdgeInsets.only(right: 15),
             width: 50,
-            child: Text(
+            child: const Text(
               'clean',
               style: TextStyle(
                   color: AppColors.buttonBackgroundColor,
@@ -85,13 +83,13 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 25),
-              child: SearchBarWithIcon(),
+              margin: const EdgeInsets.only(top: 25),
+              child: const SearchBarWithIcon(),
             ),
             SizedBox(height: Dimension.height20,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Container(
+              child: SizedBox(
                 width: double.maxFinite,
                 height: Dimension.screenHeight/1.5,
                 child: ListView.builder(
@@ -101,10 +99,10 @@ class _SearchScreenState extends State<SearchScreen> {
                     itemBuilder: (_,index){
                       return InkWell(
                         onTap: (){
-                         
+
 
                         },
-                        child: ListTile(
+                        child: const ListTile(
                           textColor: AppColors.textWhiteColor,
                           title: Text('Hello World'),
                         )
