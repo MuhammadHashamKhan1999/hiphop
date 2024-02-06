@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
-import '../widgets/bottom_bar_navigation.dart';
 import '../widgets/small_text.dart';
 import 'homepage_screen.dart';
 
@@ -59,7 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: TextField(
-                                autofocus: false,
+                                autofocus: true,
                                 cursorColor: AppColors.buttonBackgroundColor,
                                 style: const TextStyle(color: AppColors.textWhiteColor),
                                 decoration: InputDecoration(
@@ -116,7 +115,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               padding: const EdgeInsets.all(10.0),
                               child: TextField(
                                 autofocus: false,
-                                obscureText: true,
                                 cursorColor: AppColors.buttonBackgroundColor,
                                 style: const TextStyle(color: AppColors.textWhiteColor),
                                 decoration: InputDecoration(
@@ -171,8 +169,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: TextField(
+
                                 autofocus: false,
-                                obscureText: true,
                                 cursorColor: AppColors.buttonBackgroundColor,
                                 style: const TextStyle(color: AppColors.textWhiteColor),
                                 decoration: InputDecoration(
@@ -215,7 +213,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         color: AppColors.textWhiteColor
                                     ),
                                     floatingLabelBehavior: FloatingLabelBehavior.auto,
-                                    isCollapsed: false
+                                    isCollapsed: false,
+
                                 ),
                               ),
                             ),
