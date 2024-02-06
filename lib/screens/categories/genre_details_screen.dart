@@ -8,10 +8,11 @@ import 'package:hiphop/screens/categories/genre_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 
-class GenreDetailsPage extends StatelessWidget {
-  const GenreDetailsPage({super.key, required this.id});
+import '../../Models/genre_details_screen_data.dart';
 
-  final int id;
+class GenreDetailsPage extends StatelessWidget {
+  const GenreDetailsPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {

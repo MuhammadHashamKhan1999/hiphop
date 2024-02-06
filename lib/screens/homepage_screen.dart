@@ -27,7 +27,7 @@ class HomePageScreen extends StatelessWidget{
         child: ListView(
           children: [
             Container(
-              height: Dimension.height30*7,
+              height: Dimension.height30*7.2,
               child: DrawerHeader(
 
                 margin: EdgeInsets.all(0),
@@ -125,6 +125,10 @@ class HomePageScreen extends StatelessWidget{
               selectedColor: AppColors.buttonBackgroundColor,
               selected: true,
               onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePageScreen()),
+                );
 
               },
             ),
