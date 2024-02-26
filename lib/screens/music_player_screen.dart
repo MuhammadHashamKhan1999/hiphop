@@ -1,10 +1,9 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
-import '../widgets/homepage_image_slider.dart';
-import 'homepage_screen.dart';
 
 class MusicPlayer extends StatefulWidget {
   const MusicPlayer({super.key});
@@ -13,7 +12,19 @@ class MusicPlayer extends StatefulWidget {
   State<MusicPlayer> createState() => _MusicPlayerState();
 }
 
-class _MusicPlayerState extends State<MusicPlayer> {
+class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStateMixin  {
+
+  AnimationController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 15),
+      vsync: this,
+    )..repeat();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,21 +85,37 @@ class _MusicPlayerState extends State<MusicPlayer> {
                             fontSize: 12
                         ),
                       ),
-
-
-
                     ],
                   ),
                 ),
                 SizedBox(height: Dimension.height20,),
-                Container(
-                  width: double.maxFinite,
-                  height: 250,
-                  decoration: const BoxDecoration(
-                      color: Colors.transparent
-                  ),
+                // Container(
+                //   width: double.maxFinite,
+                //   height: 250,
+                //   decoration: const BoxDecoration(
+                //       color: Colors.transparent
+                //   ),
+                // ),
+                AnimatedBuilder(
+                  animation: _controller!,
+                  builder: (BuildContext context, Widget? child) {
+                    return Transform.rotate(
+                      angle: _controller!.value * 2.0 * 3.14159,
+                      child: Container(
+                        width: 180,
+                        height: 180,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: NetworkImage('https://i.ytimg.com/vi/pCh3Kp6qxo8/maxresdefault.jpg'),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                
+                const SizedBox(height: 12),
                 const Text(
                   'Drawing Room',
                   style: TextStyle(
