@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,6 +16,16 @@ class MusicPlayer extends StatefulWidget {
 class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStateMixin  {
 
   AnimationController? _controller;
+
+  AudioPlayer _audioPlayer = AudioPlayer();
+  List<String> _audioFiles = [
+    'music/audio1.mp3',
+    'music/audio2.mp3',
+    'music/audio3.mp3',
+  ];
+  int _currentIndex = 0;
+
+  IconData _playPauseIcon = Icons.play_arrow;
 
   @override
   void initState() {
@@ -147,15 +158,18 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                       height: 35,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              color: AppColors.greyColor
-                          ),
-                          child: const Icon(
-                              CupertinoIcons.backward_end,
-                            size: 16,
-                            color: AppColors.textWhiteColor,
+                        child: InkWell(
+                          onTap: () => _previousAudio(),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                color: AppColors.greyColor
+                            ),
+                            child: const Icon(
+                                CupertinoIcons.backward_end,
+                              size: 16,
+                              color: AppColors.textWhiteColor,
 
+                            ),
                           ),
                         ),
                       )
@@ -166,24 +180,33 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                         height: 60,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(50),
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                color: AppColors.buttonBackgroundColor,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.red,
-                                  offset: Offset(0, 2),
-                                  spreadRadius: 10,
-                                  blurRadius: 20
-                                )
-                              ]
-                            ),
-                            child: const Icon(
-                              CupertinoIcons.pause,
-                              size: 28,
-                              weight: 20,
-                              color: AppColors.textWhiteColor,
+                          child: InkWell(
+                            onTap: () {
+                              if (_playPauseIcon == Icons.play_arrow) {
+                                _playAudio(_audioFiles[_currentIndex]);
+                              } else {
+                                _pauseAudio();
+                              }
+                            },
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  color: AppColors.buttonBackgroundColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.red,
+                                    offset: Offset(0, 2),
+                                    spreadRadius: 10,
+                                    blurRadius: 20
+                                  )
+                                ]
+                              ),
+                              child: Icon(
+                                _playPauseIcon,
+                                size: 28,
+                                weight: 20,
+                                color: AppColors.textWhiteColor,
 
+                              ),
                             ),
                           ),
                         )
@@ -194,30 +217,68 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                         height: 35,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(50),
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                color: AppColors.greyColor
-                            ),
-                            child: const Icon(
-                              CupertinoIcons.forward_end,
-                              size: 16,
-                              color: AppColors.textWhiteColor,
+                          child: InkWell(
+                            onTap: () => _nextAudio(),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                  color: AppColors.greyColor
+                              ),
+                              child: const Icon(
+                                CupertinoIcons.forward_end,
+                                size: 16,
+                                color: AppColors.textWhiteColor,
 
+                              ),
                             ),
                           ),
                         )
                     ),
                   ],
                 )
-
               ],
-
             ),
           ],
         ),
       )
-
     );
   }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+  // private methods
+  Future<void> _playAudio(String audioPath) async {
+    await _audioPlayer.play(AssetSource(_audioFiles[_currentIndex]));
+    // await _audioPlayer.play(UrlSource(_audioFiles[_currentIndex]));  // to play from url
+    setState(() {
+      _playPauseIcon = Icons.pause;
+    });
+  }
+
+  Future<void> _pauseAudio() async {
+    await _audioPlayer.pause();
+    setState(() {
+      _playPauseIcon = Icons.play_arrow;
+    });
+  }
+
+  void _nextAudio() {
+    if (_currentIndex < _audioFiles.length - 1) {
+      _currentIndex++;
+      _playAudio(_audioFiles[_currentIndex]);
+    }
+  }
+
+  void _previousAudio() {
+    if (_currentIndex > 0) {
+      _currentIndex--;
+      _playAudio(_audioFiles[_currentIndex]);
+    }
+  }
+
+
 }
 
