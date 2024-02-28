@@ -241,7 +241,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   borderRadius: BorderRadius.zero
               ),
               child: SizedBox(
-                width: Dimension.screenWidth*0.85,
+                width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
                   style: ButtonStyle(
