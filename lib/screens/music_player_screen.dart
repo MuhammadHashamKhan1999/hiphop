@@ -41,7 +41,6 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.mainBackgroundColor,
-
       body: SafeArea(
         child: Stack(
           children: [
@@ -236,12 +235,14 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ),
                   ],
                 ),
+                const Spacer(),
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.zero
                   ),
                   child: SizedBox(
                     width: Dimension.screenWidth*0.85,
+                    height: 50,
                     child: ElevatedButton(
                       style: ButtonStyle(
                           shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
@@ -260,6 +261,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ),
                   ),
                 ),
+                SizedBox(height: 70)
               ],
             ),
           ],

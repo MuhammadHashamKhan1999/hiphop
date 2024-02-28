@@ -48,20 +48,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
             fontWeight: FontWeight.w400,
           ),
         ),
-        actions: [
-          Container(
-            margin: const EdgeInsets.only(right: 15),
-            width: 50,
-            child: const Text(
-              'clean',
-              style: TextStyle(
-                  color: AppColors.buttonBackgroundColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
-          )
-        ],
         centerTitle: true,
         backgroundColor: AppColors.mainBackgroundColor,
         elevation: 0.5,
