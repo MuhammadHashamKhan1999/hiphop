@@ -254,7 +254,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
 
                       ),
                       onPressed: (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PaymentScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentScreen()));
 
                       },
                       child: Text("Buy Now", style: TextStyle(color: AppColors.textWhiteColor)),
