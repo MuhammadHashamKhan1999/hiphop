@@ -20,10 +20,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         toolbarHeight: 80,
         leading: InkWell(
           onTap: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const HomePageScreen()),
-            );
+            Navigator.pop(context);
           },
           child: Container(
             margin: const EdgeInsets.fromLTRB(20,15,10,15),

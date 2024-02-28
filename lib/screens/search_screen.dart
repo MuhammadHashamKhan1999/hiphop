@@ -216,7 +216,7 @@ class _SearchScreenState extends State<SearchScreen> {
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
+                border: Border.all(color: Colors.white),
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Row(
