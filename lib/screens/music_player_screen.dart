@@ -3,6 +3,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
 
@@ -234,7 +235,31 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                         )
                     ),
                   ],
-                )
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.zero
+                  ),
+                  child: SizedBox(
+                    width: Dimension.screenWidth*0.85,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
+                          backgroundColor: MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
+                          ),
+                          mouseCursor: MaterialStateMouseCursor.clickable,
+                          shadowColor: MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
+                          animationDuration: Duration(milliseconds: 1000)
+
+                      ),
+                      onPressed: (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PaymentScreen()));
+
+                      },
+                      child: Text("Buy Now", style: TextStyle(color: AppColors.textWhiteColor)),
+                    ),
+                  ),
+                ),
               ],
             ),
           ],

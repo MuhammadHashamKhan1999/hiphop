@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-
-import '../Models/genre_screen_data.dart';
 import '../utils/colors_constant.dart';
-import '../widgets/search_bar.dart';
 import 'homepage_screen.dart';
-import 'package:hiphop/utils/dimensions.dart';
 
-class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+class PaymentScreen extends StatefulWidget {
+  const PaymentScreen({super.key});
 
   @override
-  State<SearchScreen> createState() => _SearchScreenState();
+  State<PaymentScreen> createState() => _PaymentScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,13 +35,12 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Icon(
                 Icons.arrow_back_outlined,
                 color: AppColors.textWhiteColor,
-
               ),
             ),
           ),
         ),
         title: const Text(
-          'Search',
+          'Payment',
           style: TextStyle(
             color: AppColors.textWhiteColor,
             fontFamily: 'Poppins',
@@ -61,8 +56,8 @@ class _SearchScreenState extends State<SearchScreen> {
               'clean',
               style: TextStyle(
                   color: AppColors.buttonBackgroundColor,
-                fontSize: 16,
-                fontWeight: FontWeight.bold
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold
               ),
             ),
           )
@@ -73,41 +68,6 @@ class _SearchScreenState extends State<SearchScreen> {
         excludeHeaderSemantics: true,
         forceMaterialTransparency: false,
         shadowColor: Colors.white70,
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 25),
-              child: const SearchBarWithIcon(),
-            ),
-            SizedBox(height: Dimension.height20,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: SizedBox(
-                width: double.maxFinite,
-                height: Dimension.screenHeight/1.5,
-                child: ListView.builder(
-                  // shrinkWrap: true,
-                  // physics: NeverScrollableScrollPhysics(),
-                    itemCount: Genres.length,
-                    itemBuilder: (_,index){
-                      return InkWell(
-                        onTap: (){
-
-
-                        },
-                        child: const ListTile(
-                          textColor: AppColors.textWhiteColor,
-                          title: Text('Hello World'),
-                        )
-                      );
-                    }),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
