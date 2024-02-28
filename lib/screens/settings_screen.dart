@@ -55,6 +55,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
         forceMaterialTransparency: false,
         shadowColor: Colors.white70,
       ),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 25.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 30),
+            Row(
+              children: [
+                Icon(Icons.edit, color: AppColors.buttonBackgroundColor),
+                SizedBox(width: 20),
+                Text(
+                  'Edit Profile',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Divider(
+              color: Colors.white60,
+              thickness: .3,
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                Icon(Icons.privacy_tip_rounded, color: AppColors.buttonBackgroundColor),
+                SizedBox(width: 20),
+                Text(
+                  'Privacy Policy',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Divider(
+              color: Colors.white60,
+              thickness: .3,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

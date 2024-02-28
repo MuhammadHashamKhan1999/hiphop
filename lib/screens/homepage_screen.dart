@@ -4,7 +4,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/screens/payment_screen.dart';
+import 'package:hiphop/screens/settings_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
+import 'package:hiphop/screens/support_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -156,7 +159,7 @@ class HomePageScreen extends StatelessWidget{
               textColor: AppColors.textWhiteColor,
               selectedTileColor: Colors.red,
               onTap: (){
-
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const PaymentScreen()));
               },
             ),
             ListTile(
@@ -183,7 +186,7 @@ class HomePageScreen extends StatelessWidget{
               textColor: AppColors.textWhiteColor,
               selectedTileColor: Colors.red,
               onTap: (){
-
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const SupportScreen()));
               },
             ),
             ListTile(
@@ -210,7 +213,7 @@ class HomePageScreen extends StatelessWidget{
               textColor: AppColors.textWhiteColor,
               selectedTileColor: Colors.red,
               onTap: (){
-
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
               },
             ),
             Divider(height: 2,color: AppColors.greyColor,),
