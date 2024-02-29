@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
+import 'package:hiphop/screens/payment_screen.dart';
+import 'package:hiphop/screens/support_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -10,6 +12,9 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+
+  bool _notificationSwitchValue = false, _autoPlaySwitchValue = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,48 +57,147 @@ class _SettingsScreenState extends State<SettingsScreen> {
         forceMaterialTransparency: false,
         shadowColor: Colors.white70,
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 30),
-            Row(
-              children: [
-                Icon(Icons.edit, color: AppColors.buttonBackgroundColor),
-                SizedBox(width: 20),
-                Text(
-                  'Edit Profile',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w300,
-                  ),
+            SizedBox(height: 15),
+            ListTile(
+              title: const Text(
+                'Notifications',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
                 ),
-              ],
+              ),
+              trailing: Switch(
+                activeColor: AppColors.buttonBackgroundColor,
+                inactiveThumbColor: AppColors.textWhiteColor,
+                value: _notificationSwitchValue,
+                onChanged: (value) {
+                  setState(() {
+                    _notificationSwitchValue = value;
+                  });
+                },
+              ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
             ),
-            SizedBox(height: 10),
-            Divider(
+            SizedBox(height: 5),
+            ListTile(
+              title: const Text(
+                'Auto Play Tracks',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              trailing: Switch(
+                activeColor: AppColors.buttonBackgroundColor,
+                inactiveThumbColor: AppColors.textWhiteColor,
+                value: _autoPlaySwitchValue,
+                onChanged: (value) {
+                  setState(() {
+                    _autoPlaySwitchValue = value;
+                  });
+                },
+              ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+            ),
+            const SizedBox(height: 5),
+            const ListTile(
+              title: Text(
+                'Edit Your Profile',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+            ),
+            const Divider(
+              height: 1,
               color: Colors.white60,
               thickness: .3,
             ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                Icon(Icons.privacy_tip_rounded, color: AppColors.buttonBackgroundColor),
-                SizedBox(width: 20),
-                Text(
-                  'Privacy Policy',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w300,
-                  ),
+            ListTile(
+              title: const Text(
+                'Payments',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
                 ),
-              ],
+              ),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const PaymentScreen())),
+              trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
             ),
-            SizedBox(height: 10),
-            Divider(
+            const Divider(
+              height: 1,
+              color: Colors.white60,
+              thickness: .3,
+            ),
+            ListTile(
+              title: const Text(
+                'Contact Support',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SupportScreen())),
+              trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+            ),
+            const Divider(
+              height: 1,
+              color: Colors.white60,
+              thickness: .3,
+            ),
+            const ListTile(
+              title: Text(
+                'Legal',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+            ),
+            const Divider(
+              height: 1,
+              color: Colors.white60,
+              thickness: .3,
+            ),
+            const ListTile(
+              title: Text(
+                'Tell A Friend',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500
+                ),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+            ),
+            const Divider(
+              height: 1,
               color: Colors.white60,
               thickness: .3,
             ),

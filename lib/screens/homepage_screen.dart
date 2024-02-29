@@ -162,33 +162,33 @@ class HomePageScreen extends StatelessWidget{
             //     Navigator.push(context, MaterialPageRoute(builder: (context) => const PaymentScreen()));
             //   },
             // ),
-            ListTile(
-              title: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    child: Icon(
-                      Icons.support_sharp
-                    ),
-                  ),
-                  SizedBox(width: 10,),
-                  Text(
-                    'Support',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400
-                    ),
-                  ),
-                ],
-              ),
-              iconColor: AppColors.textWhiteColor,
-              selectedColor: AppColors.buttonBackgroundColor,
-              textColor: AppColors.textWhiteColor,
-              selectedTileColor: Colors.red,
-              onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context) => const SupportScreen()));
-              },
-            ),
+            // ListTile(
+            //   title: Row(
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       Container(
+            //         child: Icon(
+            //           Icons.support_sharp
+            //         ),
+            //       ),
+            //       SizedBox(width: 10,),
+            //       Text(
+            //         'Support',
+            //         style: TextStyle(
+            //           fontSize: 14,
+            //           fontWeight: FontWeight.w400
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            //   iconColor: AppColors.textWhiteColor,
+            //   selectedColor: AppColors.buttonBackgroundColor,
+            //   textColor: AppColors.textWhiteColor,
+            //   selectedTileColor: Colors.red,
+            //   onTap: (){
+            //     Navigator.push(context,MaterialPageRoute(builder: (context) => const SupportScreen()));
+            //   },
+            // ),
             ListTile(
               title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
