@@ -3,6 +3,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
@@ -39,23 +40,27 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Replace with your desired status bar color
+    ));
+
     return Scaffold(
-      backgroundColor: AppColors.mainBackgroundColor,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            SizedBox(
-              height: 400,
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/homepagebg.png"),
-                      fit: BoxFit.cover
-                  ),
+      body: Stack(
+        children: [
+          SizedBox(
+            height: 400,
+            child: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/homepagebg.png"),
+                    fit: BoxFit.cover
                 ),
               ),
             ),
-            Column(
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30.0),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
@@ -86,27 +91,25 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      const Text(
-                        'Lyrics',
-                        style: TextStyle(
-                            color: AppColors.buttonBackgroundColor,
-                            fontFamily: 'Poppins',
-                            letterSpacing: 0.9,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12
+                      InkWell(
+                        onTap: () {
+
+                        },
+                        child: const Text(
+                          'Lyrics',
+                          style: TextStyle(
+                              color: AppColors.buttonBackgroundColor,
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.9,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: Dimension.height20,),
-                // Container(
-                //   width: double.maxFinite,
-                //   height: 250,
-                //   decoration: const BoxDecoration(
-                //       color: Colors.transparent
-                //   ),
-                // ),
                 AnimatedBuilder(
                   animation: _controller!,
                   builder: (BuildContext context, Widget? child) {
@@ -147,39 +150,121 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     letterSpacing: 0.1,
                   ),
                 ),
-                SizedBox(height: 80,),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 35,
-                      height: 35,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
+                const Spacer(),
+                SizedBox(height: 40),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 35.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.heart_broken,
+                            size: 25.0, // A
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2.0),
+                          Text(
+                            "like",
+                            style: TextStyle(fontSize: 12.0, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.list_alt,
+                            size: 25.0, // A
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2.0),
+                          Text(
+                            "Add to Playlist",
+                            style: TextStyle(fontSize: 12.0, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.volume_down,
+                            size: 25.0, // A
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2.0),
+                          Text(
+                            "Volume",
+                            style: TextStyle(fontSize: 12.0, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.comment,
+                            size: 25.0, // A
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2.0),
+                          Text(
+                            "Comments",
+                            style: TextStyle(fontSize: 12.0, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 35,
+                        height: 35,
                         child: InkWell(
-                          onTap: () => _previousAudio(),
+                          onTap: () {
+
+                          },
                           child: Container(
-                            decoration: const BoxDecoration(
-                                color: AppColors.greyColor
-                            ),
                             child: const Icon(
-                                CupertinoIcons.backward_end,
+                                CupertinoIcons.play_circle_fill,
                               size: 16,
                               color: AppColors.textWhiteColor,
 
                             ),
                           ),
-                        ),
-                      )
-                    ),
-                    const SizedBox(width: 40,),
-                    SizedBox(
-                        width: 60,
-                        height: 60,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
+                        )
+                      ),
+                      const SizedBox(width: 20),
+                      SizedBox(
+                        width: 35,
+                        height: 35,
+                        child: InkWell(
+                          onTap: () => _previousAudio(),
+                          child: Container(
+                            child: const Icon(
+                                CupertinoIcons.backward_fill,
+                              size: 16,
+                              color: AppColors.textWhiteColor,
+
+                            ),
+                          ),
+                        )
+                      ),
+                      const SizedBox(width: 20),
+                      SizedBox(
+                          width: 60,
+                          height: 60,
                           child: InkWell(
                             onTap: () {
                               if (_playPauseIcon == Icons.play_arrow) {
@@ -188,84 +273,52 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                                 _pauseAudio();
                               }
                             },
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  color: AppColors.buttonBackgroundColor,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.red,
-                                    offset: Offset(0, 2),
-                                    spreadRadius: 10,
-                                    blurRadius: 20
-                                  )
-                                ]
-                              ),
-                              child: Icon(
-                                _playPauseIcon,
-                                size: 28,
-                                weight: 20,
-                                color: AppColors.textWhiteColor,
-
-                              ),
+                            child: Icon(
+                              _playPauseIcon,
+                              size: 60,
+                              weight: 20,
+                              color: AppColors.textWhiteColor,
                             ),
-                          ),
-                        )
-                    ),
-                    const SizedBox(width: 40,),
-                    SizedBox(
-                        width: 35,
-                        height: 35,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
+                          )
+                      ),
+                      const SizedBox(width: 20,),
+                      SizedBox(
+                          width: 35,
+                          height: 35,
                           child: InkWell(
                             onTap: () => _nextAudio(),
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  color: AppColors.greyColor
-                              ),
-                              child: const Icon(
-                                CupertinoIcons.forward_end,
-                                size: 16,
-                                color: AppColors.textWhiteColor,
+                            child: const Icon(
+                              CupertinoIcons.forward_fill,
+                              size: 16,
+                              color: AppColors.textWhiteColor,
 
-                              ),
                             ),
-                          ),
-                        )
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.zero
-                  ),
-                  child: SizedBox(
-                    width: Dimension.screenWidth*0.85,
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
-                          backgroundColor: MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
-                          ),
-                          mouseCursor: MaterialStateMouseCursor.clickable,
-                          shadowColor: MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
-                          animationDuration: Duration(milliseconds: 1000)
-
+                          )
                       ),
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentScreen()));
+                      const SizedBox(width: 20,),
+                      SizedBox(
+                          width: 35,
+                          height: 35,
+                          child: InkWell(
+                            onTap: () {
 
-                      },
-                      child: Text("Buy Now", style: TextStyle(color: AppColors.textWhiteColor)),
-                    ),
+                            },
+                            child: const Icon(
+                              CupertinoIcons.shuffle,
+                              size: 16,
+                              color: AppColors.textWhiteColor,
+
+                            ),
+                          )
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: 70)
+                SizedBox(height: 40)
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       )
     );
   }
@@ -273,6 +326,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
   @override
   void dispose() {
     _audioPlayer.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -305,7 +359,4 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
       _playAudio(_audioFiles[_currentIndex]);
     }
   }
-
-
 }
-
