@@ -117,7 +117,7 @@ class HomePageScreen extends StatelessWidget{
                   ),
                   SizedBox(width: 10,),
                   Text(
-                    'Main Dashboard',
+                    'Home',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400
@@ -135,33 +135,33 @@ class HomePageScreen extends StatelessWidget{
 
               },
             ),
-            ListTile(
-              title: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    child: Icon(
-                      Icons.payment
-                    ),
-                  ),
-                  SizedBox(width: 10,),
-                  Text(
-                    'Payments',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400
-                    ),
-                  ),
-                ],
-              ),
-              iconColor: AppColors.textWhiteColor,
-              selectedColor: AppColors.buttonBackgroundColor,
-              textColor: AppColors.textWhiteColor,
-              selectedTileColor: Colors.red,
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const PaymentScreen()));
-              },
-            ),
+            // ListTile(
+            //   title: Row(
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       Container(
+            //         child: Icon(
+            //           Icons.payment
+            //         ),
+            //       ),
+            //       SizedBox(width: 10,),
+            //       Text(
+            //         'Payments',
+            //         style: TextStyle(
+            //           fontSize: 14,
+            //           fontWeight: FontWeight.w400
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            //   iconColor: AppColors.textWhiteColor,
+            //   selectedColor: AppColors.buttonBackgroundColor,
+            //   textColor: AppColors.textWhiteColor,
+            //   selectedTileColor: Colors.red,
+            //   onTap: (){
+            //     Navigator.push(context, MaterialPageRoute(builder: (context) => const PaymentScreen()));
+            //   },
+            // ),
             ListTile(
               title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -217,30 +217,57 @@ class HomePageScreen extends StatelessWidget{
               },
             ),
             Divider(height: 2,color: AppColors.greyColor,),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(top:10),
-              child: Stack(
+            // Container(
+            //   alignment: Alignment.center,
+            //   padding: EdgeInsets.only(top:10),
+            //   child: Stack(
+            //     children: [
+            //       InkWell(
+            //         onTap:(){
+            //
+            //         },
+            //         child: Container(
+            //
+            //           width: Dimension.width20*14,
+            //           height: Dimension.width20*11,
+            //           child: Container(
+            //             child: Image.asset(
+            //               'assets/images/become_member.png',
+            //               fit: BoxFit.cover,
+            //               scale: 1.0,
+            //             ),
+            //           ),
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // ),
+            ListTile(
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  InkWell(
-                    onTap:(){
-
-                    },
-                    child: Container(
-
-                      width: Dimension.width20*14,
-                      height: Dimension.width20*11,
-                      child: Container(
-                        child: Image.asset(
-                          'assets/images/become_member.png',
-                          fit: BoxFit.cover,
-                          scale: 1.0,
-                        ),
-                      ),
+                  Container(
+                    child: Icon(
+                        Icons.card_membership
                     ),
-                  )
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                    'Become a Member',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400
+                    ),
+                  ),
                 ],
               ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+              selectedTileColor: Colors.red,
+              onTap: (){
+
+              },
             ),
             ListTile(
               title: Row(
