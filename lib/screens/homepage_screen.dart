@@ -4,10 +4,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/screens/become_a_member_screen.dart';
 import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/screens/settings_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/screens/support_screen.dart';
+import 'package:hiphop/screens/user_profile_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -23,7 +25,6 @@ class HomePageScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       drawer: Drawer(
         backgroundColor: AppColors.mainBackgroundColor,
@@ -78,27 +79,30 @@ class HomePageScreen extends StatelessWidget{
                         )
                       ],
                     ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 75,
-                          height: 75,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage('assets/images/profile_picture.png'),
+                    InkWell(
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const UserProfileScreen())),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 75,
+                            height: 75,
+                            child: CircleAvatar(
+                              backgroundImage: AssetImage('assets/images/profile_picture.png'),
+                            ),
                           ),
-                        ),
-                        SizedBox(width: Dimension.width10,),
-                        Text(
-                          'David Jones',
-                          style: TextStyle(
-                              color: AppColors.textWhiteColor,
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500
+                          SizedBox(width: Dimension.width10,),
+                          Text(
+                            'David Jones',
+                            style: TextStyle(
+                                color: AppColors.textWhiteColor,
+                                fontFamily: 'Poppins',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
 
                   ],
@@ -216,7 +220,7 @@ class HomePageScreen extends StatelessWidget{
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
               },
             ),
-            Divider(height: 2,color: AppColors.greyColor,),
+            Divider(height:1,color: AppColors.greyColor,),
             // Container(
             //   alignment: Alignment.center,
             //   padding: EdgeInsets.only(top:10),
@@ -242,6 +246,7 @@ class HomePageScreen extends StatelessWidget{
             //     ],
             //   ),
             // ),
+            SizedBox(height: 5,),
             ListTile(
               title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -265,9 +270,7 @@ class HomePageScreen extends StatelessWidget{
               selectedColor: AppColors.buttonBackgroundColor,
               textColor: AppColors.textWhiteColor,
               selectedTileColor: Colors.red,
-              onTap: (){
-
-              },
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const BecomeAMemberScreeen())),
             ),
             ListTile(
               title: Row(
