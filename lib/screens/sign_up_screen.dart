@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hiphop/screens/otp_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
@@ -296,14 +297,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                                 ),
                                 onPressed: (){
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            SignInPage()
-                                    ),
-                                  );
-
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OtpScreen()));
                                 },
                                 child: Text("Sign Up", style: TextStyle(color: AppColors.textWhiteColor)),
                               ),
