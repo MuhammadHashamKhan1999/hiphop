@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
+import 'package:hiphop/screens/reset_password_screen.dart';
 import 'package:hiphop/screens/sign_up_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -200,7 +201,9 @@ class SignInPage extends StatelessWidget {
 
                       SizedBox(height: Dimension.height10),
 
-                      SmallText(text: "Forgot your passowrd?"),
+                      InkWell(child: SmallText(text: "Forgot your password?"), onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordScreen()));
+                      }),
 
                       SizedBox(height: Dimension.height20),
 
@@ -222,14 +225,7 @@ class SignInPage extends StatelessWidget {
 
                             ),
                             onPressed: (){
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        BottomBarNavigation()
-                                ),
-                              );
-
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomBarNavigation()));
                             },
                             child: Text("Sign In", style: TextStyle(color: AppColors.textWhiteColor)),
                           ),
