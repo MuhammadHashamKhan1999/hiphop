@@ -41,7 +41,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       child: Column(
                         children: [
                           const Text(
-                            "Enter the Code",
+                            "Enter Your Code",
                             style: TextStyle(
                               color: AppColors.textWhiteColor,
                               fontSize: 28,
