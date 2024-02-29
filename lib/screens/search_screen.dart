@@ -86,7 +86,48 @@ class _SearchScreenState extends State<SearchScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 30),
-            Text(
+            const Text(
+              'KEYWORD',
+              style: TextStyle(
+                fontSize: 17,
+                color: AppColors.buttonBackgroundColor,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Divider(
+              color: Colors.white60,
+              thickness: .3,
+            ),
+            const SizedBox(height: 10),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      cursorColor: AppColors.buttonBackgroundColor,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText: 'Enter your text',
+                        hintStyle: TextStyle(
+                            color: Colors.white60, fontWeight: FontWeight.w300),
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(15.0),
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.cancel,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 10.0),
+                ],
+              ),
+            ),
+            /*Text(
               'LOCATION',
               style: TextStyle(
                 fontSize: 17,
@@ -147,6 +188,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ],
             ),
+            const SizedBox(height: 40),*/
             const SizedBox(height: 40),
             const Text(
               'GENRES',
@@ -199,47 +241,6 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                     );
                   }),
-            ),
-            const SizedBox(height: 40),
-            const Text(
-              'KEYWORD',
-              style: TextStyle(
-                fontSize: 17,
-                color: AppColors.buttonBackgroundColor,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Divider(
-              color: Colors.white60,
-              thickness: .3,
-            ),
-            const SizedBox(height: 10),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        hintText: 'Enter your text',
-                        hintStyle: TextStyle(
-                            color: Colors.white60, fontWeight: FontWeight.w300),
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(15.0),
-                      ),
-                    ),
-                  ),
-                  Icon(
-                    Icons.cancel,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10.0),
-                ],
-              ),
             ),
             const SizedBox(height: 30),
             Container(
