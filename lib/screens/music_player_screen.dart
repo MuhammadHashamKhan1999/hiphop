@@ -21,10 +21,11 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
   AnimationController? _controller;
 
   final AudioPlayerManager _audioPlayerManager = AudioPlayerManager();
-  double _currentSeek = 0.0;
   List<String> _audioFiles = ['music/audio1.mp3', 'music/audio2.mp3', 'music/audio3.mp3',];
 
-  int _currentIndex = 0;
+  double _currentSeek = 0.0;
+  int _currentIndex = 0, _currentLineIndex = 0;
+  bool _isShowLyrics = false;
 
   IconData _playPauseIcon = Icons.play_arrow;
 
@@ -36,8 +37,6 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
     "Chorus: Duis aute irure dolor in reprehenderit in voluptate velit.",
     "Outro: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   ];
-
-  int _currentLineIndex = 0;
 
   @override
   void initState() {
@@ -107,11 +106,11 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                       ),
                       InkWell(
                         onTap: () {
-
+                          _isShowLyrics = !_isShowLyrics;
                         },
-                        child: const Text(
-                          'Lyrics',
-                          style: TextStyle(
+                        child: Text(
+                          !_isShowLyrics ? 'Lyrics' : "Player",
+                          style: const TextStyle(
                               color: AppColors.buttonBackgroundColor,
                               fontFamily: 'Poppins',
                               letterSpacing: 0.9,
@@ -124,62 +123,106 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                   ),
                 ),
                 SizedBox(height: Dimension.height20,),
-                AnimatedBuilder(
-                  animation: _controller!,
-                  builder: (BuildContext context, Widget? child) {
-                    return Transform.rotate(
-                      angle: _controller!.value * 2.0 * 3.14159,
-                      child: Container(
-                        width: 180,
-                        height: 180,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage('https://i.ytimg.com/vi/pCh3Kp6qxo8/maxresdefault.jpg'),
-                            fit: BoxFit.fill,
+                !_isShowLyrics ? Column(
+                  children: [
+                    AnimatedBuilder(
+                      animation: _controller!,
+                      builder: (BuildContext context, Widget? child) {
+                        return Transform.rotate(
+                          angle: _controller!.value * 2.0 * 3.14159,
+                          child: Container(
+                            width: 180,
+                            height: 180,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: NetworkImage('https://i.ytimg.com/vi/pCh3Kp6qxo8/maxresdefault.jpg'),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
                           ),
-                        ),
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 12),
+                    const Text(
+                      'Drawing Room',
+                      style: TextStyle(
+                        color: AppColors.textWhiteColor,
+                        fontSize: 24,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.1,
                       ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 12),
-                const Text(
-                  'Drawing Room',
-                  style: TextStyle(
-                    color: AppColors.textWhiteColor,
-                    fontSize: 24,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.1,
-                  ),
-                ),
-                const Text(
-                  'Thievery Corporation',
-                  style: TextStyle(
-                    color: AppColors.textWhiteColor,
-                    fontSize: 12,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w300,
-                    letterSpacing: 0.1,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: 130,
-                  child: ListView.builder(
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2.0),
-                        child: Text(
-                          _lyrics[index],
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 24.0 : 16.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
-                          textAlign: TextAlign.center,
-                        ),
-                      );
-                    },
-                  ),
+                    ),
+                    const Text(
+                      'Thievery Corporation',
+                      style: TextStyle(
+                        color: AppColors.textWhiteColor,
+                        fontSize: 12,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        letterSpacing: 0.1,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 130,
+                      child: ListView.builder(
+                        itemCount: 2,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 2.0),
+                            child: Text(
+                              _lyrics[index],
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 24.0 : 16.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
+                              textAlign: TextAlign.center,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ) : Column(
+                  children: [
+                    const Text(
+                      'Drawing Room',
+                      style: TextStyle(
+                        color: AppColors.textWhiteColor,
+                        fontSize: 24,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.1,
+                      ),
+                    ),
+                    const Text(
+                      'Thievery Corporation',
+                      style: TextStyle(
+                        color: AppColors.textWhiteColor,
+                        fontSize: 12,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        letterSpacing: 0.1,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * .4,
+                      child: ListView.builder(
+                        itemCount: _lyrics.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 2.0),
+                            child: Text(
+                              _lyrics[index],
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 24.0 : 16.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
+                              textAlign: TextAlign.center,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
                 const Spacer(),
                 const SizedBox(height: 40),
