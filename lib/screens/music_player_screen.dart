@@ -28,6 +28,17 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
 
   IconData _playPauseIcon = Icons.play_arrow;
 
+  final List<String> _lyrics = [
+    "Verse 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Chorus: Duis aute irure dolor in reprehenderit in voluptate velit.",
+    "Bridge: Excepteur sint occaecat cupidatat non proident.",
+    "Verse 2: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "Chorus: Duis aute irure dolor in reprehenderit in voluptate velit.",
+    "Outro: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  ];
+
+  int _currentLineIndex = 0;
+
   @override
   void initState() {
     super.initState();
@@ -139,7 +150,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     color: AppColors.textWhiteColor,
                     fontSize: 24,
                     fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     letterSpacing: 0.1,
                   ),
                 ),
@@ -151,6 +162,23 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w300,
                     letterSpacing: 0.1,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 130,
+                  child: ListView.builder(
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2.0),
+                        child: Text(
+                          _lyrics[index],
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 24.0 : 16.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
+                          textAlign: TextAlign.center,
+                        ),
+                      );
+                    },
                   ),
                 ),
                 const Spacer(),
