@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/bottom_bar_navigation.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-  const ChangePasswordScreen({super.key});
+
+  bool isForReset = true;
+  ChangePasswordScreen({super.key, required this.isForReset});
 
   @override
   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
@@ -169,6 +172,23 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 animationDuration: Duration(milliseconds: 1000)
                             ),
                             onPressed: (){
+                              if(widget.isForReset){
+                                Navigator.of(context, rootNavigator: true)
+                                    .pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                      return const SignInPage();
+                                    },
+                                  ),
+                                      (_) => false,
+                                );
+                                // Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
+                              }
+                              else{
+                                Navigator.pop(context);
+                              }
+
+                              // Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
 
                             },
                             child: Text("Confirm", style: TextStyle(color: AppColors.textWhiteColor)),

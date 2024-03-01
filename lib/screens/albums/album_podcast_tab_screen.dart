@@ -42,7 +42,7 @@ class AlbumPodcastTabScreen extends StatelessWidget {
                     width: 70,
                     height: 40,
                     decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: AppColors.buttonBackgroundColor,
                         borderRadius: BorderRadius.circular(5)
                     ),
                     child: Center(

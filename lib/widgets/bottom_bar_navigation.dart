@@ -7,6 +7,8 @@ import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/screens/search_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import '../screens/user_profile_screen.dart';
+
 
 class BottomBarNavigation extends StatelessWidget {
   const BottomBarNavigation({super.key});
@@ -18,7 +20,7 @@ class BottomBarNavigation extends StatelessWidget {
         HomePageScreen(),
         SearchScreen(),
         HomePageScreen(),
-        HomePageScreen(),
+        UserProfileScreen(showBack: false,),
       ];
     }
 
@@ -38,7 +40,7 @@ class BottomBarNavigation extends StatelessWidget {
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.headphones,size: 28,),
-          title: ("Your Library"),
+          title: ("Playlist"),
           activeColorPrimary: Color(0xFFAB3035),
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),

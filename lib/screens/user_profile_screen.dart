@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hiphop/screens/become_a_member_screen.dart';
+import 'package:hiphop/screens/change_password_screen.dart';
 import 'package:hiphop/screens/reset_password_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -7,7 +9,8 @@ import 'package:hiphop/widgets/bottom_bar_navigation.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
 class UserProfileScreen extends StatefulWidget {
-  const UserProfileScreen({super.key});
+  bool showBack = true;
+  UserProfileScreen({super.key, required this.showBack});
 
   @override
   State<UserProfileScreen> createState() => _UserProfileScreenState();
@@ -16,6 +19,9 @@ class UserProfileScreen extends StatefulWidget {
 class _UserProfileScreenState extends State<UserProfileScreen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Replace with your desired status bar color
+    ));
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -29,20 +35,25 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           primary: true,
           leadingWidth: 80,
           toolbarHeight: 80,
-          leading: InkWell(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: Container(
-              margin: const EdgeInsets.fromLTRB(20,15,10,15),
-              decoration: BoxDecoration(
-                  color: AppColors.buttonBackgroundColor,
-                  borderRadius: BorderRadius.circular(10)
-              ),
-              child: const Center(
-                child: Icon(
-                  Icons.arrow_back_outlined,
-                  color: AppColors.textWhiteColor,
+          elevation: 0,
+          surfaceTintColor: Colors.transparent,
+          leading: Visibility(
+            visible: widget.showBack,
+            child: InkWell(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(20,15,10,15),
+                decoration: BoxDecoration(
+                    color: AppColors.buttonBackgroundColor,
+                    borderRadius: BorderRadius.circular(10)
+                ),
+                child: const Center(
+                  child: Icon(
+                    Icons.arrow_back_outlined,
+                    color: AppColors.textWhiteColor,
+                  ),
                 ),
               ),
             ),
@@ -60,7 +71,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           backgroundColor: Colors.transparent,
           excludeHeaderSemantics: true,
           forceMaterialTransparency: false,
-          shadowColor: Colors.white70,
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -93,7 +103,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 140),
+                const SizedBox(height: 50),
                 const ListTile(
                   title: Text(
                     'Username',
@@ -144,13 +154,18 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
                 ListTile(
                   title: const Text(
-                    'Reset Password',
+                    'Change Password',
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500
                     ),
                   ),
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPasswordScreen())),
+                  onTap: (){
+                    Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+                        builder: (_) => ChangePasswordScreen(isForReset: false),
+                      ),
+                    );
+                  },
                   trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
                   iconColor: AppColors.textWhiteColor,
                   selectedColor: AppColors.buttonBackgroundColor,

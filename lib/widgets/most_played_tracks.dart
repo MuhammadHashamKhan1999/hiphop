@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hiphop/screens/music_player_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 
@@ -119,11 +120,11 @@ class MostPlayedTracks extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.multitrack_audio_outlined,
-                    color: Colors.red,
+                    color: AppColors.buttonBackgroundColor,
                     size: 28,
                     shadows: [
                       Shadow(
-                        color: Colors.red,
+                        color: AppColors.mainBackgroundColor,
                         blurRadius: 8,
                         offset: Offset(0, 5),
                       )
@@ -133,14 +134,19 @@ class MostPlayedTracks extends StatelessWidget {
                     width: Dimension.width10,
                   ),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+                            builder: (_) => MusicPlayer(),
+                            ),
+                            );
+                      },
                       child: const Text(
                         'Play',
                         style: TextStyle(color: Colors.white),
                       ),
                       style: const ButtonStyle(
                           backgroundColor:
-                              MaterialStatePropertyAll(Colors.red)))
+                              MaterialStatePropertyAll(AppColors.buttonBackgroundColor)))
                 ],
               )
             ],

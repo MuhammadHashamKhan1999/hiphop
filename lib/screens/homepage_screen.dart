@@ -80,7 +80,7 @@ class HomePageScreen extends StatelessWidget{
                       ],
                     ),
                     InkWell(
-                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const UserProfileScreen())),
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfileScreen(showBack: true,))),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
