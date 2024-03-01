@@ -1,10 +1,11 @@
-import 'package:audioplayers/audioplayers.dart';
+import 'dart:async';
+
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hiphop/screens/payment_screen.dart';
+import 'package:hiphop/utils/audio_player_manager.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
 
@@ -19,12 +20,10 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
 
   AnimationController? _controller;
 
-  AudioPlayer _audioPlayer = AudioPlayer();
-  List<String> _audioFiles = [
-    'music/audio1.mp3',
-    'music/audio2.mp3',
-    'music/audio3.mp3',
-  ];
+  final AudioPlayerManager _audioPlayerManager = AudioPlayerManager();
+  double _currentSeek = 0.0;
+  List<String> _audioFiles = ['music/audio1.mp3', 'music/audio2.mp3', 'music/audio3.mp3',];
+
   int _currentIndex = 0;
 
   IconData _playPauseIcon = Icons.play_arrow;
@@ -36,11 +35,15 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
       duration: const Duration(seconds: 15),
       vsync: this,
     )..repeat();
+
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent, // Replace with your desired status bar color
     ));
 
@@ -151,7 +154,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                   ),
                 ),
                 const Spacer(),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 35.0),
                   child: Row(
@@ -221,7 +224,50 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ],
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        _formatDuration(_audioPlayerManager.position),
+                        style: const TextStyle(fontSize: 12.0, color: Colors.white),
+                      ),
+                      StreamBuilder<double>(
+                        stream: _audioPlayerManager.progressStream,
+                        initialData: 0.0,
+                        builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+                          final progress = snapshot.data;
+                          _currentSeek = progress != null ? progress * 100.0 : 0;
+                          return Expanded(
+                            child: Slider(
+                              min: 0.0,
+                              max: 100.0,
+                              activeColor: AppColors.buttonBackgroundColor,
+                              value: _currentSeek,
+                              onChanged: (value) {
+                                setState(() {
+                                  _currentSeek = value;
+                                });
+                              },
+                              onChangeEnd: (value) {
+                                final seekValue = (value / 100) * _audioPlayerManager.duration.inMilliseconds;
+                                _audioPlayerManager.seek(Duration(milliseconds: seekValue.toInt()));
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      Text(
+                        _formatDuration(_audioPlayerManager.duration),
+                        style: const TextStyle(fontSize: 12.0, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: Row(
@@ -314,7 +360,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ],
                   ),
                 ),
-                SizedBox(height: 40)
+                const SizedBox(height: 40)
               ],
             ),
           ),
@@ -325,22 +371,21 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
+    _audioPlayerManager.dispose();
     _controller!.dispose();
     super.dispose();
   }
 
   // private methods
   Future<void> _playAudio(String audioPath) async {
-    await _audioPlayer.play(AssetSource(_audioFiles[_currentIndex]));
-    // await _audioPlayer.play(UrlSource(_audioFiles[_currentIndex]));  // to play from url
+    await _audioPlayerManager.play(_audioFiles[_currentIndex]);
     setState(() {
       _playPauseIcon = Icons.pause;
     });
   }
 
   Future<void> _pauseAudio() async {
-    await _audioPlayer.pause();
+    await _audioPlayerManager.pause();
     setState(() {
       _playPauseIcon = Icons.play_arrow;
     });
@@ -359,4 +404,13 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
       _playAudio(_audioFiles[_currentIndex]);
     }
   }
+
+  // calculate duration
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+    return "$twoDigitMinutes:$twoDigitSeconds";
+  }
+
 }
