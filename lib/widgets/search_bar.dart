@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 
 class SearchBarWithIcon extends StatelessWidget {
@@ -55,6 +56,7 @@ class SearchBarWithIcon extends StatelessWidget {
                       fontSize: 17,
                       color: Colors.white70,
                     ),
+                    cursorColor: AppColors.buttonBackgroundColor,
 
 
                   ),

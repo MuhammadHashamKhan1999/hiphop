@@ -349,7 +349,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: Row(
@@ -373,7 +373,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                           ),
                         )
                       ),
-                      const SizedBox(width: 20),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 35,
                         height: 35,
@@ -442,7 +442,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ],
                   ),
                 ),
-                const SizedBox(height: 40)
+                const SizedBox(height: 20)
               ],
             ),
           ),

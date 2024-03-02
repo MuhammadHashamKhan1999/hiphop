@@ -12,7 +12,7 @@ class MostPlayedTracks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.only(top: 10.0),
       child: Column(
         children: [
           Row(
@@ -30,7 +30,7 @@ class MostPlayedTracks extends StatelessWidget {
                     decoration: const BoxDecoration(color: Colors.red),
                   ),
                   SizedBox(
-                    height: Dimension.height10,
+                    height: Dimension.height20,
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +44,7 @@ class MostPlayedTracks extends StatelessWidget {
                             size: 24,
                           )),
                       const SizedBox(
-                        width: 05,
+                        width: 10,
                       ),
                       const Text(
                         '31',
@@ -146,14 +146,15 @@ class MostPlayedTracks extends StatelessWidget {
                       ),
                       style: const ButtonStyle(
                           backgroundColor:
-                              MaterialStatePropertyAll(AppColors.buttonBackgroundColor)))
+                              MaterialStatePropertyAll(AppColors.buttonBackgroundColor),
+                      ),
+                  ),
+
+
                 ],
               )
             ],
           ),
-          const Row(
-            children: [],
-          )
         ],
       ),
     );

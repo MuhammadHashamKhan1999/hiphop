@@ -82,7 +82,7 @@ class GenreDetailsPage extends StatelessWidget {
               SizedBox(height: Dimension.height20,),
 
               Container(
-                height: Dimension.screenHeight/1.7,
+                height: Dimension.screenHeight/1.6,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Wrap(
@@ -97,9 +97,8 @@ class GenreDetailsPage extends StatelessWidget {
 
                          },
                          child: Container(
-
                            margin: const EdgeInsets.only(bottom: 5,left: 5),
-                           width: Dimension.screenWidth/2.3,
+                           width: Dimension.screenWidth/2.4,
                            height: 200,
                            padding: EdgeInsets.only(left: 5,right: 5),
                            decoration: BoxDecoration(

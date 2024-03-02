@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/screens/support_screen.dart';
+import 'package:hiphop/screens/user_profile_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -58,11 +60,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         shadowColor: Colors.white70,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25.0),
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             ListTile(
               title: const Text(
                 'Notifications',
@@ -85,7 +87,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               selectedColor: AppColors.buttonBackgroundColor,
               textColor: AppColors.textWhiteColor,
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             ListTile(
               title: const Text(
                 'Auto Play Tracks',
@@ -109,15 +111,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
               textColor: AppColors.textWhiteColor,
             ),
             const SizedBox(height: 5),
-            const ListTile(
-              title: Text(
+            ListTile(
+              title: const Text(
                 'Edit Your Profile',
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500
                 ),
               ),
-              trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfileScreen(showBack: true))),
+              trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
               iconColor: AppColors.textWhiteColor,
               selectedColor: AppColors.buttonBackgroundColor,
               textColor: AppColors.textWhiteColor,

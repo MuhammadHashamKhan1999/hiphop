@@ -86,7 +86,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                        image: NetworkImage('https://www.westtransit.com/wp-content/uploads/2016/06/team-1.jpg'),
+                        image: AssetImage('assets/images/profile_picture.png'),
+                        // image: NetworkImage('https://www.westtransit.com/wp-content/uploads/2016/06/team-1.jpg'),
                         fit: BoxFit.fill,
                       ),
                     ),

@@ -33,7 +33,6 @@ class HomePageScreen extends StatelessWidget{
             Container(
               height: Dimension.height30*7.2,
               child: DrawerHeader(
-
                 margin: EdgeInsets.all(0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,60 +138,7 @@ class HomePageScreen extends StatelessWidget{
 
               },
             ),
-            // ListTile(
-            //   title: Row(
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: [
-            //       Container(
-            //         child: Icon(
-            //           Icons.payment
-            //         ),
-            //       ),
-            //       SizedBox(width: 10,),
-            //       Text(
-            //         'Payments',
-            //         style: TextStyle(
-            //           fontSize: 14,
-            //           fontWeight: FontWeight.w400
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            //   iconColor: AppColors.textWhiteColor,
-            //   selectedColor: AppColors.buttonBackgroundColor,
-            //   textColor: AppColors.textWhiteColor,
-            //   selectedTileColor: Colors.red,
-            //   onTap: (){
-            //     Navigator.push(context, MaterialPageRoute(builder: (context) => const PaymentScreen()));
-            //   },
-            // ),
-            // ListTile(
-            //   title: Row(
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: [
-            //       Container(
-            //         child: Icon(
-            //           Icons.support_sharp
-            //         ),
-            //       ),
-            //       SizedBox(width: 10,),
-            //       Text(
-            //         'Support',
-            //         style: TextStyle(
-            //           fontSize: 14,
-            //           fontWeight: FontWeight.w400
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            //   iconColor: AppColors.textWhiteColor,
-            //   selectedColor: AppColors.buttonBackgroundColor,
-            //   textColor: AppColors.textWhiteColor,
-            //   selectedTileColor: Colors.red,
-            //   onTap: (){
-            //     Navigator.push(context,MaterialPageRoute(builder: (context) => const SupportScreen()));
-            //   },
-            // ),
+
             ListTile(
               title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -221,31 +167,7 @@ class HomePageScreen extends StatelessWidget{
               },
             ),
             Divider(height:1,color: AppColors.greyColor,),
-            // Container(
-            //   alignment: Alignment.center,
-            //   padding: EdgeInsets.only(top:10),
-            //   child: Stack(
-            //     children: [
-            //       InkWell(
-            //         onTap:(){
-            //
-            //         },
-            //         child: Container(
-            //
-            //           width: Dimension.width20*14,
-            //           height: Dimension.width20*11,
-            //           child: Container(
-            //             child: Image.asset(
-            //               'assets/images/become_member.png',
-            //               fit: BoxFit.cover,
-            //               scale: 1.0,
-            //             ),
-            //           ),
-            //         ),
-            //       )
-            //     ],
-            //   ),
-            // ),
+
             SizedBox(height: 5,),
             ListTile(
               title: Row(
@@ -319,14 +241,16 @@ class HomePageScreen extends StatelessWidget{
             backgroundColor: AppColors.mainBackgroundColor,
             leading: Container(
               child: Builder(
-
                   builder: (context)=>InkWell(
                   onTap: (){
                     Scaffold.of(context).openDrawer();
                   },
-
                   child: Container(
+                    width: 150,
+                    height: 150,
                     decoration: BoxDecoration(
+                      // color: AppColors.mainBackgroundColor,
+                      // borderRadius: BorderRadius.all(Radius.circular(10)),
                       image: DecorationImage(
                         image: AssetImage("assets/images/menuIcon.png"),
                         fit: BoxFit.cover
@@ -339,10 +263,6 @@ class HomePageScreen extends StatelessWidget{
 
               ),
             ),
-
-
-
-
             expandedHeight: Dimension.screenWidth/1.5,
             floating: false,
             pinned: true,
@@ -351,6 +271,249 @@ class HomePageScreen extends StatelessWidget{
                 child: const SliderScreen()
               ),
             ),
+          ),
+          SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.only(left: 20.0,right: 20.0,top: 5),
+                child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Following',
+                          style: TextStyle(
+                              color: AppColors.textWhiteColor,
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600
+                          ),
+                        ),
+                        // InkWell(
+                        //   onTap: (){},
+                        //   child: Row(
+                        //     children: [
+                        //       Text(
+                        //         'View All',
+                        //         style: TextStyle(
+                        //           color: Colors.grey.shade200,
+                        //           fontFamily: 'Poppins',
+                        //           fontSize: 14,
+                        //           fontWeight: FontWeight.w400,
+                        //           decorationStyle: TextDecorationStyle.solid,
+                        //           decorationColor: Colors.black,
+                        //           decorationThickness: 2,
+                        //         ),
+                        //       ),
+                        //       Icon(
+                        //         Icons.arrow_forward_ios_outlined,
+                        //         color: Colors.grey.shade200,
+                        //         size: 14,
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                      ],
+                    ),
+                    SizedBox(height: Dimension.height20,),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 220,
+                            height: 300,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 220,
+                                  width: 200,
+                                  padding: const EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      image: const AssetImage('assets/images/artist_images/artist_01.png'),
+                                      fit: BoxFit.cover,
+                                      alignment: Alignment.center,
+                                      colorFilter: ColorFilter.mode(
+                                          Colors.black.withOpacity(0.5),
+                                          BlendMode.darken
+                                      ),
+                                    ),
+                                  ),
+                                  // child: const Center(
+                                  //   child: Text(
+                                  //     "Chill Out",
+                                  //     style: TextStyle(
+                                  //         fontSize: 26,
+                                  //         color: Colors.white,
+                                  //         fontFamily: 'Poppins',
+                                  //         fontWeight: FontWeight.w500
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                ),
+                                Container(
+                                  height: Dimension.height30*2,
+                                  padding: const EdgeInsets.only(top: 10 ),
+                                  child: const Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Eric Saede",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500
+                                        ),
+                                      ),
+                                      Text("Dance, rock",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w300
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 10,),
+                          SizedBox(
+                            width: 220,
+                            height: 300,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 220,
+                                  width: 200,
+                                  padding: const EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      image: const AssetImage('assets/images/artist_images/artist_01.png'),
+                                      fit: BoxFit.cover,
+                                      alignment: Alignment.center,
+                                      colorFilter: ColorFilter.mode(
+                                          Colors.black.withOpacity(0.5),
+                                          BlendMode.darken
+                                      ),
+                                    ),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "Chill Out",
+                                      style: TextStyle(
+                                          fontSize: 26,
+                                          color: Colors.white,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  height: Dimension.height30*2,
+                                  padding: const EdgeInsets.only(top: 10 ),
+                                  child: const Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Eric Saede",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500
+                                        ),
+                                      ),
+                                      Text("Dance, rock",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w300
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 10,),
+                          SizedBox(
+                            width: 220,
+                            height: 300,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 220,
+                                  width: 200,
+                                  padding: const EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      image: const AssetImage('assets/images/artist_images/artist_01.png'),
+                                      fit: BoxFit.cover,
+                                      alignment: Alignment.center,
+                                      colorFilter: ColorFilter.mode(
+                                          Colors.black.withOpacity(0.5),
+                                          BlendMode.darken
+                                      ),
+                                    ),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "Chill Out",
+                                      style: TextStyle(
+                                          fontSize: 26,
+                                          color: Colors.white,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  height: Dimension.height30*2,
+                                  padding: const EdgeInsets.only(top: 10 ),
+                                  child: const Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Eric Saede",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500
+                                        ),
+                                      ),
+                                      Text("Dance, rock",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w300
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 10,),
+
+
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
           ),
           SliverToBoxAdapter(
             child: SearchBarWithIcon()

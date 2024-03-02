@@ -70,6 +70,8 @@ class _SupportScreenState extends State<SupportScreen> {
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(15.0),
                 ),
+                cursorColor: AppColors.buttonBackgroundColor,
+
               ),
             ),
             const SizedBox(height: 20),
@@ -87,6 +89,8 @@ class _SupportScreenState extends State<SupportScreen> {
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(15.0),
                 ),
+                cursorColor: AppColors.buttonBackgroundColor,
+
               ),
             ),
             const SizedBox(height: 20),
@@ -104,6 +108,8 @@ class _SupportScreenState extends State<SupportScreen> {
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(15.0),
                 ),
+                cursorColor: AppColors.buttonBackgroundColor,
+
               ),
             ),
             const Spacer(),
