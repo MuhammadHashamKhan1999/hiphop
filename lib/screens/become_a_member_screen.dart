@@ -94,7 +94,7 @@ class _BecomeAMemberScreeenState extends State<BecomeAMemberScreeen> {
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: TextField(
-                    cursorColor: AppColors.mainBackgroundColor,
+                    cursorColor: AppColors.buttonBackgroundColor,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                     style: TextStyle(color: Colors.white),
@@ -115,7 +115,7 @@ class _BecomeAMemberScreeenState extends State<BecomeAMemberScreeen> {
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: TextField(
-                    cursorColor: AppColors.mainBackgroundColor,
+                    cursorColor: AppColors.buttonBackgroundColor,
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.done,
                     style: TextStyle(color: Colors.white),

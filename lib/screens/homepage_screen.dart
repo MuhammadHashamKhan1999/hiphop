@@ -31,12 +31,12 @@ class HomePageScreen extends StatelessWidget{
         child: ListView(
           children: [
             Container(
-              height: Dimension.height30*7.2,
+              height: Dimension.height30*9,
               child: DrawerHeader(
                 margin: EdgeInsets.all(0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
                   children: [
                     Row(
@@ -84,11 +84,14 @@ class HomePageScreen extends StatelessWidget{
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
+                            margin: EdgeInsets.only(bottom: 10),
                             width: 75,
                             height: 75,
                             child: CircleAvatar(
-                              backgroundImage: AssetImage('assets/images/profile_picture.png'),
-                            ),
+                              // backgroundImage: AssetImage('assets/images/profile_picture.png'),
+                              backgroundImage: NetworkImage('https://www.westtransit.com/wp-content/uploads/2016/06/team-1.jpg')
+
+                      ),
                           ),
                           SizedBox(width: Dimension.width10,),
                           Text(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiphop/utils/colors_constant.dart';
+import 'package:hiphop/utils/dimensions.dart';
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});
@@ -57,59 +58,165 @@ class _SupportScreenState extends State<SupportScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 30),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: TextField(
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  hintText: 'Name',
-                  hintStyle: TextStyle(color: Colors.white60, fontWeight: FontWeight.w300),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(15.0),
-                ),
-                cursorColor: AppColors.buttonBackgroundColor,
+            SizedBox(
+              width: Dimension.screenWidth*0.95 ,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextField(
+                  autofocus: true,
+                  cursorColor: AppColors.buttonBackgroundColor,
+                  style: const TextStyle(color: AppColors.textWhiteColor),
+                  decoration: InputDecoration(
+                      enabled: true,
 
+                      // Focused Border Setting
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: AppColors.buttonBackgroundColor,
+                            width: 2.0,
+                            style: BorderStyle.solid,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0)),
+
+                      // Enabled Border Setting
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: AppColors.greyColor,
+                              width: 2.0,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(12.0)),
+                      border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: AppColors.buttonBackgroundColor,
+                              width: 2.0,
+                              style: BorderStyle.solid
+                          ),
+                          borderRadius: BorderRadius.circular(12.0)),
+                      // Error Border Setting
+                      errorBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.buttonBackgroundColor,
+                          width: 2.0,
+                        ),
+                      ),
+
+                      labelText: "Name",
+                      alignLabelWithHint: false,
+                      labelStyle: TextStyle(
+                          color: AppColors.textWhiteColor
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.auto,
+                      isCollapsed: false
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: const TextField(
-                style: TextStyle(color: Colors.white),
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  hintStyle: TextStyle(color: Colors.white60, fontWeight: FontWeight.w300),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(15.0),
-                ),
-                cursorColor: AppColors.buttonBackgroundColor,
+            SizedBox(
+              width: Dimension.screenWidth*0.95 ,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextField(
+                  autofocus: true,
+                  cursorColor: AppColors.buttonBackgroundColor,
+                  style: const TextStyle(color: AppColors.textWhiteColor),
+                  decoration: InputDecoration(
+                      enabled: true,
 
+                      // Focused Border Setting
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: AppColors.buttonBackgroundColor,
+                            width: 2.0,
+                            style: BorderStyle.solid,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0)),
+
+                      // Enabled Border Setting
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: AppColors.greyColor,
+                              width: 2.0,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(12.0)),
+                      border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: AppColors.buttonBackgroundColor,
+                              width: 2.0,
+                              style: BorderStyle.solid
+                          ),
+                          borderRadius: BorderRadius.circular(12.0)),
+                      // Error Border Setting
+                      errorBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.buttonBackgroundColor,
+                          width: 2.0,
+                        ),
+                      ),
+
+                      labelText: "Email",
+                      alignLabelWithHint: false,
+                      labelStyle: TextStyle(
+                          color: AppColors.textWhiteColor
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.auto,
+                      isCollapsed: false
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: const TextField(
-                style: TextStyle(color: Colors.white),
-                maxLines: 6,
-                decoration: InputDecoration(
-                  hintText: 'type your message here...',
-                  hintStyle: TextStyle(color: Colors.white60, fontWeight: FontWeight.w300),
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(15.0),
-                ),
-                cursorColor: AppColors.buttonBackgroundColor,
+            SizedBox(
+              width: Dimension.screenWidth*0.95 ,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: TextField(
+                  maxLines: 6,
+                  autofocus: true,
+                  cursorColor: AppColors.buttonBackgroundColor,
+                  style: const TextStyle(color: AppColors.textWhiteColor),
+                  decoration: InputDecoration(
+                      enabled: true,
 
+                      // Focused Border Setting
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: AppColors.buttonBackgroundColor,
+                            width: 2.0,
+                            style: BorderStyle.solid,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0)),
+
+                      // Enabled Border Setting
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: AppColors.greyColor,
+                              width: 2.0,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(12.0)),
+                      border: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: AppColors.buttonBackgroundColor,
+                              width: 2.0,
+                              style: BorderStyle.solid
+                          ),
+                          borderRadius: BorderRadius.circular(12.0)),
+                      // Error Border Setting
+                      errorBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.buttonBackgroundColor,
+                          width: 2.0,
+                        ),
+                      ),
+                      labelText: "Your Message",
+                      alignLabelWithHint: true,
+                      labelStyle: TextStyle(
+                          color: AppColors.textWhiteColor
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.auto,
+                      isCollapsed: false
+                  ),
+                ),
               ),
             ),
             const Spacer(),
