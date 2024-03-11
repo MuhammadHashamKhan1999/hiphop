@@ -23,7 +23,7 @@ class PodcastTabHomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                'Browse by Genre',
+                'Browse by Artist',
                 style: TextStyle(
                     color: AppColors.textWhiteColor,
                     fontFamily: 'Poppins',
@@ -88,7 +88,7 @@ class PodcastTabHomeScreen extends StatelessWidget {
                     ),
                     child: const Center(
                       child: Text(
-                        "Chill Out",
+                        "Let's Talk",
                         style: TextStyle(
                             fontSize: 26,
                             color: Colors.white,
@@ -202,7 +202,7 @@ class PodcastTabHomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                'New Album',
+                'New Podcasts',
                 style: TextStyle(
                     color: AppColors.textWhiteColor,
                     fontFamily: 'Poppins',
@@ -495,7 +495,7 @@ class PodcastTabHomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                'Most Played Tracks',
+                'Most Played Podcasts',
                 style: TextStyle(
                     color: AppColors.textWhiteColor,
                     fontFamily: 'Poppins',
@@ -830,7 +830,6 @@ class PodcastTabHomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
               ],
             ),
           ),
