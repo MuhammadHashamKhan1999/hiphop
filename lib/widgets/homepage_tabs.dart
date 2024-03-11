@@ -95,15 +95,9 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                 controller: _tabController,
                 children: const [
                   // Work in Music Tab
-                  Tab(
-                    child: MusicTabHomeScreen(),
-                  ),
-                  Tab(
-                    child: PodcastTabHomeScreen(),
-                  ),
-                  Tab(
-                    child: StreamingTabHomeScreen(),
-                  ),
+                  Tab(child: MusicTabHomeScreen()),
+                  Tab(child: PodcastTabHomeScreen()),
+                  Tab(child: StreamingTabHomeScreen()),
                 ],
               ),
             )
