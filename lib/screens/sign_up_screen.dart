@@ -365,27 +365,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          Image.asset("assets/images/twitter_icon.png"),
+                                          Image.asset("assets/images/facebook_icon.png"),
                                           SizedBox(width: Dimension.width05,),
-                                          SmallText(text: "Twitter", size: 16.0,)
+                                          SmallText(text: "Facebook", size: 16.0,)
                                         ],
                                       ),
                                     ),
-
                                   ),
                                 ),
                               ],
                             ),
                           ),
-
-
-
                         ],
                       ),
                     ),
                   ),
                 ),
-              ])),
+              ],
+          ),
+      ),
     );
   }
   void _navigateToNextScreen(BuildContext context) {
