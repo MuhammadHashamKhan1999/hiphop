@@ -119,7 +119,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                 animationDuration: Duration(milliseconds: 1000)
                             ),
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ChangePasswordScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => ChangePasswordScreen(isForReset: true,)));
                             },
                             child: Text("Continue", style: TextStyle(color: AppColors.textWhiteColor)),
                           ),

@@ -30,7 +30,7 @@ class GenreDetailsPage extends StatelessWidget {
             );
           },
           child: Container(
-            margin: const EdgeInsets.fromLTRB(20,15,10,15),
+            margin: const EdgeInsets.fromLTRB(20,15,10,10),
             decoration: BoxDecoration(
                 color: AppColors.buttonBackgroundColor,
                 borderRadius: BorderRadius.circular(10)
@@ -60,13 +60,10 @@ class GenreDetailsPage extends StatelessWidget {
         excludeHeaderSemantics: true,
         forceMaterialTransparency: false,
         shadowColor: Colors.white70,
-
-
-
       ),
       body: Center(
         child: Container(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -97,9 +94,8 @@ class GenreDetailsPage extends StatelessWidget {
 
                          },
                          child: Container(
-
                            margin: const EdgeInsets.only(bottom: 5,left: 5),
-                           width: Dimension.screenWidth/2.3,
+                           width: Dimension.screenWidth/2.4,
                            height: 200,
                            padding: EdgeInsets.only(left: 5,right: 5),
                            decoration: BoxDecoration(
@@ -150,99 +146,6 @@ class GenreDetailsPage extends StatelessWidget {
               ),
 
 
-
-              // Container(
-              //   width: double.maxFinite,
-              //   height: Dimension.screenHeight/1.5,
-              //   child: ListView.builder(
-              //     itemCount: GenresDetail.length,
-              //       itemBuilder: (_,index){
-              //         return Container(
-              //           padding: EdgeInsets.only(left: 5,right: 5),
-              //           margin: EdgeInsets.only(left: 2, top: 2,bottom: 10,right: 2),
-              //           decoration: BoxDecoration(
-              //               borderRadius: BorderRadius.circular(10)
-              //           ),
-              //           child: Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Column(
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   Container(
-              //                     width: Dimension.screenWidth/2.5,
-              //                     height: 150,
-              //                     decoration: BoxDecoration(
-              //                         color: Colors.blue,
-              //                         image: DecorationImage(
-              //                             image: AssetImage(GenresDetail[index].image),
-              //                             fit: BoxFit.cover
-              //                         ),
-              //                         borderRadius: BorderRadius.circular(10)
-              //                     ),
-              //                   ),
-              //                   SizedBox(height: 05,),
-              //                   Text(
-              //                     GenresDetail[index].name,
-              //                     style: TextStyle(
-              //                       color: Colors.white,
-              //                       fontSize: 14,
-              //                       fontFamily: 'Poppins',
-              //                       fontWeight: FontWeight.w500,
-              //                     ),
-              //                   ),
-              //                   Text(
-              //                     GenresDetail[index].desc,
-              //                     style: TextStyle(
-              //                       color: Colors.white,
-              //                       fontSize: 12,
-              //                       fontFamily: 'Poppins',
-              //                       fontWeight: FontWeight.w400 ,
-              //                     ),
-              //                   ),
-              //                 ],
-              //               ),
-              //               Column(
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   Container(
-              //                     width: Dimension.screenWidth/2.5,
-              //                     height: 150,
-              //                     decoration: BoxDecoration(
-              //                         color: Colors.blue,
-              //                         image: DecorationImage(
-              //                             image: AssetImage('assets/images/genre_details.png'),
-              //                             fit: BoxFit.cover
-              //                         ),
-              //                         borderRadius: BorderRadius.circular(10)
-              //                     ),
-              //                   ),
-              //                   SizedBox(height: 05,),
-              //                   Text(
-              //                     'Truth is a Beautiful',
-              //                     style: TextStyle(
-              //                       color: Colors.white,
-              //                       fontSize: 14,
-              //                       fontFamily: 'Poppins',
-              //                       fontWeight: FontWeight.w500,
-              //                     ),
-              //                   ),
-              //                   Text(
-              //                     'London Grammar',
-              //                     style: TextStyle(
-              //                       color: Colors.white,
-              //                       fontSize: 12,
-              //                       fontFamily: 'Poppins',
-              //                       fontWeight: FontWeight.w400 ,
-              //                     ),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ],
-              //           ),
-              //         );
-              //       }),
-              // )
             ],
           ),
         ),

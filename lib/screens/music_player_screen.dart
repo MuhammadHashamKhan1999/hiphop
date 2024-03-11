@@ -5,9 +5,11 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/utils/audio_player_manager.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
+import '../widgets/bottom_bar_navigation.dart';
 
 class MusicPlayer extends StatefulWidget {
   const MusicPlayer({super.key});
@@ -82,16 +84,25 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
+                        alignment: Alignment.center,
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
                             color: AppColors.buttonBackgroundColor,
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        child: const Center(
-                          child: Icon(
-                            FluentIcons.resize_small_24_filled,
-                            color: AppColors.textWhiteColor,
+                        child: Center(
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => BottomBarNavigation(),
+                              ),
+                              );
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: AppColors.textWhiteColor,
+                            ),
                           ),
                         ),
                       ),
@@ -338,7 +349,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: Row(
@@ -362,7 +373,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                           ),
                         )
                       ),
-                      const SizedBox(width: 20),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 35,
                         height: 35,
@@ -431,7 +442,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ],
                   ),
                 ),
-                const SizedBox(height: 40)
+                const SizedBox(height: 20)
               ],
             ),
           ),

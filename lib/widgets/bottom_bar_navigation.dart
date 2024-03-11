@@ -4,8 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
+import 'package:hiphop/screens/playlist_screen.dart';
 import 'package:hiphop/screens/search_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
+import '../screens/user_profile_screen.dart';
 
 
 class BottomBarNavigation extends StatelessWidget {
@@ -17,8 +20,8 @@ class BottomBarNavigation extends StatelessWidget {
       return [
         HomePageScreen(),
         SearchScreen(),
-        HomePageScreen(),
-        HomePageScreen(),
+        PlayListScreen(),
+        UserProfileScreen(showBack: false,),
       ];
     }
 
@@ -38,7 +41,7 @@ class BottomBarNavigation extends StatelessWidget {
         ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.headphones,size: 28,),
-          title: ("Your Library"),
+          title: ("Playlist"),
           activeColorPrimary: Color(0xFFAB3035),
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),

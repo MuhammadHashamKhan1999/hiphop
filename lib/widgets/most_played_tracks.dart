@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hiphop/screens/music_player_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 
@@ -11,7 +12,7 @@ class MostPlayedTracks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.only(top: 10.0),
       child: Column(
         children: [
           Row(
@@ -29,7 +30,7 @@ class MostPlayedTracks extends StatelessWidget {
                     decoration: const BoxDecoration(color: Colors.red),
                   ),
                   SizedBox(
-                    height: Dimension.height10,
+                    height: Dimension.height20,
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,7 +44,7 @@ class MostPlayedTracks extends StatelessWidget {
                             size: 24,
                           )),
                       const SizedBox(
-                        width: 05,
+                        width: 10,
                       ),
                       const Text(
                         '31',
@@ -119,11 +120,11 @@ class MostPlayedTracks extends StatelessWidget {
                 children: [
                   const Icon(
                     Icons.multitrack_audio_outlined,
-                    color: Colors.red,
+                    color: AppColors.buttonBackgroundColor,
                     size: 28,
                     shadows: [
                       Shadow(
-                        color: Colors.red,
+                        color: AppColors.mainBackgroundColor,
                         blurRadius: 8,
                         offset: Offset(0, 5),
                       )
@@ -133,21 +134,27 @@ class MostPlayedTracks extends StatelessWidget {
                     width: Dimension.width10,
                   ),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+                            builder: (_) => MusicPlayer(),
+                            ),
+                            );
+                      },
                       child: const Text(
                         'Play',
                         style: TextStyle(color: Colors.white),
                       ),
                       style: const ButtonStyle(
                           backgroundColor:
-                              MaterialStatePropertyAll(Colors.red)))
+                              MaterialStatePropertyAll(AppColors.buttonBackgroundColor),
+                      ),
+                  ),
+
+
                 ],
               )
             ],
           ),
-          const Row(
-            children: [],
-          )
         ],
       ),
     );

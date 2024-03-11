@@ -5,19 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
+import 'package:hiphop/widgets/PlaylistTabsWidgets/podcast_list.dart';
+import 'package:hiphop/widgets/PlaylistTabsWidgets/streaming_list.dart';
 import 'package:hiphop/widgets/most_played_tracks.dart';
 import 'package:hiphop/widgets/music_tab_screen.dart';
 import 'package:hiphop/widgets/podcast_tab_screen.dart';
 import 'package:hiphop/widgets/streaming_tab_screen.dart';
 
-class HomePageTab extends StatefulWidget {
-  const HomePageTab({super.key});
+import 'PlaylistTabsWidgets/music_list.dart';
+
+class PlaylistTab extends StatefulWidget {
+  const PlaylistTab({super.key});
 
   @override
-  State<HomePageTab> createState() => _HomePageTabState();
+  State<PlaylistTab> createState() => _PlaylistTabState();
 }
 
-class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin {
+class _PlaylistTabState extends State<PlaylistTab> with TickerProviderStateMixin {
 
 
 
@@ -48,11 +52,11 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
                 tabs: const [
                   Tab(
                     child: Text(
-                        "Music",
+                      "Music",
                       style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500
+                          fontFamily: "Poppins",
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500
                       ),
                       // textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
@@ -87,22 +91,22 @@ class _HomePageTabState extends State<HomePageTab> with TickerProviderStateMixin
             ),
             Container(
               decoration: const BoxDecoration(
-                color: AppColors.mainBackgroundColor
+                  color: AppColors.mainBackgroundColor
               ),
               width: double.maxFinite,
               height: Dimension.screenHeight*1.5,
               child: TabBarView(
                 controller: _tabController,
-                children: const [
+                children: [
                   // Work in Music Tab
                   Tab(
-                    child: MusicTabHomeScreen(),
+                    child: MusicPlayistScreen(),
                   ),
                   Tab(
-                    child: PodcastTabHomeScreen(),
+                    child: PodcastPlaylistScreen(),
                   ),
                   Tab(
-                    child: StreamingTabHomeScreen(),
+                    child: StreamingPlaylistScreen(),
                   ),
                 ],
               ),
