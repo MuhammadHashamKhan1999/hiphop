@@ -95,11 +95,11 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                           child: InkWell(
                             onTap: (){
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (_) => BottomBarNavigation(),
-                              ),
+                                builder: (_) => const BottomBarNavigation(),
+                                ),
                               );
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.arrow_back,
                               color: AppColors.textWhiteColor,
                             ),
@@ -178,7 +178,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ),
                     const SizedBox(height: 20),
                     SizedBox(
-                      height: 130,
+                      height: MediaQuery.of(context).size.height * .15,
                       child: ListView.builder(
                         itemCount: 2,
                         itemBuilder: (context, index) {
@@ -186,7 +186,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                             padding: const EdgeInsets.symmetric(vertical: 2.0),
                             child: Text(
                               _lyrics[index],
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 24.0 : 16.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 20.0 : 14.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
                               textAlign: TextAlign.center,
                             ),
                           );
@@ -226,7 +226,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                             padding: const EdgeInsets.symmetric(vertical: 2.0),
                             child: Text(
                               _lyrics[index],
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 24.0 : 16.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: _currentLineIndex == index ? 20.0 : 14.0, color: _currentLineIndex == index ? Colors.white : Colors.white54), // Larger font for current line
                               textAlign: TextAlign.center,
                             ),
                           );
@@ -442,7 +442,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                     ],
                   ),
                 ),
-                const SizedBox(height: 20)
+                const SizedBox(height: 10)
               ],
             ),
           ),
