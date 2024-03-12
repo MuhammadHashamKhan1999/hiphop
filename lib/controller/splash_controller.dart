@@ -8,7 +8,7 @@ class SplashController extends GetxController{
   void onReady(){
     super.onReady();
     Future.delayed(const Duration(seconds: 2),(){
-      Get.offAll(Storage.isLoggedIn() ? const BottomBarNavigation() : const SignInPage(), transition: Transition.noTransition);
+      Get.offAll(Storage.isLoggedIn() ? const BottomBarNavigation() : const SignInScreen(), transition: Transition.noTransition);
     });
   }
 }

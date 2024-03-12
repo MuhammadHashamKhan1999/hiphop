@@ -55,13 +55,14 @@ void loginAPI(BuildContext context, String email, String password, String fcmTok
 
   Map<String, String> headers = {"Content-Type": "application/json"};
   Map data = {
-    Constants.email: email,
+    Constants.usernameOrEmail: email,
     Constants.password: password,
     Constants.device: Platform.isIOS ? "iOS" : "android",
     Constants.deviceToken: Constants.fcmToken,
   };
 
   String requestBody = json.encode(data);
+
   var response = await post(Uri.parse(url), headers: headers, body: requestBody);
   DialogUtility.closeLoaderDialog(context);
 

@@ -177,7 +177,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                     .pushAndRemoveUntil(
                                   MaterialPageRoute(
                                     builder: (BuildContext context) {
-                                      return const SignInPage();
+                                      return const SignInScreen();
                                     },
                                   ),
                                       (_) => false,

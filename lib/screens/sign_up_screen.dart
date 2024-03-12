@@ -501,28 +501,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
     String confirmPassword = _confirmPasswordController.text.trim();
 
     if (firstName.isEmpty) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_empty_name');
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter your first name');
       return false;
     } else if (lastName.isEmpty) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_empty_name');
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter your last name');
       return false;
     } else if (email.isNotEmpty && !EmailValidator.validate(email)) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_invalid_email');
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter your email address');
       return false;
     } else if (mobileNo.isEmpty) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_empty_mobile_no');
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter your contact number');
       return false;
     } else if (password.isEmpty) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_empty_password');
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter password');
       return false;
     } else if (password.length < Constants.passwordLength) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_invalid_password_length');
+      DialogUtility.showErrorDialog(context, "Error", 'Password is too short');
       return false;
     } else if (confirmPassword.isEmpty) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_empty_confirm_password');
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter confirm password');
       return false;
     } else if (password != confirmPassword) {
-      DialogUtility.showErrorDialog(context, "Error", 'err_password_didnt_match');
+      DialogUtility.showErrorDialog(context, "Error", 'Passwords didn\'t match');
       return false;
     }
     return true;

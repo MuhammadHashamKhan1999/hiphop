@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, file_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, unnecessary_import, unused_import, avoid_unnecessary_containers, unused_element
-
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -7,21 +7,33 @@ import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/screens/reset_password_screen.dart';
 import 'package:hiphop/screens/sign_up_screen.dart';
+import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/colors_constant.dart';
+import 'package:hiphop/utils/constants.dart';
+import 'package:hiphop/utils/dialog_utility.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/bottom_bar_navigation.dart';
 import 'package:hiphop/widgets/on_board_image_slider.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage  ({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          child: Stack(
-              children: [
+        child: Stack(
+          children: [
             Column(
               children: [
                 SizedBox(
@@ -59,7 +71,7 @@ class SignInPage extends StatelessWidget {
                         width: Dimension.width25 * 12,
                         child: SmallText(
                           text:
-                              "Check out listing of all this week’s new singles and albums",
+                          "Check out listing of all this week’s new singles and albums",
                           color: AppColors.greyTextColor,
                           height: 1.6,
                           size: Dimension.font16,
@@ -67,15 +79,14 @@ class SignInPage extends StatelessWidget {
                       ),
 
                       SizedBox(height: Dimension.height20),
-
-
-                      // Enter Your Email Address Text Fields
                       SizedBox(
                         width: Dimension.screenWidth*0.95 ,
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: TextField(
-                            autofocus: false,
+                            controller: _emailController,
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.emailAddress,
                             cursorColor: AppColors.buttonBackgroundColor,
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
@@ -141,7 +152,9 @@ class SignInPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: TextField(
-                            autofocus: false,
+                            controller: _passwordController,
+                            textInputAction: TextInputAction.done,
+                            keyboardType: TextInputType.text,
                             obscureText: true,
                             cursorColor: AppColors.buttonBackgroundColor,
                             style: const TextStyle(color: AppColors.textWhiteColor),
@@ -211,22 +224,26 @@ class SignInPage extends StatelessWidget {
                       // Sign In Button
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.zero
+                            borderRadius: BorderRadius.zero
                         ),
                         child: SizedBox(
                           width: Dimension.screenWidth*0.85,
                           child: ElevatedButton(
                             style: ButtonStyle(
-                              shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
-                              backgroundColor: MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
-                              ),
-                              mouseCursor: MaterialStateMouseCursor.clickable,
-                              shadowColor: MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
-                              animationDuration: Duration(milliseconds: 1000)
+                                shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
+                                backgroundColor: MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
+                                ),
+                                mouseCursor: MaterialStateMouseCursor.clickable,
+                                shadowColor: MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
+                                animationDuration: Duration(milliseconds: 1000)
 
                             ),
-                            onPressed: (){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomBarNavigation()));
+                            onPressed: () {
+                              if(_isValidated()) {
+                                String email = _emailController.text.trim();
+                                String password = _passwordController.text.trim();
+                                loginAPI(context, email, password, Constants.fcmToken);
+                              }
                             },
                             child: Text("Sign In", style: TextStyle(color: AppColors.textWhiteColor)),
                           ),
@@ -271,12 +288,12 @@ class SignInPage extends StatelessWidget {
                               child: Container(
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2,
-                                        color: AppColors.buttonBackgroundColor
-                                    ),
-                                    borderRadius: BorderRadius.all(Radius.circular(15.0),
-                                    ),
+                                  border: Border.all(
+                                      width: 2,
+                                      color: AppColors.buttonBackgroundColor
+                                  ),
+                                  borderRadius: BorderRadius.all(Radius.circular(15.0),
+                                  ),
                                 ),
                                 child: Container(
                                   // padding: EdgeInsets.only(left: 20),
@@ -296,7 +313,6 @@ class SignInPage extends StatelessWidget {
                           ],
                         ),
                       ),
-
                       SizedBox(height: Dimension.height30),
                       GestureDetector(
                         onTap: (){
@@ -307,7 +323,6 @@ class SignInPage extends StatelessWidget {
                           children: [
                             SmallText(text: "Don\'t Have an Account?"),
                             SmallText(text: "\t Let's Sign Up"),
-
                           ],
                         ),
                       ),
@@ -322,4 +337,21 @@ class SignInPage extends StatelessWidget {
     );
   }
 
+  // private method
+  bool _isValidated(){
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
+
+    if (email.isNotEmpty && !EmailValidator.validate(email)) {
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter your email address');
+      return false;
+    } else if (password.isEmpty) {
+      DialogUtility.showErrorDialog(context, "Error", 'Please enter password');
+      return false;
+    } else if (password.length < Constants.passwordLength) {
+      DialogUtility.showErrorDialog(context, "Error", 'Password is too short');
+      return false;
+    }
+    return true;
+  }
 }

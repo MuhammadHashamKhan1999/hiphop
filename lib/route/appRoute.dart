@@ -24,7 +24,7 @@ class AppRoute {
         screen = SplashScreen();
         break;
       case loginScreen:
-         screen = const SignInPage();
+         screen = const SignInScreen();
         break;
       case signupScreen:
          screen = const SignUpScreen();

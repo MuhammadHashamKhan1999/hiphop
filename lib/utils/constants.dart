@@ -17,6 +17,7 @@ class Constants {
   static const String authorization                                   = 'Authorization';
   static const String firstName                                       = 'first_name';
   static const String lastName                                        = 'last_name';
+  static const String usernameOrEmail                                 = 'username_or_email';
   static const String email                                           = 'email';
   static const String contactNumber                                   = 'contact_number';
   static const String password                                        = 'password';
