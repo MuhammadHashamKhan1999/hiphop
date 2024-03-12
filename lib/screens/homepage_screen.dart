@@ -4,12 +4,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/Models/app_user.dart';
 import 'package:hiphop/screens/become_a_member_screen.dart';
 import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/screens/settings_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/screens/support_screen.dart';
 import 'package:hiphop/screens/user_profile_screen.dart';
+import 'package:hiphop/storage.dart';
 import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,9 +23,21 @@ import 'package:hiphop/widgets/on_board_image_slider.dart';
 import 'package:hiphop/widgets/search_bar.dart';
 
 
-
-class HomePageScreen extends StatelessWidget{
+class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
+
+  @override
+  State<HomePageScreen> createState() => _HomePageScreenState();
+}
+
+class _HomePageScreenState extends State<HomePageScreen> {
+
+  AppUser user = Storage.getUser();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +62,17 @@ class HomePageScreen extends StatelessWidget{
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/hiphop_logo.png')
-                            )
+                              image: DecorationImage(
+                                  image: AssetImage('assets/images/hiphop_logo.png')
+                              )
                           ),
                         ),
                         Container(
                           width: 45,
                           height: 45,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppColors.buttonBackgroundColor
+                              borderRadius: BorderRadius.circular(10),
+                              color: AppColors.buttonBackgroundColor
                           ),
                           child: Builder(
 
@@ -91,13 +105,12 @@ class HomePageScreen extends StatelessWidget{
                             height: 75,
                             child: CircleAvatar(
                               // backgroundImage: AssetImage('assets/images/profile_picture.png'),
-                              backgroundImage: NetworkImage('https://www.westtransit.com/wp-content/uploads/2016/06/team-1.jpg')
-
-                      ),
+                                backgroundImage: NetworkImage(user.profilePhotoUrl!)
+                            ),
                           ),
                           SizedBox(width: Dimension.width10,),
                           Text(
-                            'David Jones',
+                            "${user.firstName} ${user.lastName}",
                             style: TextStyle(
                                 color: AppColors.textWhiteColor,
                                 fontFamily: 'Poppins',
@@ -120,15 +133,15 @@ class HomePageScreen extends StatelessWidget{
                 children: [
                   Container(
                     child: Icon(
-                      Icons.pie_chart
+                        Icons.pie_chart
                     ),
                   ),
                   SizedBox(width: 10,),
                   Text(
                     'Home',
                     style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400
                     ),
                   ),
                 ],
@@ -150,15 +163,15 @@ class HomePageScreen extends StatelessWidget{
                 children: [
                   Container(
                     child: Icon(
-                      Icons.settings_outlined
+                        Icons.settings_outlined
                     ),
                   ),
                   SizedBox(width: 10,),
                   Text(
                     'Settings',
                     style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400
                     ),
                   ),
                 ],
@@ -237,7 +250,7 @@ class HomePageScreen extends StatelessWidget{
             backgroundColor: AppColors.mainBackgroundColor,
             leading: Container(
               child: Builder(
-                  builder: (context)=>InkWell(
+                builder: (context)=>InkWell(
                   onTap: (){
                     Scaffold.of(context).openDrawer();
                   },
@@ -247,15 +260,15 @@ class HomePageScreen extends StatelessWidget{
                     decoration: BoxDecoration(
                       // color: AppColors.mainBackgroundColor,
                       // borderRadius: BorderRadius.all(Radius.circular(10)),
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/menuIcon.png"),
-                        fit: BoxFit.cover
-                      )
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/menuIcon.png"),
+                            fit: BoxFit.cover
+                        )
 
                     ),
                   ),
 
-              ),
+                ),
 
               ),
             ),
@@ -264,7 +277,7 @@ class HomePageScreen extends StatelessWidget{
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                child: const SliderScreen()
+                  child: const SliderScreen()
               ),
             ),
           ),
@@ -512,14 +525,14 @@ class HomePageScreen extends StatelessWidget{
               )
           ),
           SliverToBoxAdapter(
-            child: SearchBarWithIcon()
+              child: SearchBarWithIcon()
           ),
           const SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20.0,right: 20.0),
-                  child: HomePageTab()
-                ),
+            child: Padding(
+                padding: EdgeInsets.only(left: 20.0,right: 20.0),
+                child: HomePageTab()
             ),
+          ),
         ],
       ),
     );

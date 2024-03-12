@@ -65,25 +65,25 @@ void loginAPI(BuildContext context, String email, String password, String fcmTok
   String requestBody = json.encode(data);
 
   var response = await post(Uri.parse(url), headers: headers, body: requestBody);
-  DialogUtility.closeLoaderDialog(context);
 
   try {
-
-  if (response.statusCode == 200) {
-      Map<String, dynamic> data = json.decode(response.body);
-      String msg = data['message'];
-      String token = data['token'];
-      Storage.saveToken(token);
-      Storage.saveIsLoggedIn(true);
-      showToast(msg);
-      Get.offAllNamed(AppRoute.bottomBarNavigationScreen);
-    } else {
-      Map<String, dynamic> data = json.decode(response.body);
-      String msg = data['message'];
-      DialogUtility.showErrorDialog(context, 'Error', msg);
-    }
-  } catch (e){
-    DialogUtility.showErrorDialog(context, 'error'.tr, e.toString());
+    if (response.statusCode == 200) {
+        Map<String, dynamic> data = json.decode(response.body);
+        String msg = data['message'];
+        String token = data['token'];
+        Storage.saveToken(token);
+        Storage.saveIsLoggedIn(true);
+        showToast(msg);
+        fetchUserDataAPI(context);
+      } else {
+        DialogUtility.closeLoaderDialog(context);
+        Map<String, dynamic> data = json.decode(response.body);
+        String msg = data['message'];
+        DialogUtility.showErrorDialog(context, 'Error', msg);
+      }
+    } catch (e){
+    DialogUtility.closeLoaderDialog(context);
+    DialogUtility.showErrorDialog(context, 'Error', e.toString());
   }
 }
 
@@ -108,8 +108,8 @@ void logOutAPI(BuildContext context) async {
   }
 }
 
-Future<AppUser> fetchUserDataAPI(BuildContext context) async {
-  DialogUtility.showLoaderDialog(context);
+void fetchUserDataAPI(BuildContext context) async {
+  // DialogUtility.showLoaderDialog(context);
 
   try {
     var url = Constants.loggedUserUrl;
@@ -121,15 +121,17 @@ Future<AppUser> fetchUserDataAPI(BuildContext context) async {
     };
 
     var response = await get(Uri.parse(url), headers: headers);
+    DialogUtility.closeLoaderDialog(context);
+
     if (response.statusCode == 200) {
       Map<String, dynamic> userData = json.decode(response.body);
-      AppUser user = AppUser.fromJson(userData['user']);
+      AppUser user = AppUser.fromJson(userData);
       Storage.saveUser(user);
-      return user;
+      Get.offAllNamed(AppRoute.bottomBarNavigationScreen);
     } else {
-      return AppUser();
+      DialogUtility.showErrorDialog(context, 'Error', 'An error occurred');
     }
   } catch (e) {
-    return AppUser();
+    DialogUtility.showErrorDialog(context, 'Error', e.toString());
   }
 }

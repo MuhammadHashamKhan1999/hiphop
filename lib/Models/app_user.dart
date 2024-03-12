@@ -52,4 +52,9 @@ class AppUser {
     "profile_picture": profilePicture,
     "profile_photo_url": profilePhotoUrl,
   };
+
+  @override
+  String toString() {
+    return 'AppUser{id: $id, username: $username, firstName: $firstName, lastName: $lastName, email: $email, phone: $phone, profilePicture: $profilePicture, isoCode: $isoCode, countryCode: $countryCode, profilePhotoUrl: $profilePhotoUrl}';
+  }
 }
