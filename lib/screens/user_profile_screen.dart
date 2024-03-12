@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hiphop/Models/app_user.dart';
 import 'package:hiphop/screens/become_a_member_screen.dart';
 import 'package:hiphop/screens/change_password_screen.dart';
-import 'package:hiphop/screens/reset_password_screen.dart';
+import 'package:hiphop/storage.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
-import 'package:hiphop/widgets/bottom_bar_navigation.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -17,6 +17,9 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+
+  AppUser user = Storage.getUser();
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -83,21 +86,21 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   child: Container(
                     width: 130,
                     height: 130,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         // image: AssetImage('assets/images/profile_picture.png'),
-                        image: NetworkImage('https://www.westtransit.com/wp-content/uploads/2016/06/team-1.jpg'),
+                        image: NetworkImage(user.profilePhotoUrl!),
                         fit: BoxFit.fill,
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 10),
-                const Center(
+                Center(
                   child: Text(
-                    "Janine Franco",
-                    style: TextStyle(
+                    "${user.firstName} ${user.lastName}",
+                    style: const TextStyle(
                       color: AppColors.textWhiteColor,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -105,8 +108,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 ),
                 const SizedBox(height: 50),
-                const ListTile(
-                  title: Text(
+                ListTile(
+                  title: const Text(
                     'Username',
                     style: TextStyle(
                         fontSize: 14,
@@ -114,8 +117,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                   ),
                   trailing: Text(
-                    'Janine Franco',
-                    style: TextStyle(
+                    "${user.firstName} ${user.lastName}",
+                    style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w300
                     ),
@@ -129,8 +132,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   color: Colors.white60,
                   thickness: .3,
                 ),
-                const ListTile(
-                  title: Text(
+                ListTile(
+                  title: const Text(
                     'Your Email',
                     style: TextStyle(
                         fontSize: 14,
@@ -138,8 +141,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                   ),
                   trailing: Text(
-                    'janine@gmail.com',
-                    style: TextStyle(
+                    user.email!,
+                    style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w300
                     ),
