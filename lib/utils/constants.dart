@@ -13,6 +13,7 @@ class Constants {
   static const String signUpUrl                                       = '${baseUrl}register';
   static const String logInUrl                                        = '${baseUrl}login';
   static const String logOutUrl                                       = '${baseUrl}logout';
+  static const String loggedUserUrl                                   = '${baseUrl}logged-User';
 
   //PARAMETERS
   static const String authorization                                   = 'Authorization';

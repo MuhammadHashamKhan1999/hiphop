@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:hiphop/Models/app_user.dart';
 import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/storage.dart';
 import 'package:hiphop/utils/constants.dart';
@@ -104,5 +105,31 @@ void logOutAPI(BuildContext context) async {
     Get.offAllNamed(AppRoute.loginScreen);
   } catch (e) {
     DialogUtility.closeLoaderDialog(context);
+  }
+}
+
+Future<AppUser> fetchUserDataAPI(BuildContext context) async {
+  DialogUtility.showLoaderDialog(context);
+
+  try {
+    var url = Constants.loggedUserUrl;
+
+    Map<String, String> headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      Constants.authorization: Storage.getToken()
+    };
+
+    var response = await get(Uri.parse(url), headers: headers);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> userData = json.decode(response.body);
+      AppUser user = AppUser.fromJson(userData['user']);
+      Storage.saveUser(user);
+      return user;
+    } else {
+      return AppUser();
+    }
+  } catch (e) {
+    return AppUser();
   }
 }
