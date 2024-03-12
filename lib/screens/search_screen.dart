@@ -94,7 +94,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Divider(
+            const Divider(
               color: Colors.white60,
               thickness: .3,
             ),
@@ -104,7 +104,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 border: Border.all(color: Colors.white),
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              child: Row(
+              child: const Row(
                 children: [
                   Expanded(
                     child: TextField(
@@ -198,7 +198,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Divider(
+            const Divider(
               color: Colors.white60,
               thickness: .3,
             ),
@@ -262,7 +262,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   onPressed: () {
                   },
-                  child: Text("Search", style: TextStyle(color: AppColors.textWhiteColor)),
+                  child: const Text("Search", style: TextStyle(color: AppColors.textWhiteColor)),
                 ),
               ),
             ),

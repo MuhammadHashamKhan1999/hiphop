@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hiphop/widgets/playlist_tabs_widget.dart';
-
-import '../Models/genre_details_screen_data.dart';
 import '../utils/colors_constant.dart';
-import '../utils/dimensions.dart';
-import '../widgets/music_tab_screen.dart';
-import '../widgets/podcast_tab_screen.dart';
-import '../widgets/streaming_tab_screen.dart';
-import 'albums/single_album_screen.dart';
-import 'categories/genre_screen.dart';
-
-
 
 class PlayListScreen extends StatefulWidget {
   const PlayListScreen({super.key});

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/screens/reset_password_screen.dart';
 import 'package:hiphop/screens/sign_up_screen.dart';
@@ -299,14 +300,7 @@ class SignInPage extends StatelessWidget {
                       SizedBox(height: Dimension.height30),
                       GestureDetector(
                         onTap: (){
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    SignUpScreen()
-                            ),
-                          );
-
+                          Get.toNamed(AppRoute.signupScreen);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -317,22 +311,15 @@ class SignInPage extends StatelessWidget {
                           ],
                         ),
                       ),
-
-
-
-
-
-
                     ],
                   ),
                 ),
               ),
             ),
-          ])),
+          ],
+        ),
+      ),
     );
-  }
-  void _navigateToNextScreen(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePageScreen()));
   }
 
 }

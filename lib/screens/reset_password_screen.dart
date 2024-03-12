@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hiphop/screens/change_password_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
-import 'package:hiphop/widgets/bottom_bar_navigation.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
@@ -51,7 +50,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       ),
                       SizedBox(height: Dimension.height10),
                       SmallText(text: 'Forgot your password? No worries!\nWe\'ve got you covered' ),
-                      SizedBox(height: 150),
+                      const SizedBox(height: 150),
                       SizedBox(
                         width: Dimension.screenWidth*0.95 ,
                         child: Padding(
@@ -92,7 +91,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                 ),
                                 labelText: "Enter your email",
                                 alignLabelWithHint: false,
-                                labelStyle: TextStyle(color: Colors.white60),
+                                labelStyle: const TextStyle(color: Colors.white60),
                                 floatingLabelBehavior: FloatingLabelBehavior.auto,
                                 isCollapsed: false
                             ),
@@ -103,7 +102,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       SizedBox(height: Dimension.height20),
                       // Sign In Button
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius: BorderRadius.zero
                         ),
                         child: SizedBox(
@@ -112,16 +111,16 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                                 shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
-                                backgroundColor: MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
+                                backgroundColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
                                 ),
                                 mouseCursor: MaterialStateMouseCursor.clickable,
-                                shadowColor: MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
-                                animationDuration: Duration(milliseconds: 1000)
+                                shadowColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
+                                animationDuration: const Duration(milliseconds: 1000)
                             ),
                             onPressed: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context) => ChangePasswordScreen(isForReset: true,)));
                             },
-                            child: Text("Continue", style: TextStyle(color: AppColors.textWhiteColor)),
+                            child: const Text("Continue", style: TextStyle(color: AppColors.textWhiteColor)),
                           ),
                         ),
                       ),
