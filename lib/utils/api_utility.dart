@@ -81,28 +81,28 @@ void loginAPI(BuildContext context, String email, String password, String fcmTok
       String msg = data['message'];
       DialogUtility.showErrorDialog(context, 'Error', msg);
     }
-  }catch (e){
+  } catch (e){
     DialogUtility.showErrorDialog(context, 'error'.tr, e.toString());
   }
 }
 
-// void logOutAPI(BuildContext context) async {
-//   DialogUtility.showLoaderDialog(context);
-//
-//   try {
-//     var url = Constants.baseUrl + Constants.logOut;
-//
-//     Map<String, String> headers = {
-//       "Content-Type": "application/json",
-//       "Accept": "application/json",
-//       Constants.authorization: Storage.getToken()
-//     };
-//
-//     var response = await get(Uri.parse(url), headers: headers);
-//     Storage.saveIsLoggedIn(false);
-//     DialogUtility.closeLoaderDialog(context);
-//     Get.offAllNamed(AppRoute.loginScreen);
-//   } catch (e) {
-//     DialogUtility.closeLoaderDialog(context);
-//   }
-// }
+void logOutAPI(BuildContext context) async {
+  DialogUtility.showLoaderDialog(context);
+
+  try {
+    var url = Constants.logOutUrl;
+
+    Map<String, String> headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      Constants.authorization: Storage.getToken()
+    };
+
+    var response = await get(Uri.parse(url), headers: headers);
+    Storage.saveIsLoggedIn(false);
+    DialogUtility.closeLoaderDialog(context);
+    Get.offAllNamed(AppRoute.loginScreen);
+  } catch (e) {
+    DialogUtility.closeLoaderDialog(context);
+  }
+}

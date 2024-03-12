@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DialogUtility {
+
   static void showLoaderDialog(BuildContext context) {
     AlertDialog alert = AlertDialog(
       backgroundColor: Colors.white,
@@ -112,6 +113,41 @@ class DialogUtility {
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
+      title: Text(title),
+      content: Text(msg),
+      actions: [
+        cancelButton,
+        okButton,
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  static showLogOutConfirmationDialog(BuildContext context, String title, String msg, {ValueChanged? onChanged, String? text1, String? text2}) {
+    // set up the buttons
+    Widget okButton = TextButton(
+      child: Text(text1 ?? "Yes"),
+      onPressed: () {
+        onChanged!('yes');
+      },
+    );
+    Widget cancelButton = TextButton(
+      child: Text(text2 ?? "No"),
+      onPressed: () {
+        onChanged!('no');
+      },
+    );
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
       title: Text(title),
       content: Text(msg),

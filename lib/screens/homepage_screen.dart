@@ -10,8 +10,10 @@ import 'package:hiphop/screens/settings_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/screens/support_screen.dart';
 import 'package:hiphop/screens/user_profile_screen.dart';
+import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hiphop/utils/dialog_utility.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/homepage_image_slider.dart';
 import 'package:hiphop/widgets/homepage_tabs.dart';
@@ -221,16 +223,7 @@ class HomePageScreen extends StatelessWidget{
               textColor: AppColors.textWhiteColor,
               selectedTileColor: Colors.red,
               onTap: (){
-                Navigator.of(context, rootNavigator: true)
-                    .pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const SignInScreen();
-                    },
-                  ),
-                      (_) => false,
-                );
-
+                _onLogOut(context);
               },
             ),
           ],
@@ -521,17 +514,27 @@ class HomePageScreen extends StatelessWidget{
           SliverToBoxAdapter(
             child: SearchBarWithIcon()
           ),
-
           const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.only(left: 20.0,right: 20.0),
                   child: HomePageTab()
                 ),
             ),
-
         ],
       ),
-
     );
+  }
+
+  //private methods
+  void _onLogOut(BuildContext context) {
+    Navigator.of(context).pop();
+    DialogUtility.showLogOutConfirmationDialog(context, "Confirmation", "Do you want to logout?", onChanged: (value) {
+      if (value != null && value == 'yes') {
+        Navigator.of(context, rootNavigator: true).pop();
+        logOutAPI(context);
+      } else {
+        Navigator.of(context, rootNavigator: true).pop();
+      }
+    });
   }
 }

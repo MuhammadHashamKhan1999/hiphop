@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/Storage.dart';
 import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/screens/categories/genre_details_screen.dart';
 import 'package:hiphop/screens/categories/genre_screen.dart';
@@ -12,7 +13,9 @@ import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Storage.initStorage();
   runApp(const MyApp());
 }
 

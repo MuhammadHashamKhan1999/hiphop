@@ -12,6 +12,7 @@ class Constants {
   // END POINTS
   static const String signUpUrl                                       = '${baseUrl}register';
   static const String logInUrl                                        = '${baseUrl}login';
+  static const String logOutUrl                                       = '${baseUrl}logout';
 
   //PARAMETERS
   static const String authorization                                   = 'Authorization';
