@@ -9,7 +9,9 @@ import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dialog_utility.dart';
 import 'package:hiphop/utils/toast_and_snackbar_utility.dart';
 import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 void signUpAPI(BuildContext context, String firstName, String lastName, String mobileNo, String email, String password, String confirmPassword) async {
   DialogUtility.showLoaderDialog(context);
@@ -136,33 +138,40 @@ void fetchUserDataAPI(BuildContext context) async {
   }
 }
 
-void updateProfileAPI(BuildContext context, String firstName, String lastName, String mobileNo, String email, String username) async {
+void updateProfileAPI(BuildContext context, String firstName, String lastName, String mobileNo, String email, String username, String filePath) async {
   DialogUtility.showLoaderDialog(context);
 
   try {
     var url = Constants.updateProfileUrl;
 
-    Map<String, String> headers = {"Content-Type": "application/json"};
-    Map data = {
-      Constants.firstName: firstName,
-      Constants.lastName: lastName,
-      Constants.contactNumber: mobileNo,
-      Constants.email: email,
-      Constants.method: Constants.put,
-      Constants.username: Constants.username,
-    };
+    var request = MultipartRequest("POST", Uri.parse(url));
 
-    String requestBody = json.encode(data);
-    var response = await post(Uri.parse(url), headers: headers, body: requestBody);
+    request.headers['Authorization'] = Storage.getToken();
+
+    request.fields[Constants.firstName] = firstName;
+    request.fields[Constants.lastName] = lastName;
+    request.fields[Constants.contactNumber] = mobileNo;
+    request.fields[Constants.email] = email;
+    request.fields[Constants.method] = Constants.put;
+    request.fields[Constants.username] = Constants.username;
+
+    if (filePath.isNotEmpty) {
+      var pic = await http.MultipartFile.fromPath(Constants.profilePicture, filePath);
+      request.files.add(pic);
+    }
+
+    var response = await request.send();
+    var responseData = await response.stream.toBytes();
+    var responseBody = String.fromCharCodes(responseData);
 
     DialogUtility.closeLoaderDialog(context);
 
     if (response.statusCode == 200) {
-      Map<String, dynamic> data = json.decode(response.body);
+      Map<String, dynamic> data = json.decode(responseBody);
       String msg = data['message'];
       showToast(msg);
     } else {
-      Map<String, dynamic> data = json.decode(response.body);
+      Map<String, dynamic> data = json.decode(responseBody);
       String msg = data['message'];
       DialogUtility.showErrorDialog(context, 'Error', msg);
     }

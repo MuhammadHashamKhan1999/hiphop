@@ -22,6 +22,7 @@ class Constants {
   static const String lastName                                        = 'last_name';
   static const String usernameOrEmail                                 = 'username_or_email';
   static const String email                                           = 'email';
+  static const String profilePicture                                  = 'profile_picture';
   static const String contactNumber                                   = 'contact_number';
   static const String password                                        = 'password';
   static const String username                                        = 'username';

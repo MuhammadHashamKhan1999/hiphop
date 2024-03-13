@@ -132,9 +132,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    child: Icon(
-                        Icons.pie_chart
-                    ),
+                    child: Icon(Icons.pie_chart),
                   ),
                   SizedBox(width: 10,),
                   Text(
@@ -149,11 +147,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
               selectedColor: AppColors.buttonBackgroundColor,
               selected: true,
               onTap: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePageScreen()),
-                );
-
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePageScreen()));
               },
             ),
 
@@ -181,6 +176,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
               textColor: AppColors.textWhiteColor,
               selectedTileColor: Colors.red,
               onTap: (){
+                Navigator.of(context).pop();
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
               },
             ),
@@ -210,7 +206,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
               selectedColor: AppColors.buttonBackgroundColor,
               textColor: AppColors.textWhiteColor,
               selectedTileColor: Colors.red,
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const BecomeAMemberScreeen())),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const BecomeAMemberScreeen()));
+              }
             ),
             ListTile(
               title: Row(

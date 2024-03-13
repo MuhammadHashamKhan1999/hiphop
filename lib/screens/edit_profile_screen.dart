@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dialog_utility.dart';
 import 'package:hiphop/utils/dimensions.dart';
+import 'package:image_picker/image_picker.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -19,6 +22,9 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
 
   AppUser user = Storage.getUser();
+
+  final ImagePicker _picker = ImagePicker();
+  XFile? _imgFile;
 
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
@@ -81,7 +87,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 100),
+              padding: const EdgeInsets.only(top: 80),
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -95,7 +101,35 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: Dimension.height10),
+                      SizedBox(height: Dimension.height20),
+                      InkWell(
+                        onTap: () => _showImagePicker(),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 120,
+                              height: 120,
+                              decoration: ShapeDecoration(
+                                image: _imgFile != null ? DecorationImage(image: FileImage(File(_imgFile!.path)), fit: BoxFit.cover) : DecorationImage(
+                                  image: NetworkImage(user.profilePhotoUrl!),
+                                  fit: BoxFit.cover,
+                                ),
+                                shape: const OvalBorder(),
+                              ),
+                            ),
+                            const Positioned(
+                              left: 0,
+                              bottom: 0,
+                              right: 0,
+                              child: Icon(
+                                Icons.camera_enhance_outlined,
+                                color: Color(0xFFAB3035),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: Dimension.height20),
                       SizedBox(
                         width: Dimension.screenWidth*0.95 ,
                         child: Padding(
@@ -368,12 +402,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                                 shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
-                                backgroundColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
-                                ),
+                                backgroundColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundColor),
                                 mouseCursor: MaterialStateMouseCursor.clickable,
                                 shadowColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
                                 animationDuration: const Duration(milliseconds: 1000)
-
                             ),
                             onPressed: (){
                               if(_isValidated()) {
@@ -382,7 +414,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 String mobileNo = _mobileNoController.text.trim();
                                 String userName = _userNameController.text.trim();
                                 String email = _emailController.text.trim();
-                                updateProfileAPI(context, firstName, lastName, mobileNo, email, userName);
+                                String filePath = _imgFile != null ? _imgFile!.path : "";
+                                updateProfileAPI(context, firstName, lastName, mobileNo, email, userName, filePath);
                               }
                             },
                             child: const Text("Submit", style: TextStyle(color: AppColors.textWhiteColor)),
@@ -402,6 +435,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   // private method
+  void _showImagePicker() {
+    DialogUtility.showImagePickerSelectionDialog(
+        context, "Select Photo ", "Select photo using", onChanged: (value) {
+      if (value != null) {
+        _takePhoto(
+            value == 'camera' ? ImageSource.camera : ImageSource.gallery);
+      }
+    });
+  }
+
+ void _takePhoto(ImageSource source) async {
+    final pickedFinal = await _picker.pickImage(source: source, imageQuality: 10);
+    if (pickedFinal != null) {
+      setState(() {
+        _imgFile = pickedFinal;
+      });
+    }
+  }
+
   bool _isValidated(){
     String firstName = _firstNameController.text.trim();
     String lastName = _lastNameController.text.trim();
