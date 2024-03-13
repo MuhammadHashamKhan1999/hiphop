@@ -117,7 +117,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                   ),
                   trailing: Text(
-                    "${user.firstName} ${user.lastName}",
+                    user.username ?? "${user.firstName} ${user.lastName}",
                     style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w300

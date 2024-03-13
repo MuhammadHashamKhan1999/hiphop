@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
+import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/screens/support_screen.dart';
@@ -119,7 +121,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     fontWeight: FontWeight.w500
                 ),
               ),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfileScreen(showBack: true))),
+              onTap: () => Get.toNamed(AppRoute.editProfileScreen),
               trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
               iconColor: AppColors.textWhiteColor,
               selectedColor: AppColors.buttonBackgroundColor,

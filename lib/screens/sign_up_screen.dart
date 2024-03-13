@@ -1,15 +1,12 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:hiphop/screens/otp_screen.dart';
-import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dialog_utility.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import '../utils/colors_constant.dart';
 import '../widgets/small_text.dart';
-import 'homepage_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

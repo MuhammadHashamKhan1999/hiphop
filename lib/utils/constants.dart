@@ -14,6 +14,7 @@ class Constants {
   static const String logInUrl                                        = '${baseUrl}login';
   static const String logOutUrl                                       = '${baseUrl}logout';
   static const String loggedUserUrl                                   = '${baseUrl}logged-User';
+  static const String updateProfileUrl                                = '${baseUrl}update-profile';
 
   //PARAMETERS
   static const String authorization                                   = 'Authorization';
@@ -23,6 +24,9 @@ class Constants {
   static const String email                                           = 'email';
   static const String contactNumber                                   = 'contact_number';
   static const String password                                        = 'password';
+  static const String username                                        = 'username';
+  static const String method                                          = '_method';
+  static const String put                                             = 'PUT';
   static const String device                                          = 'device';
   static const String deviceToken                                     = 'device_token';
   static const String passwordConfirmation                            = 'password_confirmation';

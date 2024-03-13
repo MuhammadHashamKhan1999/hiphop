@@ -38,7 +38,7 @@ void signUpAPI(BuildContext context, String firstName, String lastName, String m
       Map<String, dynamic> data = json.decode(response.body);
       String msg = data['message'];
       showToast(msg);
-      Get.toNamed(AppRoute.otp_screen);
+      Get.toNamed(AppRoute.otpScreen);
     } else {
       Map<String, dynamic> data = json.decode(response.body);
       String msg = data['message'];
@@ -133,5 +133,40 @@ void fetchUserDataAPI(BuildContext context) async {
     }
   } catch (e) {
     DialogUtility.showErrorDialog(context, 'Error', e.toString());
+  }
+}
+
+void updateProfileAPI(BuildContext context, String firstName, String lastName, String mobileNo, String email, String username) async {
+  DialogUtility.showLoaderDialog(context);
+
+  try {
+    var url = Constants.updateProfileUrl;
+
+    Map<String, String> headers = {"Content-Type": "application/json"};
+    Map data = {
+      Constants.firstName: firstName,
+      Constants.lastName: lastName,
+      Constants.contactNumber: mobileNo,
+      Constants.email: email,
+      Constants.method: Constants.put,
+      Constants.username: Constants.username,
+    };
+
+    String requestBody = json.encode(data);
+    var response = await post(Uri.parse(url), headers: headers, body: requestBody);
+
+    DialogUtility.closeLoaderDialog(context);
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = json.decode(response.body);
+      String msg = data['message'];
+      showToast(msg);
+    } else {
+      Map<String, dynamic> data = json.decode(response.body);
+      String msg = data['message'];
+      DialogUtility.showErrorDialog(context, 'Error', msg);
+    }
+  } catch (e) {
+    DialogUtility.closeLoaderDialog(context);
   }
 }
