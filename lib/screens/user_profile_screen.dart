@@ -5,6 +5,7 @@ import 'package:hiphop/screens/become_a_member_screen.dart';
 import 'package:hiphop/screens/change_password_screen.dart';
 import 'package:hiphop/storage.dart';
 import 'package:hiphop/utils/colors_constant.dart';
+import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
@@ -90,7 +91,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         // image: AssetImage('assets/images/profile_picture.png'),
-                        image: NetworkImage(user.profilePhotoUrl!),
+                        image: NetworkImage(user.profilePicture != null ? Constants.imageBaseUrl + user.profilePicture! : user.profilePhotoUrl!),
                         fit: BoxFit.fill,
                       ),
                     ),

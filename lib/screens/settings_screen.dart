@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/route/appRoute.dart';
-import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/screens/support_screen.dart';
-import 'package:hiphop/screens/user_profile_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 
 class SettingsScreen extends StatefulWidget {

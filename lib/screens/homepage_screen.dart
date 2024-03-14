@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/Models/app_user.dart';
+import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/screens/become_a_member_screen.dart';
 import 'package:hiphop/screens/payment_screen.dart';
 import 'package:hiphop/screens/settings_screen.dart';
@@ -15,6 +16,7 @@ import 'package:hiphop/storage.dart';
 import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dialog_utility.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/homepage_image_slider.dart';
@@ -105,7 +107,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             height: 75,
                             child: CircleAvatar(
                               // backgroundImage: AssetImage('assets/images/profile_picture.png'),
-                                backgroundImage: NetworkImage(user.profilePhotoUrl!)
+                                backgroundImage: NetworkImage(user.profilePicture != null ?  Constants.imageBaseUrl + user.profilePicture! : user.profilePhotoUrl!)
                             ),
                           ),
                           SizedBox(width: Dimension.width10,),
@@ -177,11 +179,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
               selectedTileColor: Colors.red,
               onTap: (){
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
+                Get.toNamed(AppRoute.settingsScreen)!.then((value) {
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    setState(() {
+                      user = Storage.getUser();
+                    });
+                  });
+                });
               },
             ),
             Divider(height:1,color: AppColors.greyColor,),
-
             SizedBox(height: 5,),
             ListTile(
               title: Row(

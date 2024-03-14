@@ -2,6 +2,7 @@
 class Constants {
 
   static const String baseUrl                                         = 'https://hip-hop-street.brandline360.com/api/';
+  static const String imageBaseUrl                                    = 'https://hip-hop-street.brandline360.com/storage/app/public/';
 
   static const int passwordLength                                     = 6;
   static const int phoneNumberLength                                  = 7;
@@ -31,5 +32,4 @@ class Constants {
   static const String device                                          = 'device';
   static const String deviceToken                                     = 'device_token';
   static const String passwordConfirmation                            = 'password_confirmation';
-
 }

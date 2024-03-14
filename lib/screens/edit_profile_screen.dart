@@ -8,6 +8,7 @@ import 'package:hiphop/Models/app_user.dart';
 import 'package:hiphop/Storage.dart';
 import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/colors_constant.dart';
+import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dialog_utility.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:image_picker/image_picker.dart';
@@ -94,7 +95,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   child: Column(
                     children: [
                       const Text(
-                        "Update Profile",
+                        "Edit Profile",
                         style: TextStyle(
                           color: AppColors.textWhiteColor,
                           fontSize: 28,
@@ -110,8 +111,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               width: 120,
                               height: 120,
                               decoration: ShapeDecoration(
+                                color: Colors.black26,
                                 image: _imgFile != null ? DecorationImage(image: FileImage(File(_imgFile!.path)), fit: BoxFit.cover) : DecorationImage(
-                                  image: NetworkImage(user.profilePhotoUrl!),
+                                  image: NetworkImage(user.profilePicture != null ? Constants.imageBaseUrl + user.profilePicture! : user.profilePhotoUrl!),
                                   fit: BoxFit.cover,
                                 ),
                                 shape: const OvalBorder(),
@@ -454,7 +456,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
   }
 
-  bool _isValidated(){
+  bool _isValidated() {
     String firstName = _firstNameController.text.trim();
     String lastName = _lastNameController.text.trim();
     String mobileNo = _mobileNoController.text.trim();

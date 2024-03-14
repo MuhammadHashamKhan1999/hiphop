@@ -11,7 +11,6 @@ import 'package:hiphop/utils/toast_and_snackbar_utility.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 
 void signUpAPI(BuildContext context, String firstName, String lastName, String mobileNo, String email, String password, String confirmPassword) async {
   DialogUtility.showLoaderDialog(context);
@@ -153,7 +152,7 @@ void updateProfileAPI(BuildContext context, String firstName, String lastName, S
     request.fields[Constants.contactNumber] = mobileNo;
     request.fields[Constants.email] = email;
     request.fields[Constants.method] = Constants.put;
-    request.fields[Constants.username] = Constants.username;
+    request.fields[Constants.username] = username;
 
     if (filePath.isNotEmpty) {
       var pic = await http.MultipartFile.fromPath(Constants.profilePicture, filePath);
@@ -168,8 +167,11 @@ void updateProfileAPI(BuildContext context, String firstName, String lastName, S
 
     if (response.statusCode == 200) {
       Map<String, dynamic> data = json.decode(responseBody);
+      AppUser user = AppUser.fromJson(data['user']);
+      Storage.saveUser(user);
       String msg = data['message'];
       showToast(msg);
+      Get.back();
     } else {
       Map<String, dynamic> data = json.decode(responseBody);
       String msg = data['message'];

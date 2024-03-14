@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hiphop/screens/edit_profile_screen.dart';
 import 'package:hiphop/screens/otp_screen.dart';
+import 'package:hiphop/screens/settings_screen.dart';
 import 'package:hiphop/screens/sign_up_screen.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/screens/splash_screen.dart';
@@ -13,6 +14,7 @@ class AppRoute {
   static const String signupScreen = 'signup_screen';
   static const String otpScreen = 'otp_screen';
   static const String bottomBarNavigationScreen = 'bottom_bar_navigation_screen';
+  static const String settingsScreen = 'settings_screen';
   static const String editProfileScreen = 'edit_profile_screen';
 
   static Route<dynamic>? routeController(RouteSettings settings) {
@@ -36,6 +38,9 @@ class AppRoute {
         break;
       case bottomBarNavigationScreen:
          screen = const BottomBarNavigation();
+        break;
+      case settingsScreen:
+         screen = const SettingsScreen();
         break;
       case editProfileScreen:
          screen = const EditProfileScreen();
