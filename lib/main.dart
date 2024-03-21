@@ -22,14 +22,13 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Hiphop Streets',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple,background: AppColors.mainBackgroundColor),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple, background: AppColors.mainBackgroundColor),
         useMaterial3: true,
       ),
       initialRoute: AppRoute.splashScreen,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiphop/screens/artist_screem.dart';
 import 'package:hiphop/screens/edit_profile_screen.dart';
 import 'package:hiphop/screens/otp_screen.dart';
 import 'package:hiphop/screens/settings_screen.dart';
@@ -16,6 +17,7 @@ class AppRoute {
   static const String bottomBarNavigationScreen = 'bottom_bar_navigation_screen';
   static const String settingsScreen = 'settings_screen';
   static const String editProfileScreen = 'edit_profile_screen';
+  static const String artistScreen = 'artist_screen';
 
   static Route<dynamic>? routeController(RouteSettings settings) {
     Widget? screen;
@@ -44,6 +46,9 @@ class AppRoute {
         break;
       case editProfileScreen:
          screen = const EditProfileScreen();
+        break;
+      case artistScreen:
+         screen = const ArtistScreen();
         break;
       // case listScreen:
       //    String title = data['title'];

@@ -97,16 +97,9 @@ class _AlbumTabsScreenState extends State<AlbumTabsScreen> with TickerProviderSt
               physics: BouncingScrollPhysics(),
               controller: _tabController,
               children: const [
-                // Work in Music Tab
-                Tab(
-                  child: AlbumMusicTabScreen(),
-                ),
-
-
-
-
-                Tab(child: AlbumPodcastTabScreen(),),
-                Tab(child: AlbumStreamingTabScreen(),),
+                Tab(child: AlbumMusicTabScreen()),
+                Tab(child: AlbumPodcastTabScreen()),
+                Tab(child: AlbumStreamingTabScreen()),
               ],
             ),
           )

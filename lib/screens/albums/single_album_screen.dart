@@ -2,8 +2,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/screens/albums/album_tabs_screen.dart';
 import 'package:hiphop/screens/categories/genre_details_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
@@ -58,9 +60,6 @@ class SingleAlbumScreen extends StatelessWidget {
         excludeHeaderSemantics: true,
         forceMaterialTransparency: false,
         shadowColor: Colors.white70,
-
-
-
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -124,26 +123,26 @@ class SingleAlbumScreen extends StatelessWidget {
                             )
                           ],
                         ),
-
-
                       ],
                     ),
                     SizedBox(width: Dimension.width20,),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade800,
-                            borderRadius: BorderRadius.circular(10),
-
-                          ),
-                          child: Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: Colors.white,
-                            size: 18,
+                        GestureDetector(
+                          onTap: () => Get.toNamed(AppRoute.artistScreen),
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: Colors.grey.shade800,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: Colors.white,
+                              size: 18,
+                            ),
                           ),
                         )
                       ],
@@ -153,8 +152,6 @@ class SingleAlbumScreen extends StatelessWidget {
               ),
               SizedBox(height: Dimension.height15,),
               AlbumTabsScreen(),
-
-
             ],
           ),
         ),
