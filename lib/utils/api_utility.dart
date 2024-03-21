@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hiphop/Models/app_user.dart';
 import 'package:hiphop/route/appRoute.dart';
@@ -83,6 +84,50 @@ void loginAPI(BuildContext context, String email, String password, String fcmTok
         DialogUtility.showErrorDialog(context, 'Error', msg);
       }
     } catch (e){
+    DialogUtility.closeLoaderDialog(context);
+    DialogUtility.showErrorDialog(context, 'Error', e.toString());
+  }
+}
+
+void socialRegisterAPI(BuildContext context, User user, String type) async {
+  DialogUtility.showLoaderDialog(context);
+
+  var url = Constants.socialRegisterUrl;
+
+  Map<String, String> headers = {"Content-Type": "application/json"};
+
+  Map data = {
+    Constants.email: user.email.toString(),
+    Constants.userId: user.uid.toString(),
+    Constants.name: user.displayName ?? '',
+    Constants.phone: user.phoneNumber ?? '',
+    Constants.isEmailExist: user.email != null ? "1" : "0",
+    Constants.accountType: type,
+    Constants.password: "",
+    Constants.device: Platform.isIOS ? "iOS" : "android",
+    Constants.deviceToken: Constants.fcmToken,
+  };
+
+  String requestBody = json.encode(data);
+
+  var response = await post(Uri.parse(url), headers: headers, body: requestBody);
+
+  try {
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = json.decode(response.body);
+      String msg = data['message'];
+      String token = data['token'];
+      Storage.saveToken(token);
+      Storage.saveIsLoggedIn(true);
+      showToast(msg);
+      fetchUserDataAPI(context);
+    } else {
+      DialogUtility.closeLoaderDialog(context);
+      Map<String, dynamic> data = json.decode(response.body);
+      String msg = data['message'];
+      DialogUtility.showErrorDialog(context, 'Error', msg);
+    }
+  } catch (e){
     DialogUtility.closeLoaderDialog(context);
     DialogUtility.showErrorDialog(context, 'Error', e.toString());
   }

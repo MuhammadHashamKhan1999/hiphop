@@ -16,6 +16,9 @@ dependencies:
   get_storage: ^2.1.1
   smooth_page_indicator:
   image_picker: ^1.0.7
+  firebase_auth:
+  firebase_core:
+  flutter_facebook_auth:
   flutter_svg:
   persistent_bottom_nav_bar:
   flutter_screenutil:

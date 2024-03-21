@@ -1,7 +1,9 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hiphop/controller/auth_controller.dart';
 import 'package:hiphop/utils/api_utility.dart';
 import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dialog_utility.dart';
@@ -17,6 +19,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  final AuthController authController = Get.put(AuthController());
 
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
@@ -443,53 +447,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SizedBox(
-                                  width: Dimension.width20*7.8,
-                                  height: Dimension.width20*3,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 2,
-                                        color: AppColors.buttonBackgroundColor,
-                                      ),
-                                      borderRadius: const BorderRadius.all(Radius.circular(15.0),
-                                      ),
-                                    ),
+                                GestureDetector(
+                                  onTap: () => _onSocialSignIn(Constants.socialLoginTypeGoogle),
+                                  child: SizedBox(
+                                    width: Dimension.width20*7.8,
+                                    height: Dimension.width20*3,
                                     child: Container(
-                                      // padding: EdgeInsets.only(left: 20),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Image.asset("assets/images/google_icon.png"),
-                                          SizedBox(width: Dimension.width05,),
-                                          SmallText(text: "Google", size: 16.0,)
-                                        ],
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          width: 2,
+                                          color: AppColors.buttonBackgroundColor,
+                                        ),
+                                        borderRadius: const BorderRadius.all(Radius.circular(15.0),
+                                        ),
+                                      ),
+                                      child: Container(
+                                        // padding: EdgeInsets.only(left: 20),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Image.asset("assets/images/google_icon.png"),
+                                            SizedBox(width: Dimension.width05,),
+                                            SmallText(text: "Google", size: 16.0,)
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 const SizedBox(width: 15),
-                                SizedBox(
-                                  width: Dimension.width20*7.8,
-                                  height: Dimension.width20*3,
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          width: 2,
-                                          color: AppColors.buttonBackgroundColor
+                                GestureDetector(
+                                  child: SizedBox(
+                                    width: Dimension.width20*7.8,
+                                    height: Dimension.width20*3,
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 2,
+                                            color: AppColors.buttonBackgroundColor
+                                        ),
+                                        borderRadius: const BorderRadius.all(Radius.circular(15.0),
+                                        ),
                                       ),
-                                      borderRadius: const BorderRadius.all(Radius.circular(15.0),
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset("assets/images/facebook_icon.png"),
+                                          SizedBox(width: Dimension.width05,),
+                                          SmallText(text: "Facebook", size: 16.0,)
+                                        ],
                                       ),
-                                    ),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset("assets/images/facebook_icon.png"),
-                                        SizedBox(width: Dimension.width05,),
-                                        SmallText(text: "Facebook", size: 16.0,)
-                                      ],
                                     ),
                                   ),
                                 ),
@@ -556,5 +565,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
       return false;
     }
     return true;
+  }
+
+  void _onSocialSignIn(String type) async {
+    User? signedInUser = await authController.signInWithGoogle();
+    if (signedInUser != null) {
+      socialRegisterAPI(context, signedInUser, type);
+    } else {
+      DialogUtility.showErrorDialog(context, "Login Failed", 'An error occurred');
+    }
   }
 }
