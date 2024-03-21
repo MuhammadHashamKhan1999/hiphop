@@ -28,6 +28,8 @@ class _SignInScreenState extends State<SignInScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  bool _showPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +68,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                       ),
                       SizedBox(height: Dimension.height10),
-
                       SizedBox(
                         width: Dimension.width25 * 12,
                         child: SmallText(
@@ -77,7 +78,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           size: Dimension.font16,
                         ),
                       ),
-
                       SizedBox(height: Dimension.height20),
                       SizedBox(
                         width: Dimension.screenWidth*0.95 ,
@@ -91,8 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
                                 enabled: true,
-
-                                // Focused Border Setting
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
@@ -100,8 +99,6 @@ class _SignInScreenState extends State<SignInScreen> {
                                       style: BorderStyle.solid,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0)),
-
-                                // Enabled Border Setting
                                 enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                         color: AppColors.greyColor,
@@ -122,16 +119,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                     width: 2.0,
                                   ),
                                 ),
-
-                                // hintText: 'Enter your email',
-                                // hintStyle: const TextStyle(
-                                //     color: AppColors.textWhiteColor,
-                                //     fontWeight: FontWeight.w400,
-                                //     fontSize: 14,
-                                //     wordSpacing: 4.0,
-                                //     letterSpacing: 1.0
-                                //
-                                // ),
+                                prefixIcon: const Icon(Icons.email_outlined, color: Colors.white, size: 20),
                                 labelText: "Enter Your Email",
                                 alignLabelWithHint: false,
                                 labelStyle: TextStyle(
@@ -143,10 +131,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                         ),
                       ),
-
-                      SizedBox(height: Dimension.height10),
-
-                      // Enter Your Password Text Fields
+                      SizedBox(height: Dimension.height05),
                       SizedBox(
                         width: Dimension.screenWidth*0.95 ,
                         child: Padding(
@@ -155,13 +140,12 @@ class _SignInScreenState extends State<SignInScreen> {
                             controller: _passwordController,
                             textInputAction: TextInputAction.done,
                             keyboardType: TextInputType.text,
-                            obscureText: true,
+                            obscureText: _showPassword,
                             cursorColor: AppColors.buttonBackgroundColor,
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
                                 enabled: true,
-
-                                // Focused Border Setting
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
@@ -169,8 +153,6 @@ class _SignInScreenState extends State<SignInScreen> {
                                       style: BorderStyle.solid,
                                     ),
                                     borderRadius: BorderRadius.circular(12.0)),
-
-                                // Enabled Border Setting
                                 enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                         color: AppColors.greyColor,
@@ -191,16 +173,18 @@ class _SignInScreenState extends State<SignInScreen> {
                                     width: 2.0,
                                   ),
                                 ),
-
-                                // hintText: 'Enter your password',
-                                // hintStyle: const TextStyle(
-                                //     color: AppColors.textWhiteColor,
-                                //     fontWeight: FontWeight.w400,
-                                //     fontSize: 14,
-                                //     wordSpacing: 4.0,
-                                //     letterSpacing: 1.0
-                                //
-                                // ),
+                                prefixIcon: const Icon(Icons.password_outlined, color: Colors.white, size: 20),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _showPassword ? Icons.visibility : Icons.visibility_off,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _showPassword = !_showPassword;
+                                    });
+                                  },
+                                ),
                                 labelText: "Enter Your Password",
                                 alignLabelWithHint: false,
                                 labelStyle: TextStyle(
@@ -249,9 +233,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                         ),
                       ),
-
-                      SizedBox(height: Dimension.height30*2),
-
+                      SizedBox(height: Dimension.height30),
                       Padding(
                         padding: EdgeInsets.only(left: Dimension.width20, right: Dimension.width20),
                         child: Row(
@@ -282,6 +264,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                               ),
                             ),
+                            SizedBox(width: 15),
                             SizedBox(
                               width: Dimension.width20*7.8,
                               height: Dimension.width20*3,
@@ -313,7 +296,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(height: Dimension.height30),
+                      SizedBox(height: Dimension.height20),
                       GestureDetector(
                         onTap: (){
                           Get.toNamed(AppRoute.signupScreen);
@@ -326,6 +309,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           ],
                         ),
                       ),
+                      SizedBox(height: Dimension.height20),
                     ],
                   ),
                 ),

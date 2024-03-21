@@ -7,6 +7,9 @@ class Constants {
   static const int passwordLength                                     = 6;
   static const int phoneNumberLength                                  = 7;
 
+  static const double textFieldHeight                                 = 18;
+  static const double textFieldWidth                                  = 12;
+
   static String bearer                                                = 'Bearer';
   static String fcmToken                                              = 'er3409';
 
