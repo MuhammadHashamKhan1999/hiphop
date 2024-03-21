@@ -337,8 +337,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SmallText(text: "Don\'t Have an Account?"),
-                            SmallText(text: "\t Let's Sign Up"),
+                            SmallText(text: "Don\'t Have an Account? Let's "),
+                            SmallText(text: "\tSign Up", color: AppColors.textRedColor),
                           ],
                         ),
                       ),

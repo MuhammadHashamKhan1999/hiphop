@@ -513,8 +513,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SmallText(text: "Already have an Account?"),
-                                SmallText(text: "\t Login"),
+                                SmallText(text: "Already have an Account? "),
+                                SmallText(text: "\tLogin" , color: AppColors.textRedColor,),
                               ],
                             ),
                           ),
