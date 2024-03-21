@@ -1,0 +1,78 @@
+{
+  "project_info": {
+    "project_number": "1029814957122",
+    "project_id": "atthehouseapp",
+    "storage_bucket": "atthehouseapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029814957122:android:19ce481d2f6f556652e9db",
+        "android_client_info": {
+          "package_name": "com.americanwebsmaster.hiphop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029814957122-31asulta62pgmclcj0gqnsvrgtarkqm5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "9858ba5a7022cea5d2d31e9ad89ee2b1e5890125"
+          }
+        },
+        {
+          "client_id": "1029814957122-blu9evrcit15p8l9s0s2c6dirb3dspt5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "acf0ddb1c482353453e9e4263c3e05ce6b898707"
+          }
+        },
+        {
+          "client_id": "1029814957122-iilccaaquul7is8dc472qfhrm8u23424.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "9dbc3778cf25ffd111c56484f9772267236aacb3"
+          }
+        },
+        {
+          "client_id": "1029814957122-nt17446m9d6d2fh0ql2fke7lio1vf1kb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "7d8fadcb06e3b00e7c3ff95cbce4e91752ddf3c3"
+          }
+        },
+        {
+          "client_id": "1029814957122-085st524qvfk981e3nhbp6rvkt9n2hhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJkTHvaytQX_UhCFKBrFqCZ_Mrd7cSXYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029814957122-085st524qvfk981e3nhbp6rvkt9n2hhm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1029814957122-890bcp01qva3qg7bt7q2cia1ohk5v7rv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.atTheHouseApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

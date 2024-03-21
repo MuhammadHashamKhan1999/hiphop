@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/Storage.dart';
@@ -15,6 +16,7 @@ import 'package:hiphop/widgets/small_text.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await Storage.initStorage();
   runApp(const MyApp());
 }
