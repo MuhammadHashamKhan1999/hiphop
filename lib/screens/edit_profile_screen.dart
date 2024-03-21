@@ -144,7 +144,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
                                 enabled: true,
-                                // Focused Border Setting
+                                prefixIcon: const Icon(Icons.text_snippet_outlined, color: Colors.white, size: 20),
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
@@ -196,7 +197,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
                                 enabled: true,
-                                // Focused Border Setting
+                                prefixIcon: const Icon(Icons.text_snippet_outlined, color: Colors.white, size: 20),
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
@@ -248,7 +250,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
                                 enabled: true,
-                                // Focused Border Setting
+                                prefixIcon: const Icon(Icons.account_circle_outlined, color: Colors.white, size: 20),
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
@@ -300,7 +303,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
                               enabled: true,
-                              // Focused Border Setting
+                              contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
+                              prefixIcon: const Icon(Icons.email_outlined, color: Colors.white, size: 20),
                               focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                     color: AppColors.buttonBackgroundColor,
@@ -353,7 +357,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
                               enabled: true,
-                              // Focused Border Setting
+                              contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
+                              prefixIcon: const Icon(Icons.phone_android_outlined, color: Colors.white, size: 20),
                               focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                     color: AppColors.buttonBackgroundColor,

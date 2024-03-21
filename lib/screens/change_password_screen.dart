@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hiphop/screens/signin_page.dart';
 import 'package:hiphop/utils/colors_constant.dart';
+import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/bottom_bar_navigation.dart';
 import 'package:hiphop/widgets/small_text.dart';
@@ -15,6 +16,9 @@ class ChangePasswordScreen extends StatefulWidget {
 }
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+
+  bool _showPassword = true, _showConfirmPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +57,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       ),
                       SizedBox(height: Dimension.height10),
                       SmallText(text: 'Choose a strong and secure password for\nyour account'),
-                      SizedBox(height: 150),
+                      const SizedBox(height: 150),
                       SizedBox(
                         width: Dimension.screenWidth*0.95 ,
                         child: Padding(
@@ -61,11 +65,11 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           child: TextField(
                             keyboardType: TextInputType.text,
                             textInputAction: TextInputAction.next,
-                            obscureText: true,
+                            obscureText: _showPassword,
                             cursorColor: AppColors.buttonBackgroundColor,
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
-                                // Focused Border Setting
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
@@ -94,27 +98,39 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                     width: 2.0,
                                   ),
                                 ),
+                                prefixIcon: const Icon(Icons.password_outlined, color: Colors.white, size: 20),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _showPassword ? Icons.visibility : Icons.visibility_off,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _showPassword = !_showPassword;
+                                    });
+                                  },
+                                ),
                                 labelText: "Password",
                                 alignLabelWithHint: false,
-                                labelStyle: TextStyle(color: Colors.white60),
+                                labelStyle: const TextStyle(color: Colors.white60),
                                 floatingLabelBehavior: FloatingLabelBehavior.auto,
                                 isCollapsed: false
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 2),
+                      const SizedBox(height: 2),
                       SizedBox(
                         width: Dimension.screenWidth*0.95 ,
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: TextField(
                             keyboardType: TextInputType.text,
-                            obscureText: true,
+                            obscureText: _showConfirmPassword,
                             cursorColor: AppColors.buttonBackgroundColor,
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
-                                // Focused Border Setting
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
@@ -136,7 +152,18 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                         style: BorderStyle.solid
                                     ),
                                     borderRadius: BorderRadius.circular(12.0)),
-                                // Error Border Setting
+                                prefixIcon: const Icon(Icons.password_outlined, color: Colors.white, size: 20),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _showConfirmPassword ? Icons.visibility : Icons.visibility_off,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _showConfirmPassword = !_showConfirmPassword;
+                                    });
+                                  },
+                                ),
                                 errorBorder: const OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: AppColors.buttonBackgroundColor,
@@ -145,7 +172,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 ),
                                 labelText: "Confirm Password",
                                 alignLabelWithHint: false,
-                                labelStyle: TextStyle(color: Colors.white60),
+                                labelStyle: const TextStyle(color: Colors.white60),
                                 floatingLabelBehavior: FloatingLabelBehavior.auto,
                                 isCollapsed: false
                             ),
@@ -156,7 +183,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       SizedBox(height: Dimension.height20),
                       // Sign In Button
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius: BorderRadius.zero
                         ),
                         child: SizedBox(
@@ -165,33 +192,20 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                                 shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
-                                backgroundColor: MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
+                                backgroundColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
                                 ),
                                 mouseCursor: MaterialStateMouseCursor.clickable,
-                                shadowColor: MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
-                                animationDuration: Duration(milliseconds: 1000)
+                                shadowColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
+                                animationDuration: const Duration(milliseconds: 1000)
                             ),
                             onPressed: (){
                               if(widget.isForReset){
-                                Navigator.of(context, rootNavigator: true)
-                                    .pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                    builder: (BuildContext context) {
-                                      return const SignInScreen();
-                                    },
-                                  ),
-                                      (_) => false,
-                                );
-                                // Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
-                              }
-                              else{
+                                Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) {return const SignInScreen();}), (_) => false);
+                              } else{
                                 Navigator.pop(context);
                               }
-
-                              // Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
-
                             },
-                            child: Text("Confirm", style: TextStyle(color: AppColors.textWhiteColor)),
+                            child: const Text("Confirm", style: TextStyle(color: AppColors.textWhiteColor)),
                           ),
                         ),
                       ),

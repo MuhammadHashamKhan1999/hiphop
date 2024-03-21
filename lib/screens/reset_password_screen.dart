@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hiphop/screens/change_password_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
+import 'package:hiphop/utils/constants.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/small_text.dart';
 
@@ -60,7 +61,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                             cursorColor: AppColors.buttonBackgroundColor,
                             style: const TextStyle(color: AppColors.textWhiteColor),
                             decoration: InputDecoration(
-                                // Focused Border Setting
+                                contentPadding: const EdgeInsets.symmetric(vertical: Constants.textFieldHeight, horizontal: Constants.textFieldWidth),
+                                prefixIcon: const Icon(Icons.email_outlined, color: Colors.white, size: 20),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       color: AppColors.buttonBackgroundColor,
