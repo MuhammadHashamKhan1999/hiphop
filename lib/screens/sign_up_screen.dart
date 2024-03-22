@@ -451,7 +451,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   child: GestureDetector(
                                     onTap: () => _onSocialSignIn(Constants.socialLoginTypeGoogle),
                                     child: SizedBox(
-                                      width: Dimension.width20*7.8,
                                       height: Dimension.width20*3,
                                       child: Container(
                                         decoration: BoxDecoration(
