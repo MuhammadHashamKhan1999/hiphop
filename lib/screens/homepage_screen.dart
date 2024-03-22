@@ -339,14 +339,14 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
-                            width: 220,
-                            height: 300,
+                            width: 150,
+                            height: 210,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 220,
-                                  width: 200,
+                                  height: 140,
+                                  width: 150,
                                   padding: const EdgeInsets.all(2),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
@@ -400,14 +400,14 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           ),
                           const SizedBox(width: 10,),
                           SizedBox(
-                            width: 220,
-                            height: 300,
+                            width: 150,
+                            height: 210,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 220,
-                                  width: 200,
+                                  height: 140,
+                                  width: 150,
                                   padding: const EdgeInsets.all(2),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
@@ -461,14 +461,14 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           ),
                           const SizedBox(width: 10,),
                           SizedBox(
-                            width: 220,
-                            height: 300,
+                            width: 150,
+                            height: 210,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 220,
-                                  width: 200,
+                                  height: 140,
+                                  width: 150,
                                   padding: const EdgeInsets.all(2),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),

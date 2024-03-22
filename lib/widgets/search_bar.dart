@@ -70,14 +70,14 @@ class SearchBarWithIcon extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: const Color(0xFFA30000),
                       borderRadius: BorderRadius.circular(8.0),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Color(0xFFA30000),
-                            blurRadius: 6.0,
-                            offset:  Offset(2,1),
-                            spreadRadius: 4
-                        )
-                      ]
+                      // boxShadow: const [
+                      //   BoxShadow(
+                      //       color: Color(0xFFA30000),
+                      //       blurRadius: 6.0,
+                      //       offset:  Offset(2,1),
+                      //       spreadRadius: 4
+                      //   )
+                      // ]
                   ),
                   child: const Icon(Icons.mic_none_outlined,color: Colors.white,size: 30)
               )

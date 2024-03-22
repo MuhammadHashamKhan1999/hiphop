@@ -36,21 +36,21 @@ class _SearchScreenState extends State<SearchScreen> {
         primary: true,
         leadingWidth: 80,
         toolbarHeight: 80,
-        leading: InkWell(
-          onTap: () {},
-          child: Container(
-            margin: const EdgeInsets.fromLTRB(20, 15, 10, 15),
-            decoration: BoxDecoration(
-                color: AppColors.buttonBackgroundColor,
-                borderRadius: BorderRadius.circular(10)),
-            child: const Center(
-              child: Icon(
-                Icons.arrow_back_outlined,
-                color: AppColors.textWhiteColor,
-              ),
-            ),
-          ),
-        ),
+        // leading: InkWell(
+        //   onTap: () {},
+        //   child: Container(
+        //     margin: const EdgeInsets.fromLTRB(20, 15, 10, 15),
+        //     decoration: BoxDecoration(
+        //         color: AppColors.buttonBackgroundColor,
+        //         borderRadius: BorderRadius.circular(10)),
+        //     child: const Center(
+        //       child: Icon(
+        //         Icons.arrow_back_outlined,
+        //         color: AppColors.textWhiteColor,
+        //       ),
+        //     ),
+        //   ),
+        // ),
         title: const Text(
           'Search',
           style: TextStyle(

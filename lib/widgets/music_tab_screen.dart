@@ -244,7 +244,7 @@ class MusicTabHomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -304,7 +304,7 @@ class MusicTabHomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10,),
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -364,7 +364,7 @@ class MusicTabHomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10,),
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -424,7 +424,7 @@ class MusicTabHomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10,),
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -592,7 +592,7 @@ class MusicTabHomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -652,7 +652,7 @@ class MusicTabHomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10,),
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -712,7 +712,7 @@ class MusicTabHomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10,),
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -772,7 +772,7 @@ class MusicTabHomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10,),
                 SizedBox(
-                  width: 250,
+                  width: 150,
                   height: 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
