@@ -264,65 +264,67 @@ class _SignInScreenState extends State<SignInScreen> {
                       Padding(
                         padding: EdgeInsets.only(left: Dimension.width20, right: Dimension.width20),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                              onTap: () => _onSocialSignIn(Constants.socialLoginTypeGoogle),
-                              child: SizedBox(
-                                width: Dimension.width20 * 7.8,
-                                height: Dimension.width20 * 3,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      width: 2,
-                                      color: AppColors.buttonBackgroundColor,
-                                    ),
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(15.0),
-                                    ),
-                                  ),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () => _onSocialSignIn(Constants.socialLoginTypeGoogle),
+                                child: SizedBox(
+                                  height: Dimension.width20 * 3,
                                   child: Container(
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset("assets/images/google_icon.png"),
-                                        SizedBox(width: Dimension.width05,),
-                                        SmallText(text: "Google", size: 16.0,)
-                                      ],
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        width: 2,
+                                        color: AppColors.buttonBackgroundColor,
+                                      ),
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(15.0),
+                                      ),
+                                    ),
+                                    child: Container(
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset("assets/images/google_icon.png"),
+                                          SizedBox(width: Dimension.width05,),
+                                          SmallText(text: "Google", size: 16.0,)
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(width: 15),
-                            GestureDetector(
-                              child: SizedBox(
-                                width: Dimension.width20 * 7.8,
-                                height: Dimension.width20 * 3,
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2,
-                                        color: AppColors.buttonBackgroundColor
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(15.0),
-                                    ),
-                                  ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: GestureDetector(
+                                child: SizedBox(
+                                  height: Dimension.width20 * 3,
                                   child: Container(
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment
-                                          .center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset("assets/images/facebook_icon.png"),
-                                        SizedBox(width: Dimension.width05,),
-                                        SmallText(text: "Facebook", size: 16.0,)
-                                      ],
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 2,
+                                          color: AppColors.buttonBackgroundColor
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(15.0),
+                                      ),
                                     ),
-                                  ),
+                                    child: Container(
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment
+                                            .center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset("assets/images/facebook_icon.png"),
+                                          SizedBox(width: Dimension.width05,),
+                                          SmallText(text: "Facebook", size: 16.0,)
+                                        ],
+                                      ),
+                                    ),
 
+                                  ),
                                 ),
                               ),
                             ),
