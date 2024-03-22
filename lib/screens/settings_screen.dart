@@ -74,8 +74,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               trailing: Switch(
-                activeColor: AppColors.buttonBackgroundColor,
-                inactiveThumbColor: AppColors.textWhiteColor,
+                activeColor: AppColors.textWhiteColor,
+                inactiveThumbColor: AppColors.buttonBackgroundColor,
+                activeTrackColor: AppColors.buttonBackgroundColor,
                 value: _notificationSwitchValue,
                 onChanged: (value) {
                   setState(() {
@@ -97,8 +98,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               trailing: Switch(
-                activeColor: AppColors.buttonBackgroundColor,
-                inactiveThumbColor: AppColors.textWhiteColor,
+                activeColor: AppColors.textWhiteColor,
+                inactiveThumbColor: AppColors.buttonBackgroundColor,
+                activeTrackColor: AppColors.buttonBackgroundColor,
                 value: _autoPlaySwitchValue,
                 onChanged: (value) {
                   setState(() {

@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'Hiphop Streets',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple, background: AppColors.mainBackgroundColor),
-        useMaterial3: true,
+        useMaterial3: true, textSelectionTheme: const TextSelectionThemeData(selectionHandleColor: Colors.black),
       ),
       initialRoute: AppRoute.splashScreen,
       onGenerateRoute: AppRoute.routeController,
