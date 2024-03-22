@@ -136,24 +136,33 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                 SizedBox(height: Dimension.height20,),
                 !_isShowLyrics ? Column(
                   children: [
-                    AnimatedBuilder(
-                      animation: _controller!,
-                      builder: (BuildContext context, Widget? child) {
-                        return Transform.rotate(
-                          angle: _controller!.value * 2.0 * 3.14159,
-                          child: Container(
-                            width: 180,
-                            height: 180,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: NetworkImage('https://i.ytimg.com/vi/pCh3Kp6qxo8/maxresdefault.jpg'),
-                                fit: BoxFit.fill,
+                    Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.black54,
+                            width: 15,
+                          ),
+                        ),
+                        child: AnimatedBuilder(
+                        animation: _controller!,
+                        builder: (BuildContext context, Widget? child) {
+                          return Transform.rotate(
+                            angle: _controller!.value * 2.0 * 3.14159,
+                            child: Container(
+                              width: 180,
+                              height: 180,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: NetworkImage('https://i.ytimg.com/vi/pCh3Kp6qxo8/maxresdefault.jpg'),
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                     const SizedBox(height: 12),
                     const Text(
