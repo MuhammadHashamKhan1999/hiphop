@@ -21,7 +21,7 @@ class Constants {
   static const String logInUrl                                        = '${baseUrl}login';
   static const String socialRegisterUrl                               = '${baseUrl}socialRegister';
   static const String logOutUrl                                       = '${baseUrl}logout';
-  static const String loggedUserUrl                                   = '${baseUrl}logged-User';
+  static const String loggedUserUrl                                   = '${baseUrl}logged-user';
   static const String updateProfileUrl                                = '${baseUrl}update-profile';
 
   //PARAMETERS
