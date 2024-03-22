@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:hiphop/screens/homepage_screen.dart';
 import 'package:hiphop/utils/audio_player_manager.dart';
 import 'package:hiphop/utils/dimensions.dart';
+import 'package:share_plus/share_plus.dart';
 import '../utils/colors_constant.dart';
 import '../widgets/bottom_bar_navigation.dart';
 
@@ -30,6 +31,8 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
   bool _isShowLyrics = false;
 
   IconData _playPauseIcon = Icons.play_arrow;
+
+  final List<String> _choices = ['Lyrics', 'Share', 'Item 3', 'Item 4'];
 
   final List<String> _lyrics = [
     "Verse 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -111,25 +114,48 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                         style: TextStyle(
                           color: AppColors.textWhiteColor,
                           fontFamily: 'Poppins',
+                          fontSize: 24,
                           letterSpacing: 0.9,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      InkWell(
-                        onTap: () {
-                          _isShowLyrics = !_isShowLyrics;
-                        },
-                        child: Text(
-                          !_isShowLyrics ? 'Lyrics' : "Player",
-                          style: const TextStyle(
-                              color: AppColors.buttonBackgroundColor,
-                              fontFamily: 'Poppins',
-                              letterSpacing: 0.9,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12
-                          ),
+                        PopupMenuButton<String>(
+                          iconColor: AppColors.buttonBackgroundColor,
+                          iconSize: 30,
+                          onSelected: (String choice) {
+                            if(choice == 'Lyrics' || choice == 'Player') {
+                              setState(() {
+                                _isShowLyrics = !_isShowLyrics;
+                                _choices[0] = !_isShowLyrics ? 'Lyrics' : "Player";
+                              });
+                            } else if (choice == 'Share') {
+                              Share.share('Listen to this song');
+                            }
+                          },
+                          itemBuilder: (BuildContext context) {
+                            return _choices.map((String choice) {
+                              return PopupMenuItem<String>(
+                                value: choice,
+                                child: Text(choice),
+                              );
+                            }).toList();
+                          },
                         ),
-                      ),
+                      // InkWell(
+                      //   onTap: () {
+                      //     _isShowLyrics = !_isShowLyrics;
+                      //   },
+                      //   child: Text(
+                      //     !_isShowLyrics ? 'Lyrics' : "Player",
+                      //     style: const TextStyle(
+                      //         color: AppColors.buttonBackgroundColor,
+                      //         fontFamily: 'Poppins',
+                      //         letterSpacing: 0.9,
+                      //         fontWeight: FontWeight.w500,
+                      //         fontSize: 12
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
