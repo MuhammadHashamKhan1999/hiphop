@@ -38,6 +38,7 @@ class AudioPlayerManager {
   }
 
   void dispose() {
+    stop();
     _audioPlayer.dispose();
   }
 }

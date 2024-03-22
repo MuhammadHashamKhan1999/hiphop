@@ -323,6 +323,9 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                         builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
                           final progress = snapshot.data;
                           _currentSeek = progress != null ? progress * 100.0 : 0;
+                          if(_currentSeek.isNaN) {
+                            _currentSeek = 0.0;
+                          }
                           return Expanded(
                             child: Slider(
                               min: 0.0,
@@ -405,7 +408,7 @@ class _MusicPlayerState extends State<MusicPlayer> with SingleTickerProviderStat
                               _playPauseIcon,
                               size: 60,
                               weight: 20,
-                              color: AppColors.textWhiteColor,
+                              color: AppColors.buttonBackgroundColor,
                             ),
                           )
                       ),
