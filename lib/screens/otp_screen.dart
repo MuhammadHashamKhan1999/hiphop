@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hiphop/route/appRoute.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
 import 'package:hiphop/widgets/bottom_bar_navigation.dart';
@@ -50,7 +52,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           ),
                           SizedBox(height: Dimension.height10),
                           SmallText(text: 'Enter the 6-digits security code sent\n to your email address'),
-                          SizedBox(height: 150),
+                          const SizedBox(height: 150),
                           SizedBox(
                             width: Dimension.screenWidth*0.95 ,
                             child: Padding(
@@ -94,7 +96,7 @@ class _OtpScreenState extends State<OtpScreen> {
                                     ),
                                     labelText: "OTP",
                                     alignLabelWithHint: false,
-                                    labelStyle: TextStyle(color: AppColors.textWhiteColor),
+                                    labelStyle: const TextStyle(color: AppColors.textWhiteColor),
                                     floatingLabelBehavior: FloatingLabelBehavior.auto,
                                     isCollapsed: false
                                 ),
@@ -105,7 +107,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           SizedBox(height: Dimension.height20),
                           // Sign In Button
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.zero
                             ),
                             child: SizedBox(
@@ -114,16 +116,16 @@ class _OtpScreenState extends State<OtpScreen> {
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0))),
-                                    backgroundColor: MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
+                                    backgroundColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundColor,
                                     ),
                                     mouseCursor: MaterialStateMouseCursor.clickable,
-                                    shadowColor: MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
-                                    animationDuration: Duration(milliseconds: 1000)
+                                    shadowColor: const MaterialStatePropertyAll(AppColors.buttonBackgroundLightColor),
+                                    animationDuration: const Duration(milliseconds: 1000)
                                 ),
                                 onPressed: (){
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomBarNavigation()));
+                                  Get.offAllNamed(AppRoute.bottomBarNavigationScreen);
                                 },
-                                child: Text("Submit", style: TextStyle(color: AppColors.textWhiteColor)),
+                                child: const Text("Submit", style: TextStyle(color: AppColors.textWhiteColor)),
                               ),
                             ),
                           ),
