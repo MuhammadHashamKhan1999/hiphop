@@ -153,7 +153,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePageScreen()));
               },
             ),
-
             ListTile(
               title: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -186,6 +185,34 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     });
                   });
                 });
+              },
+            ),
+            ListTile(
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Icon(
+                        Icons.money_rounded
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Text(
+                    'Earnings',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400
+                    ),
+                  ),
+                ],
+              ),
+              iconColor: AppColors.textWhiteColor,
+              selectedColor: AppColors.buttonBackgroundColor,
+              textColor: AppColors.textWhiteColor,
+              selectedTileColor: Colors.red,
+              onTap: (){
+                Navigator.of(context).pop();
+                Get.toNamed(AppRoute.earningsScreen);
               },
             ),
             Divider(height:1,color: AppColors.greyColor,),
@@ -521,8 +548,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             ),
                           ),
                           const SizedBox(width: 10,),
-
-
                         ],
                       ),
                     ),
