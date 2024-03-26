@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hiphop/controller/splash_controller.dart';
+import 'package:hiphop/utils/colors_constant.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -20,12 +21,9 @@ class _SplashScreenState extends State<SplashScreen> {
         init: SplashController(),
         builder: (_){
           return Scaffold(
-              backgroundColor: Colors.white,
+              // backgroundColor: AppColors.buttonBackgroundColor,
               body: Center(
-                child: Container(
-                  color: Colors.amberAccent,
-                ),
-                // child: SvgPicture.asset('assets/svg/ic_splash.svg', height: 250, color: Colors.red),
+                child: Image.asset('assets/images/app_logo_light.png', height: 250),
               ));
         });
   }

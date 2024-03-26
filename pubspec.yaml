@@ -27,6 +27,7 @@ dependencies:
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   fluentui_system_icons: ^1.1.225
+  flutter_launcher_icons: ^0.13.1
   email_validator: ^2.1.17
   fluttertoast: ^8.2.4
 
@@ -63,3 +64,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+# flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  adaptive_icon_background: "#ffffff"
+  remove_alpha_ios: true
+  image_path: assets/images/app_logo_dark.png
