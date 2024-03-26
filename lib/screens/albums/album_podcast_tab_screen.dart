@@ -87,8 +87,6 @@ class AlbumPodcastTabScreen extends StatelessWidget {
                   );
                 }),
           ),
-
-
         ],
       ),
     );

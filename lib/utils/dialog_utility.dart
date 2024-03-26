@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:get/get.dart';
+import 'package:hiphop/utils/colors_constant.dart';
 
 class DialogUtility {
 
@@ -33,32 +34,72 @@ class DialogUtility {
     Navigator.pop(context);
   }
 
-  static showImagePickerSelectionDialog(
-      BuildContext context, String title, String msg,
-      {ValueChanged? onChanged}) {
-    Widget galleryButton = TextButton(
-      child: const Text("Gallery", style: TextStyle(color: Color(0xFFAB3035)),),
-      onPressed: () {
-        Navigator.of(context).pop('gallery');
-        onChanged!('gallery');
-      },
-    );
-    Widget cameraButton = TextButton(
-      child: const Text('Camera', style: TextStyle(color: Color(0xFFAB3035)),),
-      onPressed: () {
+  static showImagePickerSelectionDialog(BuildContext context, String title, String msg, {ValueChanged? onChanged}) {
+    // Widget galleryButton = TextButton(
+    //   child: const Text("Gallery", style: TextStyle(color: Color(0xFFAB3035)),),
+    //   onPressed: () {
+    //     Navigator.of(context).pop('gallery');
+    //     onChanged!('gallery');
+    //   },
+    // );
+    // Widget cameraButton = TextButton(
+    //   child: const Text('Camera', style: TextStyle(color: Color(0xFFAB3035)),),
+    //   onPressed: () {
+    //     Navigator.of(context).pop('camera');
+    //     onChanged!('camera');
+    //   },
+    // );
+
+    Widget cameraButton =  GestureDetector(
+      onTap: () {
         Navigator.of(context).pop('camera');
         onChanged!('camera');
       },
+      child: Container(
+        height: 44,
+        width: 120,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey[300]!),
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        child: const Center(
+          child: Text(
+            'Camera',
+            style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w700),
+          ),
+        ),
+      ),
+    );
+    Widget galleryButton =  GestureDetector(
+      onTap: () {
+        Navigator.of(context).pop('gallery');
+        onChanged!('gallery');
+      },
+      child: Container(
+        height: 44,
+        width: 120,
+        decoration: BoxDecoration(
+          color: AppColors.buttonBackgroundColor,
+          borderRadius: BorderRadius.circular(15.0),
+      ),
+        child: const Center(
+          child: Text(
+            'Gallery',
+            style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
+          ),
+        ),
+      ),
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-      title: Text(title),
+      title: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
       content: Text(msg),
       actions: [
-        galleryButton,
         cameraButton,
+        const SizedBox(width: 2),
+        galleryButton,
       ],
     );
     // show the dialog

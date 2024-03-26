@@ -444,7 +444,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   // private method
   void _showImagePicker() {
     DialogUtility.showImagePickerSelectionDialog(
-        context, "Select Photo ", "Select photo using", onChanged: (value) {
+        context, "Select Your Photo ", "Select photo using by", onChanged: (value) {
       if (value != null) {
         _takePhoto(
             value == 'camera' ? ImageSource.camera : ImageSource.gallery);
