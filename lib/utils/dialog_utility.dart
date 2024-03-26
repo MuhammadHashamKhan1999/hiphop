@@ -65,7 +65,7 @@ class DialogUtility {
         child: const Center(
           child: Text(
             'Camera',
-            style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w700),
+            style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w700, fontFamily: 'Poppins'),
           ),
         ),
       ),
@@ -85,7 +85,7 @@ class DialogUtility {
         child: const Center(
           child: Text(
             'Gallery',
-            style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600, fontFamily: 'Poppins'),
           ),
         ),
       ),
@@ -94,7 +94,7 @@ class DialogUtility {
     AlertDialog alert = AlertDialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-      title: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+      title: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, fontFamily: 'Poppins')),
       content: Text(msg),
       actions: [
         cameraButton,
@@ -156,8 +156,8 @@ class DialogUtility {
     AlertDialog alert = AlertDialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
-      title: Text(title),
-      content: Text(msg),
+      title: Center(child: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, fontFamily: 'Poppins'))),
+      content: Center(child: Text(msg, style: const TextStyle(fontWeight: FontWeight.w500, fontFamily: 'Poppins', color: Colors.grey))),
       actions: [
         cancelButton,
         okButton,
@@ -174,27 +174,69 @@ class DialogUtility {
 
   static showLogOutConfirmationDialog(BuildContext context, String title, String msg, {ValueChanged? onChanged, String? text1, String? text2}) {
     // set up the buttons
-    Widget okButton = TextButton(
-      child: Text(text1 ?? "Yes"),
-      onPressed: () {
-        onChanged!('yes');
-      },
-    );
-    Widget cancelButton = TextButton(
-      child: Text(text2 ?? "No"),
-      onPressed: () {
+    // Widget okButton = TextButton(
+    //   child: Text(text1 ?? "Yes"),
+    //   onPressed: () {
+    //     onChanged!('yes');
+    //   },
+    // );
+    // Widget cancelButton = TextButton(
+    //   child: Text(text2 ?? "No"),
+    //   onPressed: () {
+    //     onChanged!('no');
+    //   },
+    // );
+
+
+    Widget cancelButton =  GestureDetector(
+      onTap: () {
         onChanged!('no');
       },
+      child: Container(
+        height: 44,
+        width: MediaQuery.of(context).size.width *.65,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey[300]!),
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        child: const Center(
+          child: Text(
+            'Cancel',
+            style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w700, fontFamily: 'Poppins'),
+          ),
+        ),
+      ),
     );
+    Widget okButton =  GestureDetector(
+      onTap: () {
+        onChanged!('yes');
+      },
+      child: Container(
+        height: 44,
+        width: MediaQuery.of(context).size.width *.65,
+        decoration: BoxDecoration(
+          color: AppColors.buttonBackgroundColor,
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        child: const Center(
+          child: Text(
+            'Logout',
+            style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600, fontFamily: 'Poppins'),
+          ),
+        ),
+      ),
+    );
+
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
-      title: Text(title),
-      content: Text(msg),
+      title: Center(child: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, fontFamily: 'Poppins'))),
+      content: Text(msg, textAlign: TextAlign.center,style: const TextStyle(fontWeight: FontWeight.w500, fontFamily: 'Poppins', color: Colors.grey)),
       actions: [
-        cancelButton,
         okButton,
+        const SizedBox(height: 10),
+        cancelButton,
       ],
     );
     // show the dialog
