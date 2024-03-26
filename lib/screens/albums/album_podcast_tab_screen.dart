@@ -75,11 +75,11 @@ class AlbumPodcastTabScreen extends StatelessWidget {
                       height: 100,
                       width: 110,
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12.0),
-                          child: Image.network(
-                            "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
-                            fit: BoxFit.cover,
-                          ),
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Image.network(
+                          "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg",
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     SizedBox(width: 8),
@@ -89,7 +89,7 @@ class AlbumPodcastTabScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width *.6,
+                          width: MediaQuery.of(context).size.width *.55,
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis dolor nec orci tristique',
                             softWrap: true,
@@ -121,7 +121,7 @@ class AlbumPodcastTabScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Container(
-                          width: MediaQuery.of(context).size.width *.6,
+                          width: MediaQuery.of(context).size.width *.55,
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,7 +136,7 @@ class AlbumPodcastTabScreen extends StatelessWidget {
                                 child:  Center(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
+                                    children: const [
                                       SizedBox(width: 5),
                                       Icon(Icons.play_arrow_rounded, color: Colors.white,size: 15),
                                       SizedBox(width: 2),

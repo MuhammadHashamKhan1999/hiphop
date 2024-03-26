@@ -24,7 +24,7 @@ class AlbumStreamingTabScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               Text(
-                'Latest Streaming',
+                'Live Streaming',
                 style: TextStyle(
                     color: AppColors.textWhiteColor,
                     fontFamily: 'Poppins',
@@ -97,7 +97,7 @@ class AlbumStreamingTabScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width *.6,
+                          width: MediaQuery.of(context).size.width *.55,
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis dolor nec orci tristique',
                             softWrap: true,
@@ -129,7 +129,7 @@ class AlbumStreamingTabScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Container(
-                          width: MediaQuery.of(context).size.width *.6,
+                          width: MediaQuery.of(context).size.width *.55,
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,7 +144,7 @@ class AlbumStreamingTabScreen extends StatelessWidget {
                                 child:  Center(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
+                                    children: const [
                                       SizedBox(width: 5),
                                       Icon(Icons.play_arrow_rounded, color: Colors.white,size: 15),
                                       SizedBox(width: 2),
