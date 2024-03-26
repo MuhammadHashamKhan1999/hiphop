@@ -110,7 +110,7 @@ class _EarningsScreenState extends State<EarningsScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Complete & Earn',
                                     softWrap: true,
                                     textAlign: TextAlign.start,
