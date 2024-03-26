@@ -22,8 +22,8 @@ class AlbumPodcastTabScreen extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
+            children: const [
+              Text(
                 'Latest Podcasts',
                 style: TextStyle(
                     color: AppColors.textWhiteColor,
@@ -135,10 +135,11 @@ class AlbumPodcastTabScreen extends StatelessWidget {
                                 ),
                                 child:  Center(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [
-                                      Icon(Icons.play_arrow_rounded, color: Colors.white,size: 15),
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
                                       SizedBox(width: 5),
+                                      Icon(Icons.play_arrow_rounded, color: Colors.white,size: 15),
+                                      SizedBox(width: 2),
                                       Text(
                                         'Play',
                                         style: TextStyle(color: Colors.white, fontSize: 11, fontFamily: 'Poppins'),
