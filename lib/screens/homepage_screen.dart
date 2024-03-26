@@ -65,7 +65,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           height: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage('assets/images/hiphop_logo.png')
+                                  image: AssetImage('assets/images/app_logo_light.png')
                               )
                           ),
                         ),
