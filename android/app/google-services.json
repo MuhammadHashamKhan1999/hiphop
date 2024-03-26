@@ -12,7 +12,44 @@
           "package_name": "com.americanwebsmaster.hiphop"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1069936205385-cpkkh028j4hb0qgkjfi6toloara5m2ac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "acf0ddb1c482353453e9e4263c3e05ce6b898707"
+          }
+        },
+        {
+          "client_id": "1069936205385-dp5sj2h2v25iguve6vrdjbkude70vsfi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "9dbc3778cf25ffd111c56484f9772267236aacb3"
+          }
+        },
+        {
+          "client_id": "1069936205385-hbc556mg7l0ku64qgobuu3nrm0bvruid.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "7d8fadcb06e3b00e7c3ff95cbce4e91752ddf3c3"
+          }
+        },
+        {
+          "client_id": "1069936205385-kumgpbrjnnv4lff6onr7dq7e7i2qh610.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.americanwebsmaster.hiphop",
+            "certificate_hash": "9858ba5a7022cea5d2d31e9ad89ee2b1e5890125"
+          }
+        },
+        {
+          "client_id": "1069936205385-23rn367vnq3a77qrqndf2tp83ru4am5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCBqqeWrRDIiRgT8vSSjZO5hgYFjeFs4qo"
@@ -20,7 +57,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069936205385-23rn367vnq3a77qrqndf2tp83ru4am5f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
