@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hiphop/screens/categories/genre_screen.dart';
 import 'package:hiphop/utils/colors_constant.dart';
 import 'package:hiphop/utils/dimensions.dart';
@@ -23,7 +24,7 @@ class AlbumStreamingTabScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                'Streaming   ',
+                'Latest Streaming',
                 style: TextStyle(
                     color: AppColors.textWhiteColor,
                     fontFamily: 'Poppins',
@@ -31,64 +32,150 @@ class AlbumStreamingTabScreen extends StatelessWidget {
                     fontWeight: FontWeight.w600
                 ),
               ),
-              InkWell(
-                  onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const GenreScreen()),
-                    );
-                  },
-                  child: Container(
-                    width: 70,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: AppColors.buttonBackgroundColor,
-                        borderRadius: BorderRadius.circular(5)
-                    ),
-                    child: Center(
-                      child: Text(
-                        "\$4.99",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13
-                        ),
-                      ),
-                    ),
-                  )
-              ),
+              // InkWell(
+              //     onTap: (){
+              //       Navigator.push(
+              //         context,
+              //         MaterialPageRoute(builder: (context) => const GenreScreen()),
+              //       );
+              //     },
+              //     child: Container(
+              //       width: 70,
+              //       height: 40,
+              //       decoration: BoxDecoration(
+              //           color: AppColors.buttonBackgroundColor,
+              //           borderRadius: BorderRadius.circular(5)
+              //       ),
+              //       child: Center(
+              //         child: Text(
+              //           "\$4.99",
+              //           style: TextStyle(
+              //               color: Colors.white,
+              //               fontFamily: 'Poppins',
+              //               fontWeight: FontWeight.w600,
+              //               fontSize: 13
+              //           ),
+              //         ),
+              //       ),
+              //     )
+              // ),
             ],
           ),
-          SizedBox(height: Dimension.height20,),
-
-          Container(
-            width: double.maxFinite,
-            height: Dimension.screenHeight/2.5,
-            child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (_, index){
-                  return ListTile(
-                    leading: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.shade700,
-                          borderRadius: BorderRadius.circular(5)
-                      ),
-                      child: Center(child: Text('${index+1}',style: TextStyle(color: Colors.white, fontFamily: 'Poppins', fontSize: 11, fontWeight: FontWeight.w500),),),
-                    ),
-                    selectedColor: Colors.white,
-                    title: Text('Drawing Room ', style: TextStyle(color: Colors.white),),
-                    trailing: Container(
-                      child: Text('30:00', style: TextStyle(color: Colors.grey, fontSize: 12),),
-                    ),
-                    horizontalTitleGap: 10,
-                  );
-                }),
+          SizedBox(
+            height: Dimension.height10,
           ),
-
-
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: 3,
+            itemBuilder: (_, index) {
+              return Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 110,
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(12.0),
+                            child: Image.network(
+                              "https://letsenhance.io/static/15912da66660b919112b5dfc9f562f6f/f90fb/SC.jpg",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Positioned(bottom: 20, right: 5,child: Image.asset("assets/images/ic_stream.png", height: 20, width: 20,),),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width *.6,
+                          child: Text(
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis dolor nec orci tristique',
+                            softWrap: true,
+                            textAlign: TextAlign.start,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontFamily: 'Poppins'),
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Row(
+                          children: [
+                            Text(
+                              'Dateline',
+                              style: TextStyle(color: Colors.white, fontSize: 11, fontFamily: 'Poppins'),
+                            ),
+                            SizedBox(width: 5),
+                            Container(
+                              width: 1,
+                              height: 10,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Live now',
+                              style: TextStyle(color: Colors.white, fontSize: 11, fontFamily: 'Poppins'),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Container(
+                          width: MediaQuery.of(context).size.width *.6,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 25,
+                                width: 60,
+                                decoration: BoxDecoration(
+                                  color: AppColors.buttonBackgroundColor,
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                child:  Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const [
+                                      Icon(Icons.play_arrow_rounded, color: Colors.white,size: 15),
+                                      SizedBox(width: 5),
+                                      Text(
+                                        'Play',
+                                        style: TextStyle(color: Colors.white, fontSize: 11, fontFamily: 'Poppins'),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                child: Row(
+                                  children: const [
+                                    Icon(Icons.cloud_download_rounded, color: Colors.white, size: 18),
+                                    SizedBox(width: 7),
+                                    Icon(Icons.menu, color: Colors.white, size: 18),
+                                    SizedBox(width: 4),
+                                    Icon(Icons.more_vert, color: Colors.white, size: 18),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
